@@ -1,0 +1,1 @@
+export { ImageConsoleActionComponent } from './image';

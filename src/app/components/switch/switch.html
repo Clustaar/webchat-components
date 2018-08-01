@@ -1,0 +1,30 @@
+<div class="switch-actions-component-console" *ngIf="action" [ngSwitch]="action.type">
+  <div *ngSwitchCase="'send_text_action'">
+    <text-console-action [target]="target" [action]="action"></text-console-action>
+  </div>
+
+  <div *ngSwitchCase="'text'">
+    <user-message-console-action [target]="target" [action]="action"></user-message-console-action>
+  </div>
+
+  <div *ngSwitchCase="'send_image_action'">
+    <image-console-action [target]="target" [action]="action"></image-console-action>
+  </div>
+
+  <div *ngSwitchCase="'wait_action'">
+    <wait-console-action [target]="target" [action]="action"></wait-console-action>
+  </div>
+
+  <div *ngSwitchCase="'send_quick_replies_action'">
+    <quickreply-console-action [target]="target" [action]="action"></quickreply-console-action>
+  </div>
+
+  <div *ngSwitchCase="'send_cards_action'">
+    <card-console-action [target]="target" [action]="action"></card-console-action>
+  </div>
+
+  <div *ngSwitchCase="'ask_location_action'">
+    <location-console-action [target]="target" [action]="action"></location-console-action>
+  </div>
+
+</div>

@@ -1,0 +1,8 @@
+<div class="console-quickreply-type">
+  <div class="bubble bot">{{action.message}}</div>
+  <div [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
+  	<button class="quickreply-button" [ngClass]="{'selected-button': i == indexSelectedButton}" (click)="sendReply(i, button)" *ngFor="let button of action.buttons; let i = index;">
+  		{{button.title}}
+  	</button>
+  </div>
+</div>

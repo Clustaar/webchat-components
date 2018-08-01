@@ -1,0 +1,1 @@
+export { SwitchConsoleActionsComponent } from './switch';

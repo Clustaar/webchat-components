@@ -1,0 +1,1 @@
+export { WaitConsoleActionComponent } from './wait';

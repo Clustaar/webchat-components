@@ -1,0 +1,5 @@
+<div class="console-quickreply-type">
+  <div class="bubble bot">{{action.message}}</div>
+  <button style="margin-top:10px;margin-left:60px;" (click)="getLocation()" [ngClass]="{'clustaar-green-button small': isOver, 'clustaar-blue-button secondary small': !isOver}">Send location</button>  
+  <img style="margin-top:10px;width: 80%;margin-left: 5px;" *ngIf="isOver" src="https://maps.googleapis.com/maps/api/staticmap?center={{latlng}}&zoom=16&size=300x300&sensor=false&key=AIzaSyC2f8kNtvvjIto5MSzXOh9rVZ0ZqLl0BCU">
+</div>

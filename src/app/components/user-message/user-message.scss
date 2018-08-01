@@ -1,0 +1,40 @@
+.console-text-type {
+  .bubble {
+    position: relative;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    &:after {
+      position: absolute;
+      top: calc(100% - 4px);
+
+      width: 0;
+      height: 0;
+      margin-top: -4px;
+
+      content: '';
+
+      border: 8px solid transparent;
+      border-bottom: 0;
+    }
+
+    &.user:after {
+      right: 0;
+
+      margin-right: -8px;
+
+      border-right: 0;
+      border-left-color: #C5DBEA;
+    }
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      word-break: break-all;
+      color: #2C3F59;
+      border-bottom-right-radius: 0;
+      background: #C5DBEA;
+    }
+  }
+}

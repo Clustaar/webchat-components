@@ -1,0 +1,1 @@
+export { LocationConsoleActionComponent } from './location';

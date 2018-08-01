@@ -1,0 +1,100 @@
+@-webkit-keyframes dancing-dots-jump {
+  0% { top: 0; }
+  55% { top: 0; }
+  60% { top: -10px; }
+  80% { top: 3px; }
+  90% { top: -2px; }
+  95% { top: 1px; }
+  100% { top: 0; }
+}
+
+@-moz-keyframes dancing-dots-jump {
+  0% { top: 0; }
+  55% { top: 0; }
+  60% { top: -10px; }
+  80% { top: 3px; }
+  90% { top: -2px; }
+  95% { top: 1px; }
+  100% { top: 0; }
+}
+
+.console-wait-type {
+  .bubble {
+    position: relative;
+
+    width: 80px;
+
+    padding: 12px;
+
+    text-align: center;
+
+    border-radius: 12px;
+
+    &:after {
+      position: absolute;
+      top: calc(100% - 4px);
+
+      width: 0;
+      height: 0;
+      margin-top: -4px;
+
+      content: '';
+
+      border: 8px solid transparent;
+      border-bottom: 0;
+    }
+
+    &.bot:after {
+      left: 0;
+
+      margin-left: -8px;
+
+      border-right-color: #30B286;
+      border-left: 0;
+    }
+
+    &.bot {
+      margin: 16px 24px 0 8px;
+
+      color: #FFFFFF;
+      border-bottom-left-radius: 0;
+      background: #30B286;
+    }
+  }
+
+  span {
+    &.three-dots-container {
+      font-size: 22px;
+      line-height: 22px;
+      font-weight: 900;
+
+      margin-right: 8px;
+      margin-left: 4px;
+
+      letter-spacing: -0.125em;
+    }
+
+    span {
+      position: relative;
+
+      padding: 1px;
+
+      -webkit-animation-name: dancing-dots-jump;
+      -moz-animation-name: dancing-dots-jump;
+      -webkit-animation-duration: 1800ms;
+      -moz-animation-duration: 1800ms;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-iteration-count: infinite;
+    }
+
+    span:nth-child(2) {
+      -webkit-animation-delay: 100ms;
+      -moz-animation-delay: 100ms;
+    }
+
+    span:nth-child(3) {
+      -webkit-animation-delay: 300ms;
+      -moz-animation-delay: 300ms;
+    }
+  }
+}

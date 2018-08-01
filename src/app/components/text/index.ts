@@ -1,0 +1,1 @@
+export { TextConsoleActionComponent } from './text';
