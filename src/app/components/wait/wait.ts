@@ -1,18 +1,5 @@
-import { Component, forwardRef, Renderer2, ViewChild, Input, Output, OnChanges, EventEmitter,
-  ComponentFactoryResolver, ViewEncapsulation, OnInit } from '@angular/core';
-import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormControl } from '@angular/forms';
+import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
 
-import { Store } from '@ngrx/store';
-import { Observable} from 'rxjs/Observable';
-import { Subject } from 'rxjs/Subject';
-
-import { Actions } from '@ngrx/effects';
-
-import { Step, Action, ConsoleTarget } from '../../../../models';
-
-import * as fromRoot from '../../../../reducers';
-import * as actions_ from '../../../../actions/actions.actions';
-import * as console_ from '../../../../actions/console.actions';
 
 @Component({
   selector: 'wait-console-action',
@@ -22,11 +9,10 @@ import * as console_ from '../../../../actions/console.actions';
 
 export class WaitConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Input() target: ConsoleTarget = "TEST_CONSOLE";
-  @Output() onActionDelayed: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNext: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isOver: boolean = false;
 
-  constructor(private store: Store<fromRoot.State>) {}
+  constructor() {}
 
   ngOnInit() {
     const self = this;
@@ -34,7 +20,7 @@ export class WaitConsoleActionComponent implements OnInit {
 
     setTimeout(function(me) {
       //self.onActionDelayed.emit(true);
-      me.store.dispatch(new console_.LoadNextAction({}, me.target));
+      //me.store.dispatch(new console_.LoadNextAction({}, me.target));
       me.isOver = true;
     }, timeoutDelay,this);
   }

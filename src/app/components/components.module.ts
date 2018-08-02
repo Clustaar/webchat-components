@@ -1,8 +1,6 @@
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-
+import { CommonModule } from '@angular/common';
 
 import {
   SwitchConsoleActionsComponent,
@@ -30,6 +28,7 @@ const PAGES_DIRECTIVES = [
   imports: [
     FormsModule,
     ReactiveFormsModule,
+    CommonModule
   ],
   declarations: [
     ...PAGES_DIRECTIVES
