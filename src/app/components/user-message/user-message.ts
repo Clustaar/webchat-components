@@ -8,6 +8,7 @@ import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFac
 
 export class UserMessageConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
 

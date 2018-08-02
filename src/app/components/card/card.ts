@@ -11,6 +11,7 @@ import { SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 
 export class CardConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
 
   public isOver: boolean = false;
@@ -31,6 +32,7 @@ export class CardConsoleActionComponent implements OnInit {
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
+    this.onLoadNextAction.emit(true);
     setTimeout(function(){
       let element = document.getElementById("chat-console-messages");
       element.scrollTop = element.scrollHeight - element.clientHeight;

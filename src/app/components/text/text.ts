@@ -8,13 +8,14 @@ import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFac
 
 export class TextConsoleActionComponent implements OnInit {
   @Input() action: any;
-
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   public message: string;
 
   constructor() {}
 
   ngOnInit() {
     this.message = this.randomAlternative();
+    this.onLoadNextAction.emit(true);
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     setTimeout(function(){
       let element = document.getElementById("chat-console-messages");

@@ -10,11 +10,16 @@ export class SwitchConsoleActionsComponent implements OnInit {
   @Input() actions: any[] = [];
   @Input() action: any;
   @Input() index: number;
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {}
 
   ngOnInit() {
     console.log(this.action);
+  }
+
+  loadNextAction() {
+    this.onLoadNextAction.emit(true);
   }
 
 }

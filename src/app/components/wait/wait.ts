@@ -9,7 +9,7 @@ import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncaps
 
 export class WaitConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Output() onLoadNext: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isOver: boolean = false;
 
   constructor() {}
@@ -20,6 +20,7 @@ export class WaitConsoleActionComponent implements OnInit {
 
     setTimeout(function(me) {
       //self.onActionDelayed.emit(true);
+      me.onLoadNextAction.emit(true);
       //me.store.dispatch(new console_.LoadNextAction({}, me.target));
       me.isOver = true;
     }, timeoutDelay,this);

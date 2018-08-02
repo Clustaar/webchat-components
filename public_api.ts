@@ -1,1 +1,1 @@
-export * from './src/app/components/components.module'
+export { WebchatComponentsModule } from './src/app/components/components.module';

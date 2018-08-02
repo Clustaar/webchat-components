@@ -10,7 +10,7 @@ import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormCon
 
 export class LocationConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Output() onLoadNext: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
   public isOver: boolean = false;
@@ -21,7 +21,7 @@ export class LocationConsoleActionComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    //this.onLoadNext.emit(true);
+    this.onLoadNextAction.emit(true);
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     setTimeout(function(){
       let element = document.getElementById("chat-console-messages");

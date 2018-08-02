@@ -12,17 +12,14 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   grabCursor: true
 };
 
-
-import {
-  SwitchConsoleActionsComponent,
-  ImageConsoleActionComponent,
-  WaitConsoleActionComponent,
-  TextConsoleActionComponent,
-  UserMessageConsoleActionComponent,
-  QuickreplyConsoleActionComponent,
-  CardConsoleActionComponent,
-  LocationConsoleActionComponent
-} from './';
+import { SwitchConsoleActionsComponent } from './switch/switch';
+import { ImageConsoleActionComponent } from './image/image';
+import { WaitConsoleActionComponent } from './wait/wait';
+import { TextConsoleActionComponent } from './text/text';
+import { UserMessageConsoleActionComponent } from './user-message/user-message';
+import { QuickreplyConsoleActionComponent } from './quickreply/quickreply';
+import { CardConsoleActionComponent } from './card/card';
+import { LocationConsoleActionComponent } from './location/location';
 
 @NgModule({
   imports: [
