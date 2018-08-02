@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -38,12 +38,6 @@ import { LocationConsoleActionComponent } from './location/location';
     CardConsoleActionComponent,
     LocationConsoleActionComponent
   ],
-  providers: [ 
-    {
-      provide: SWIPER_CONFIG,
-      useValue: DEFAULT_SWIPER_CONFIG
-    }
-  ],
   exports: [
     SwitchConsoleActionsComponent,
     ImageConsoleActionComponent,
@@ -57,4 +51,16 @@ import { LocationConsoleActionComponent } from './location/location';
 
 })
 export class WebchatComponentsModule {
+  public static forRoot(): ModuleWithProviders {
+
+    return {
+      ngModule: WebchatComponentsModule,
+      providers: [
+        {
+          provide: SWIPER_CONFIG,
+          useValue: DEFAULT_SWIPER_CONFIG
+        }
+      ]
+    };
+  }
 }

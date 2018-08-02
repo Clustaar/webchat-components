@@ -1,1 +1,0 @@
-export { QuickreplyConsoleActionComponent } from './quickreply';

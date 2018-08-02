@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { WebchatComponentsModule } from './components/components.module';
@@ -10,7 +11,8 @@ import { WebchatComponentsModule } from './components/components.module';
   ],
   imports: [
     BrowserModule,
-    WebchatComponentsModule
+    CommonModule,
+    WebchatComponentsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

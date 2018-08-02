@@ -1,1 +1,0 @@
-export { CardConsoleActionComponent } from './card';
