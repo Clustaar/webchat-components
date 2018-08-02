@@ -21,19 +21,8 @@ import {
   UserMessageConsoleActionComponent,
   QuickreplyConsoleActionComponent,
   CardConsoleActionComponent,
-  LocationConsoleActionComponent,
+  LocationConsoleActionComponent
 } from './';
-
-const PAGES_DIRECTIVES = [
-  SwitchConsoleActionsComponent,
-  ImageConsoleActionComponent,
-  WaitConsoleActionComponent,
-  TextConsoleActionComponent,
-  UserMessageConsoleActionComponent,
-  QuickreplyConsoleActionComponent,
-  CardConsoleActionComponent,
-  LocationConsoleActionComponent,
-];
 
 @NgModule({
   imports: [
@@ -43,7 +32,14 @@ const PAGES_DIRECTIVES = [
     SwiperModule
   ],
   declarations: [
-    ...PAGES_DIRECTIVES
+    SwitchConsoleActionsComponent,
+    ImageConsoleActionComponent,
+    WaitConsoleActionComponent,
+    TextConsoleActionComponent,
+    UserMessageConsoleActionComponent,
+    QuickreplyConsoleActionComponent,
+    CardConsoleActionComponent,
+    LocationConsoleActionComponent
   ],
   providers: [ 
     {
@@ -52,7 +48,14 @@ const PAGES_DIRECTIVES = [
     }
   ],
   exports: [
-     ...PAGES_DIRECTIVES
+    SwitchConsoleActionsComponent,
+    ImageConsoleActionComponent,
+    WaitConsoleActionComponent,
+    TextConsoleActionComponent,
+    UserMessageConsoleActionComponent,
+    QuickreplyConsoleActionComponent,
+    CardConsoleActionComponent,
+    LocationConsoleActionComponent
   ]
 
 })
