@@ -11,6 +11,7 @@ export class SwitchConsoleActionsComponent implements OnInit {
   @Input() action: any;
   @Input() index: number;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -20,6 +21,10 @@ export class SwitchConsoleActionsComponent implements OnInit {
 
   loadNextAction() {
     this.onLoadNextAction.emit(true);
+  }
+
+  sendReply(reply) {
+    this.onSendReply.emit(reply);
   }
 
 }

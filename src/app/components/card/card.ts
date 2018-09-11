@@ -12,6 +12,7 @@ import { SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 export class CardConsoleActionComponent implements OnInit {
   @Input() action: any;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
 
   public isOver: boolean = false;
@@ -60,6 +61,7 @@ export class CardConsoleActionComponent implements OnInit {
 
   sendReply(button) {
     this.win.analytics.track('Send Reply', {'type': 'go_to'});
+    this.onSendReply.emit(button.action);
     //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
   };
 

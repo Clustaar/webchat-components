@@ -17,6 +17,9 @@ export class WaitConsoleActionComponent implements OnInit {
   ngOnInit() {
     const self = this;
     let timeoutDelay = this.action.duration * 1000;
+    if(this.action.isPublished != null && this.action.isPublished == true) {
+      this.isOver = true;
+    }
 
     setTimeout(function(me) {
       //self.onActionDelayed.emit(true);
