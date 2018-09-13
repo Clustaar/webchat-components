@@ -10,6 +10,7 @@ import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormCon
 
 export class LocationConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
@@ -69,8 +70,9 @@ export class LocationConsoleActionComponent implements OnInit {
   }
 
   sendReply() {
-    this.win.analytics.track('Send Reply', {'type': 'go_to'});
+    //this.win.analytics.track('Send Reply', {'type': 'go_to'});
     //this.store.dispatch(new console_.SendReplyAction(this.action.action, this.target));
+    this.onSendReply.emit(this.action.action);
   };
 
 }

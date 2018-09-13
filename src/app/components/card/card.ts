@@ -60,7 +60,7 @@ export class CardConsoleActionComponent implements OnInit {
   }
 
   sendReply(button) {
-    this.win.analytics.track('Send Reply', {'type': 'go_to'});
+    //this.win.analytics.track('Send Reply', {'type': 'go_to'});
     this.onSendReply.emit(button.action);
     //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
   };
