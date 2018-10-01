@@ -6,6 +6,32 @@ More documentation is available for building webchat on https://developers.clust
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
+### Installation
+
+Install clustaar-webchat-components from npm:
+```bash
+npm install clustaar-webchat-components --save
+```
+
+### Setup
+
+In your app's main module, import the clustaar webchat components :
+
+```ts
+import { NgModule } from '@angular/core'
+import { WebchatComponentsModule } from 'clustaar-webchat-components';
+
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    WebchatComponentsModule
+  ]
+})
+export class AppModule {}
+```
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
