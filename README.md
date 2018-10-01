@@ -73,6 +73,7 @@ Send Cards Action
 ```
 <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></card-console-action>
 ```
+
 Ask location action  
 ```
 <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></location-console-action>
