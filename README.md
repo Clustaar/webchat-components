@@ -33,53 +33,49 @@ export class AppModule {}
 
 ### How to use
 
-Models of each actions can be found here : https://developers.clustaar.com/v1.0/reference#actions
+Models of each action can be found here : https://developers.clustaar.com/v1.0/reference#actions
 
-On a foreach loop for each actions : 
-
+You can use a switch on a foreach loop for each action: 
 ```
 <switch-console-actions (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [actions]="(displayedActions$ | async)" [action]="displayedAction" [index]="i"></switch-console-actions>
 ```
 
-Individual :
+### Individual actions
 
-
-User messages (action type is : 'text') : 
+#### User messages (action type is : 'text')
 ```
 <user-message-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></user-message-console-action>
 ```
 
-Send Text Action
+#### Send Text Action
 ```
 <text-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></text-console-action>
 ```
 
-Send Image Action
+#### Send Image Action
 ```
 <image-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></image-console-action>
 ```
 
-Wait Action
+####  Wait Action
 ```
 <wait-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></wait-console-action>
 ```
 
-Send Quick Replies Action  
+#### Send Quick Replies Action  
 ```
 <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></quickreply-console-action>
 ```
 
-Send Cards Action
+#### Send Cards Action
 ```
 <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></card-console-action>
 ```
 
-Ask location action  
+#### Ask location action  
 ```
 <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></location-console-action>
 ```
-
-
 
 ## Development server
 
