@@ -11,6 +11,7 @@ import { SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 
 export class CardConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;

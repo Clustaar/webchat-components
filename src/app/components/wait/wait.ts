@@ -9,6 +9,7 @@ import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncaps
 
 export class WaitConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isOver: boolean = false;
 

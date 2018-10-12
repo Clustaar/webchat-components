@@ -1,6 +1,6 @@
 <div class="switch-actions-component-console" *ngIf="action" [ngSwitch]="action.type">
   <div *ngSwitchCase="'send_text_action'">
-    <text-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></text-console-action>
+    <text-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></text-console-action>
   </div>
 
   <div *ngSwitchCase="'text'">
@@ -8,23 +8,23 @@
   </div>
 
   <div *ngSwitchCase="'send_image_action'">
-    <image-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></image-console-action>
+    <image-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></image-console-action>
   </div>
 
   <div *ngSwitchCase="'wait_action'">
-    <wait-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></wait-console-action>
+    <wait-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></wait-console-action>
   </div>
 
   <div *ngSwitchCase="'send_quick_replies_action'">
-    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></quickreply-console-action>
+    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></quickreply-console-action>
   </div>
 
   <div *ngSwitchCase="'send_cards_action'">
-    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></card-console-action>
+    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></card-console-action>
   </div>
 
   <div *ngSwitchCase="'ask_location_action'">
-    <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></location-console-action>
+    <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></location-console-action>
   </div>
 
 </div>
