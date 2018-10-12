@@ -1,6 +1,6 @@
 <div class="console-quickreply-type">
-  <div class="bubble bot">{{action.message}}</div>
-  <div [style.background-color]="primaryColor" [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
+  <div [style.background-color]="primaryColor" class="bubble bot">{{action.message}}</div>
+  <div [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
   	<button (mouseover)="hover=true" (mouseleave)="hover=false" [style.border-color]="primaryColor" [style.background-color]="{primaryColor: hover==true }" class="quickreply-button" [ngClass]="{'selected-button': i == indexSelectedButton}" (click)="sendReply(i, button)" *ngFor="let button of action.buttons; let i = index;">
   		{{button.title}}
   	</button>
