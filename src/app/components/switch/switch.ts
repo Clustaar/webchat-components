@@ -10,6 +10,7 @@ export class SwitchConsoleActionsComponent implements OnInit {
   @Input() actions: any[] = [];
   @Input() action: any;
   @Input() index: number;
+  @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 

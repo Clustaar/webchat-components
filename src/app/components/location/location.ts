@@ -10,6 +10,7 @@ import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormCon
 
 export class LocationConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() primaryColor: string = "#30B286";
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 

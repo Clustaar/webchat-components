@@ -10,13 +10,16 @@ import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFac
 
 export class QuickreplyConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
   public message: string;
   public isOver: boolean = false;
   public indexSelectedButton: any;
+  public hover: boolean = false;
   private win: any = window;
+
 
   constructor() {}
 
