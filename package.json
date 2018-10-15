@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -22,7 +22,7 @@
     "@angular/platform-browser": "5.2.2",
     "@angular/platform-browser-dynamic": "5.2.2",
     "@angular/router": "5.2.2",
-    "typescript": "~2.4.0",
+    "typescript": "2.4.2",
     "core-js": "2.4.1",
     "zone.js": "^0.8.26",
     "ngx-swiper-wrapper": "6.2.1",
@@ -30,13 +30,13 @@
     "gulp-sass": "^3.1.0"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.6.3",
     "@angular/cli": "1.7.0",
     "@angular/compiler-cli": "5.2.10",
     "@types/jasmine": "~2.8.6",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~7.0.5",
     "codelyzer": "~4.2.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

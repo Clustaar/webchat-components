@@ -1,0 +1,7 @@
+<div style="max-width:500px">
+
+  <div *ngFor="let displayedAction of displayedActions; let i = index">
+    <switch-console-actions [actions]="displayedActions" [action]="displayedAction" [index]="i" [primaryColor]="primaryColor"></switch-console-actions>
+  </div>
+
+</div>  
