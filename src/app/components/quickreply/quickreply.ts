@@ -28,8 +28,13 @@ export class QuickreplyConsoleActionComponent implements OnInit {
     this.onLoadNextAction.emit(true);
     setTimeout(function(){
       let element = document.getElementById("chat-console-messages");
-      element.scrollTop = element.scrollHeight - element.clientHeight;
+      if(element != null) {
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }
     },500);
+    //let styleSheet:any = document.styleSheets[0];
+    //styleSheet.insertRule(`.bubble.bot:after { border-right-color: ${this.primaryColor}; }`, styleSheet.cssRules.length);
+
   }
 
   sendReply(indexSelectedButton, button) {
