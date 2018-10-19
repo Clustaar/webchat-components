@@ -61,6 +61,12 @@
         color: white;
         border: 1px solid transparent;
       }
+      &.selected-button {
+        background: linear-gradient(137.19deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.21) 100%);
+        color: white;
+        font-weight: 500;
+        border: 1px solid transparent;
+      }
     }
 
     .image-preview-container {

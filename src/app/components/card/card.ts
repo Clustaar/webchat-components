@@ -61,10 +61,14 @@ export class CardConsoleActionComponent implements OnInit {
     this.swiperCards.directiveRef!!.update();
   }
 
-  sendReply(button) {
-    //this.win.analytics.track('Send Reply', {'type': 'go_to'});
-    this.onSendReply.emit(button.action);
-    //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
+  sendReply(indexSelectedButton, button) {
+    if(!this.isOver) {
+      //this.win.analytics.track('Send Reply', {'type': 'go_to'});
+      this.onSendReply.emit(button.action);
+      //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
+      this.isOver = true;
+      this.indexSelectedButton = indexSelectedButton;
+    }
   };
 
   openUrl(button) {
