@@ -18,6 +18,7 @@ export class CardConsoleActionComponent implements OnInit {
 
   public isOver: boolean = false;
   public indexSelectedButton: any;
+  public indexHoverButton: number = -1;
   public currentCardIndex: number = 0;
   SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
