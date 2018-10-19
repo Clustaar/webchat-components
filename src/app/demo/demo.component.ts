@@ -7,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DemoComponent {
   displayedActions = [
-  	
   {
     "type": "send_text_action",
     "alternatives": [
-      "Hello, welcome on the webchat components demo"
+      "Hello, welcome to webchat components demo"
     ]
   },
   {
@@ -21,7 +20,7 @@ export class DemoComponent {
   {
     "type": "send_text_action",
     "alternatives": [
-      "Here some links <ul>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 1</a></li>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 2</a></li>\n</ul>"
+      "Here a list with some links <ul>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 1</a></li>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 2</a></li>\n</ul>"
     ]
   },
   {
@@ -30,10 +29,10 @@ export class DemoComponent {
   },
   {
     "type": "send_quick_replies_action",
-    "message": "Look those juicy quick replies",
+    "message": "What do you want to test ? ( juicy quick replies version )",
     "buttons": [
       {
-        "title": "bouton 1",
+        "title": "Bouton 1",
         "action": {
           "type": "go_to_action",
           "target": {
@@ -46,17 +45,92 @@ export class DemoComponent {
         "type": "quick_reply"
       },
       {
-        "title": "bouton 2",
+        "title": "Bouton 2",
         "action": {
           "type": "go_to_action",
           "target": {
-            "id": "5ae71abcdc877d000d1a317d",
-            "type": "story",
-            "name": "bonjour"
+            "id": "5ad5f1dbe29c6000780f6780",
+            "type": "step",
+            "name": "First step"
           },
           "sessionValues": {}
         },
         "type": "quick_reply"
+      }
+    ]
+  },
+  {
+    "type": "send_cards_action",
+    "cards": [
+      {
+        "type": "card",
+        "title": "Test 1",
+        "subtitle": "",
+        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "url": "",
+        "buttons": [
+          {
+            "type": "button",
+            "title": "Bouton A",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          },
+          {
+            "type": "button",
+            "title": "Bouton B",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          }
+        ]
+      },
+      {
+        "type": "card",
+        "title": "Test 2",
+        "subtitle": "",
+        "imageURL": "http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg",
+        "url": "",
+        "buttons": [
+          {
+            "type": "button",
+            "title": "Bouton C",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          },
+          {
+            "type": "button",
+            "title": "Bouton D",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          }
+        ]
       }
     ]
   },
@@ -105,10 +179,22 @@ export class DemoComponent {
           "sessionValues": {}
         },
         "type": "quick_reply"
+      },
+      {
+        "title": "bouton 2",
+        "action": {
+          "type": "go_to_action",
+          "target": {
+            "id": "5ad5f1dbe29c6000780f677f",
+            "type": "story",
+            "name": "Reserver"
+          },
+          "sessionValues": {}
+        },
+        "type": "quick_reply"
       }
     ]
   }
-
-  ];
+];
   primaryColor = "#660066";
 }
