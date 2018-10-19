@@ -17,7 +17,7 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   public message: string;
   public isOver: boolean = false;
   public indexSelectedButton: any;
-  public hover: boolean = false;
+  public indexHoverButton: number = -1;
   private win: any = window;
 
 

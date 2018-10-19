@@ -4,7 +4,7 @@
   	{{action.message}}
   </div>
   <div [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
-  	<button (mouseenter)="hover=true" (mouseleave)="hover=false" [style.border-color]="primaryColor" [style.background-color]="hover==true ? primaryColor: null" class="quickreply-button" [ngClass]="{'selected-button': i == indexSelectedButton}" (click)="sendReply(i, button)" *ngFor="let button of action.buttons; let i = index;">
+  	<button (mouseenter)="indexHoverButton=i" (mouseleave)="indexHoverButton=-1" [style.border-color]="primaryColor" [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null" class="quickreply-button" [ngClass]="{'selected-button': i == indexSelectedButton}" (click)="sendReply(i, button)" *ngFor="let button of action.buttons; let i = index;">
   		{{button.title}}
   	</button>
   </div>

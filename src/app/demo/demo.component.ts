@@ -11,7 +11,7 @@ export class DemoComponent {
   {
     "type": "send_text_action",
     "alternatives": [
-      "test avec "
+      "Hello, welcome on the webchat components demo"
     ]
   },
   {
@@ -21,7 +21,7 @@ export class DemoComponent {
   {
     "type": "send_text_action",
     "alternatives": [
-      "Reservation terminée sur <ul>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 1</a></li>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 2</a></li>\n</ul>"
+      "Here some links <ul>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 1</a></li>\n<li><a target=\"_blank\" href=\"http://www.google.com\">lien 2</a></li>\n</ul>"
     ]
   },
   {
@@ -30,10 +30,23 @@ export class DemoComponent {
   },
   {
     "type": "send_quick_replies_action",
-    "message": "test",
+    "message": "Look those juicy quick replies",
     "buttons": [
       {
-        "title": "test",
+        "title": "bouton 1",
+        "action": {
+          "type": "go_to_action",
+          "target": {
+            "id": "5ae71abcdc877d000d1a317d",
+            "type": "story",
+            "name": "bonjour"
+          },
+          "sessionValues": {}
+        },
+        "type": "quick_reply"
+      },
+      {
+        "title": "bouton 2",
         "action": {
           "type": "go_to_action",
           "target": {
