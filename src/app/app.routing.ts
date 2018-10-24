@@ -1,12 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { DemoComponent } from './demo/demo.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'demo', pathMatch: 'full' },
   { path: '**', redirectTo: 'demo' },
   {
     path: 'demo',
-    loadChildren: 'app/demo/demo.module#DemoModule'
+    component: DemoComponent
   },
 ];
 

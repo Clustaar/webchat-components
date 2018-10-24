@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { routing } from './app.routing';
 
-
+import { DemoComponent } from './demo/demo.component';
 import { AppComponent } from './app.component';
 import { WebchatComponentsModule } from './components/components.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DemoComponent
   ],
   imports: [
     BrowserModule,
