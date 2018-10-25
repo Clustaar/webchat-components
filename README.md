@@ -1,3 +1,7 @@
+# Demo
+
+Project demo : https://stackblitz.com/github/Clustaar/webchat-components
+
 # WebchatComponents
 webchat-components is a framework to build webchats fast, originally built for the clustaar platform.
 
