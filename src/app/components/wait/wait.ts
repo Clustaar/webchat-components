@@ -17,6 +17,14 @@ export class WaitConsoleActionComponent implements OnInit {
 
   ngOnInit() {
     const self = this;
+    setTimeout(function(){
+      let element = document.getElementById("chat-console-messages");
+      if(element != null) {
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }
+      
+    },500);
+
     let timeoutDelay = this.action.duration * 1000;
     if(this.action.isPublished != null && this.action.isPublished == true) {
       this.isOver = true;
