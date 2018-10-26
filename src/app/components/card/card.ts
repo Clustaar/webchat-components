@@ -23,7 +23,7 @@ export class CardConsoleActionComponent implements OnInit {
   SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 1,
-    loop: false
+    loop: true
   };
 
 

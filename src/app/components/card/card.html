@@ -27,7 +27,7 @@
   </div>
 
     <!-- Right navigation card -->
-    <div *ngIf="(currentCardIndex + 1) < action.cards.length"  class="arrow-right" (click)="nextCard()">
+    <div *ngIf="((currentCardIndex + 1) < action.cards.length) || action.cards.length > 3"  class="arrow-right" (click)="nextCard()">
       <i class="material-icons">keyboard_arrow_right</i>
     </div>
 </div>

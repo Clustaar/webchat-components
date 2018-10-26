@@ -128,6 +128,76 @@ export const DISPLAYED_ACTIONS = [
             }
           }
         ]
+      },
+      {
+        "type": "card",
+        "title": "Test 3",
+        "subtitle": "",
+        "imageURL": "http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg",
+        "url": "",
+        "buttons": [
+          {
+            "type": "button",
+            "title": "Bouton C",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          },
+          {
+            "type": "button",
+            "title": "Bouton D",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          }
+        ]
+      },
+      {
+        "type": "card",
+        "title": "Test 4",
+        "subtitle": "",
+        "imageURL": "http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg",
+        "url": "",
+        "buttons": [
+          {
+            "type": "button",
+            "title": "Bouton C",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          },
+          {
+            "type": "button",
+            "title": "Bouton D",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          }
+        ]
       }
     ]
   },
