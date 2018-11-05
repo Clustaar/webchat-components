@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, OnChanges, OnInit, AfterViewInit,  EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'text-console-action',
@@ -6,7 +6,8 @@ import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFac
   styleUrls: ['./text.scss'],
 })
 
-export class TextConsoleActionComponent implements OnInit {
+export class TextConsoleActionComponent implements OnInit, AfterViewInit {
+  @Input() indexAction: number;
   @Input() action: any;
   @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -20,9 +21,22 @@ export class TextConsoleActionComponent implements OnInit {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     setTimeout(function(){
       let element = document.getElementById("chat-console-messages");
-      element.scrollTop = element.scrollHeight - element.clientHeight;
+      if(element != null) {
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }
+      
     },500);
+
   }
+
+  ngAfterViewInit() {
+    Array.from(document.querySelectorAll(".text-message-"+this.indexAction + " a")).forEach(function(a){
+      if(a.getAttribute('target') == null) {
+        a.setAttribute('target', '_blank');
+      }
+    })
+  }
+
 
   private randomAlternative() {
     let rand = 0;

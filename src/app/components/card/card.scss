@@ -16,29 +16,32 @@
 
     i {
       color: #004F80;
+      font-size: 32px;
+      border-radius: 50%;
+      box-shadow: 0 2px 7px 0 rgba(0,0,0,0.3);
     }
   }
 
   .arrow-left {
     position: absolute;
     top: 0;
-    left: -4px;
+    left: 1px;
     bottom: 0;
   }
 
   .arrow-right {
     position: absolute;
     top: 0;
-    right: -4px;
+    right: 1px;
     bottom: 0;
   }
 
   .card-console {
     position: relative;
     border-radius: 4px;
-    width: calc(100% - 44px) !important;
-    margin-left: 22px;
-    margin-right: 20px;
+    width: calc(100% - 72px) !important;
+    margin-left: 36px;
+    margin-right: 36px;
     background: #fff;
     box-shadow: 0 2px 7px 0 rgba(0,0,0,0.3);
     padding-bottom: 10px;
