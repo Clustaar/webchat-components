@@ -1,3 +1,8 @@
+# 1.0.15
+
+- Migration Angular 6
+- Add underline for links
+
 # 1.0.14
 
 - Add a demo
