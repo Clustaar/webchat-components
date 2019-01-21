@@ -2,6 +2,7 @@
 
 - Migration Angular 6
 - Add underline for links
+- Better card UI
 
 # 1.0.14
 
