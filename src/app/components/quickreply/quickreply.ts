@@ -14,12 +14,9 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
-  public message: string;
-  public isOver: boolean = false;
-  public indexSelectedButton: any;
-  public indexHoverButton: number = -1;
-  private win: any = window;
-
+  isOver: boolean = false;
+  indexSelectedButton: any;
+  indexHoverButton: number = -1;
 
   constructor() {}
 
@@ -39,13 +36,11 @@ export class QuickreplyConsoleActionComponent implements OnInit {
 
   sendReply(indexSelectedButton, button) {
     if(!this.isOver) {
-      //this.win.analytics.track('Send Reply', {'type': 'go_to'});
       this.onSendReply.emit(button.action);
-      //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
     }
     
-  };
+  }
 
 }

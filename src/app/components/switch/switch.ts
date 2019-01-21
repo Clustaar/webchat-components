@@ -13,6 +13,7 @@ export class SwitchConsoleActionsComponent implements OnInit {
   @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -26,6 +27,10 @@ export class SwitchConsoleActionsComponent implements OnInit {
 
   sendReply(reply) {
     this.onSendReply.emit(reply);
+  }
+
+  sendEvent(event) {
+    this.onSendEvent.emit(event);
   }
 
 }
