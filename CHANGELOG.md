@@ -1,3 +1,7 @@
+# 1.0.16
+
+- Add Send JS Event Action
+
 # 1.0.15
 
 - Migration Angular 6
