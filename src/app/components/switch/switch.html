@@ -27,4 +27,8 @@
     <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></location-console-action>
   </div>
 
+  <div *ngSwitchCase="'send_js_event_action'">
+    <send-js-event-console-action (onSendEvent)="sendEvent($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></send-js-event-console-action>
+  </div>
+
 </div>
