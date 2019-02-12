@@ -1,3 +1,7 @@
+# 1.0.17
+
+- Migrate to Angular 7
+
 # 1.0.16
 
 - Add Send JS Event Action
