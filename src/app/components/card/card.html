@@ -1,7 +1,7 @@
 <div style="margin-top:20px;" class="console-card-type">
   <!-- Left navigation card -->
   <div *ngIf="currentCardIndex > 0" class="arrow-left" (click)="previousCard()">
-    <i class="material-icons">keyboard_arrow_left</i>
+    <i [style.background-color]="primaryColor" class="material-icons">keyboard_arrow_left</i>
   </div>
 
   <div class="cards-container">
@@ -28,6 +28,6 @@
 
     <!-- Right navigation card -->
     <div *ngIf="((currentCardIndex + 1) < action.cards.length) || action.cards.length > 3"  class="arrow-right" (click)="nextCard()">
-      <i class="material-icons">keyboard_arrow_right</i>
+      <i [style.background-color]="primaryColor" class="material-icons">keyboard_arrow_right</i>
     </div>
 </div>
