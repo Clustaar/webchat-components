@@ -3,7 +3,8 @@ export const DISPLAYED_ACTIONS = [
     "type": "send_text_action",
     "alternatives": [
       "Hello, welcome to webchat components demo"
-    ]
+    ],
+    "text": "Hello, welcome to webchat components demo"
   },
   {
     "type": "wait_action",
@@ -18,7 +19,13 @@ export const DISPLAYED_ACTIONS = [
       <li><a target=\"_self\" href=\"http://www.google.com\">Link with target self</a></li>\n
       <li><a href=\"http://www.google.com\">Link without target specified</a></li>\n
       </ul>`
-    ]
+    ],
+    "text": `Here a list with some links 
+      <ul>\n
+      <li><a target=\"_blank\" href=\"http://www.google.com\">Link with specified target blank</a></li>\n
+      <li><a target=\"_self\" href=\"http://www.google.com\">Link with target self</a></li>\n
+      <li><a href=\"http://www.google.com\">Link without target specified</a></li>\n
+      </ul>`
   },
   {
     "type": "wait_action",

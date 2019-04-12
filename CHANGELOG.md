@@ -1,6 +1,7 @@
 # 1.0.17
 
 - Migrate to Angular 7
+- Ajout de l'affichage du text a la place d'un random des alternatives ( send_text_action )
 
 # 1.0.16
 
