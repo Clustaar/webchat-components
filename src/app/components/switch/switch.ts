@@ -1,4 +1,4 @@
-import { Component, forwardRef, Renderer2, ViewChild, Input, Output, OnChanges, EventEmitter, ComponentFactoryResolver, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 
 @Component({
   selector: 'switch-console-actions',
