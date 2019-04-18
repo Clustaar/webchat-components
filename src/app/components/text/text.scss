@@ -4,9 +4,7 @@
 .console-text-type {
   .bubble {
     position: relative;
-
     padding: 12px;
-
     border-radius: 12px;
 
     a {
@@ -19,8 +17,7 @@
       color: #FFFFFF;
       border-bottom-left-radius: 0;
       background: #30B286;
-
-
+      float: left;
     }
   }
 }

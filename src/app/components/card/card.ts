@@ -1,6 +1,6 @@
-import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFactoryResolver, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
 
-import { SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
+import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'card-console-action',
@@ -11,7 +11,8 @@ import { SwiperConfigInterface, SwiperComponent } from 'ngx-swiper-wrapper';
 
 export class CardConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
@@ -26,21 +27,19 @@ export class CardConsoleActionComponent implements OnInit {
     loop: true
   };
 
-
   public message: string;
-  private win: any = window;
 
-
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
+    setTimeout(function () {
+      let element = document.getElementById('chat-console-messages');
       element.scrollTop = element.scrollHeight - element.clientHeight;
-    },500);
-    if(this.action.cards.length < 3 ) {
+    }, 500);
+    if (this.action.cards.length < 3) {
       this.SWIPER_CONFIG.loop = false;
     }
   }
@@ -62,7 +61,7 @@ export class CardConsoleActionComponent implements OnInit {
   }
 
   sendReply(indexSelectedButton, button) {
-    if(!this.isOver) {
+    if (!this.isOver) {
       //this.win.analytics.track('Send Reply', {'type': 'go_to'});
       this.onSendReply.emit(button.action);
       //this.store.dispatch(new console_.SendReplyAction(button.action, this.target));
@@ -76,10 +75,9 @@ export class CardConsoleActionComponent implements OnInit {
   }
 
   openCardUrl(card) {
-    if(card.url != "") {
+    if (card.url != '') {
       window.open(card.url, '_blank');
     }
-    
   }
 
 }

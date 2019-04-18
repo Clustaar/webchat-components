@@ -1,4 +1,4 @@
-import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -9,32 +9,34 @@ import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncaps
 
 export class WaitConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   public isOver: boolean = false;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     const self = this;
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
-      if(element != null) {
+    setTimeout(function () {
+      let element = document.getElementById('chat-console-messages');
+      if (element != null) {
         element.scrollTop = element.scrollHeight - element.clientHeight;
       }
-      
-    },500);
+
+    }, 500);
 
     let timeoutDelay = this.action.duration * 1000;
-    if(this.action.isPublished != null && this.action.isPublished == true) {
+    if (this.action.isPublished != null && this.action.isPublished == true) {
       this.isOver = true;
     }
 
-    setTimeout(function(me) {
+    setTimeout(function (me) {
       //self.onActionDelayed.emit(true);
       me.onLoadNextAction.emit(true);
       //me.store.dispatch(new console_.LoadNextAction({}, me.target));
       me.isOver = true;
-    }, timeoutDelay,this);
+    }, timeoutDelay, this);
   }
 }
