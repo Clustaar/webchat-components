@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 
 @Component({
@@ -10,7 +10,8 @@ import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFac
 
 export class QuickreplyConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
@@ -18,29 +19,26 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   indexSelectedButton: any;
   indexHoverButton: number = -1;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
-      if(element != null) {
+    setTimeout(function () {
+      let element = document.getElementById('chat-console-messages');
+      if (element != null) {
         element.scrollTop = element.scrollHeight - element.clientHeight;
       }
-    },500);
-    //let styleSheet:any = document.styleSheets[0];
-    //styleSheet.insertRule(`.bubble.bot:after { border-right-color: ${this.primaryColor}; }`, styleSheet.cssRules.length);
-
+    }, 500);
   }
 
   sendReply(indexSelectedButton, button) {
-    if(!this.isOver) {
+    if (!this.isOver) {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
     }
-    
   }
 
 }

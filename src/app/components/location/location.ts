@@ -1,5 +1,4 @@
-import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
-import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormControl } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'location-console-action',
@@ -10,7 +9,8 @@ import { FormGroup, AbstractControl, FormBuilder, FormArray, Validators, FormCon
 
 export class LocationConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -20,48 +20,49 @@ export class LocationConsoleActionComponent implements OnInit {
   private win: any = window;
   public latlng: string;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
+    setTimeout(function () {
+      let element = document.getElementById('chat-console-messages');
       element.scrollTop = element.scrollHeight - element.clientHeight;
-    },500);
+    }, 500);
   }
 
   getLocation() {
-    if(!this.isOver) {
+    if (!this.isOver) {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
-              position => {
-                  this.updatePosition(position),
-                  console.log(position)
-              },
-              error => {
-                  switch (error.code) {
-                      case 1:
-                          console.log('Permission Denied');
-                          break;
-                      case 2:
-                          console.log('Position Unavailable');
-                          break;
-                      case 3:
-                          console.log('Timeout');
-                          break;
-                  }
-              }
-          );
-      };
-    }   
+          position => {
+            this.updatePosition(position),
+              console.log(position)
+          },
+          error => {
+            switch (error.code) {
+              case 1:
+                console.log('Permission Denied');
+                break;
+              case 2:
+                console.log('Position Unavailable');
+                break;
+              case 3:
+                console.log('Timeout');
+                break;
+            }
+          }
+        );
+      }
+    }
   }
 
   updatePosition(position) {
-    this.latlng = position.coords.latitude + "," + position.coords.longitude;
+    this.latlng = position.coords.latitude + ',' + position.coords.longitude;
     let location = {
-      "lat": position.coords.latitude,
-      "long": position.coords.longitude
+      'lat': position.coords.latitude,
+      'long': position.coords.longitude
     };
     this.isOver = true;
     /*this.consoleService.updateInterlocutor(location, this.target).take(1).subscribe(() => {

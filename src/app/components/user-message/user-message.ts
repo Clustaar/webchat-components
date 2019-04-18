@@ -1,4 +1,4 @@
-import { Component, Input, Output, OnChanges, OnInit, EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'user-message-console-action',
@@ -12,14 +12,15 @@ export class UserMessageConsoleActionComponent implements OnInit {
 
   public message: string;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     this.message = this.action.message;
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
+    setTimeout(function () {
+      let element = document.getElementById('chat-console-messages');
       element.scrollTop = element.scrollHeight - element.clientHeight;
-    },500);
+    }, 500);
   }
 
 }

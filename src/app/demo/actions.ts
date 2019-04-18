@@ -1,5 +1,9 @@
 export const DISPLAYED_ACTIONS = [
   {
+    "type": "text",
+    "message": "Hi, I'm John !"
+  },
+  {
     "type": "send_text_action",
     "alternatives": [
       "Hello, welcome to webchat components demo"
@@ -8,7 +12,10 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "wait_action",
-    "duration": 2
+    "duration": 30
+  },{
+    "type": "ask_location_action",
+    "message": "What is your location ?"
   },
   {
     "type": "send_text_action",

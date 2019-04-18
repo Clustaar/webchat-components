@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'switch-console-actions',
@@ -6,19 +6,17 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
   styleUrls: ['./switch.scss'],
 })
 
-export class SwitchConsoleActionsComponent implements OnInit {
+export class SwitchConsoleActionsComponent {
   @Input() actions: any[] = [];
   @Input() action: any;
   @Input() index: number;
-  @Input() primaryColor: string = "#30B286";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() {}
-
-  ngOnInit() {
-    console.log(this.action);
+  constructor() {
   }
 
   loadNextAction() {
