@@ -22,21 +22,36 @@
     }
     
   }
+
+  img {
+    &.bot {
+      float: left;
+    }
+
+    &.user {
+      float: right;
+    }
+  }
+
   .bubble {
     position: relative;
-
     padding: 12px;
-
     border-radius: 12px;
-
 
     &.bot {
       margin: 16px 24px 0 8px;
-
       color: #FFFFFF;
       border-bottom-left-radius: 0;
       background: #30B286;
       float: left;
+    }
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      color: #FFFFFF;
+      border-bottom-right-radius: 0;
+      background: #30B286;
+      float: right;
     }
   }
 }

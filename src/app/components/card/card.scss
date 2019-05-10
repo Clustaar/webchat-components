@@ -104,42 +104,4 @@
       opacity: 1;
     }
   }
-
-  .bubble {
-    position: relative;
-    padding: 12px;
-    border-radius: 12px;
-
-    &:after {
-      position: absolute;
-      top: calc(100% - 4px);
-
-      width: 0;
-      height: 0;
-      margin-top: -4px;
-
-      content: '';
-
-      border: 8px solid transparent;
-      border-bottom: 0;
-    }
-
-    &.bot:after {
-      left: 0;
-
-      margin-left: -8px;
-
-      border-right-color: #30B286;
-      border-left: 0;
-    }
-
-    &.bot {
-      margin: 16px 24px 0 8px;
-
-      color: #FFFFFF;
-      border-bottom-left-radius: 0;
-      background: #30B286;
-      float: left;
-    }
-  }
 }

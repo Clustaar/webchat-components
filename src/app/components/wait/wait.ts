@@ -9,16 +9,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class WaitConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
   public isOver: boolean = false;
 
-  constructor() {
-  }
-
   ngOnInit() {
-    const self = this;
     setTimeout(function () {
       let element = document.getElementById('chat-console-messages');
       if (element != null) {

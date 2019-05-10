@@ -1,7 +1,7 @@
-<div style="max-width:500px;border:1px solid grey; border-radius: 6px;">
-
+<div style="max-width:800px;border:1px solid grey; border-radius: 6px;">
   <div *ngFor="let displayedAction of displayedActions; let i = index">
     <switch-console-actions [actions]="displayedActions" [action]="displayedAction" [index]="i"
+                            [inverted]="false"
                             [primaryColor]="primaryColor" [textColor]="textColor"></switch-console-actions>
   </div>
 

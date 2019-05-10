@@ -9,10 +9,11 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
 
 export class LocationConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
-  @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onSendReply = new EventEmitter<any>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
 
   public message: string;
   public isOver: boolean = false;

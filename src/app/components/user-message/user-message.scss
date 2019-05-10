@@ -1,3 +1,5 @@
+@import './../shared';
+
 .console-text-type {
   .bubble {
     position: relative;
@@ -36,6 +38,15 @@
       border-bottom-right-radius: 0;
       background: #C5DBEA;
       float: right;
+    }
+
+    &.bot {
+      margin: 16px 24px 0 8px;
+      word-break: break-all;
+      color: #2C3F59;
+      border-bottom-left-radius: 0;
+      background: #C5DBEA;
+      float: left;
     }
   }
 }

@@ -10,6 +10,7 @@ import { Component, forwardRef, Renderer2, ViewChild, Input, Output, OnChanges, 
 
 export class ImageConsoleActionComponent implements OnInit {
   @Input() action: any;
+  @Input() inverted: boolean = false;
   @Input() primaryColor: string = "#30B286";
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
 

@@ -8,9 +8,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export class UserMessageConsoleActionComponent implements OnInit {
   @Input() action: any;
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Input() inverted: boolean = false;
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
 
   public message: string;
+
 
   constructor() {
   }
