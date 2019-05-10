@@ -19,5 +19,14 @@
       background: #30B286;
       float: left;
     }
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      word-break: break-all;
+      color: #2C3F59;
+      border-bottom-right-radius: 0;
+      background: #C5DBEA;
+      float: right;
+    }
   }
 }

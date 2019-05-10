@@ -9,6 +9,7 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
 export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
+  @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();

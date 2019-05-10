@@ -1,3 +1,6 @@
 <div class="console-text-type">
-  <div class="bubble user">{{message}}</div>
+  <div class="bubble" [ngClass]="{'bot' : inverted, 'user': !inverted}">
+    <span *ngIf="inverted"  [style.border-right-color]="'#C5DBEA'" class="bubble-arrow"></span>
+    {{message}}
+  </div>
 </div>

@@ -17,7 +17,6 @@ export class SendJsEventComponent implements OnInit {
       this.onSendEvent.emit(this.action);
     }
     this.onLoadNextAction.emit(true);
-
   }
 
 }

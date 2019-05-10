@@ -11,8 +11,12 @@ export const DISPLAYED_ACTIONS = [
     "text": "Hello, welcome to webchat components demo"
   },
   {
+    "type": "send_image_action",
+    "imageURL": "https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg"
+  },
+  {
     "type": "wait_action",
-    "duration": 30
+    "duration": 60
   },{
     "type": "ask_location_action",
     "message": "What is your location ?"
@@ -36,7 +40,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "wait_action",
-    "duration": 2
+    "duration": 60
   },
   {
     "type": "send_quick_replies_action",

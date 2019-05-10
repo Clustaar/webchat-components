@@ -21,13 +21,15 @@ import { QuickreplyConsoleActionComponent } from './quickreply/quickreply';
 import { CardConsoleActionComponent } from './card/card';
 import { LocationConsoleActionComponent } from './location/location';
 import { SendJsEventComponent } from './send-js-event/send-js-event.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    SwiperModule
+    SwiperModule,
+    FlexLayoutModule
   ],
   declarations: [
     SwitchConsoleActionsComponent,

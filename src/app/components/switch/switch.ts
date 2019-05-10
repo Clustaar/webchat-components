@@ -10,6 +10,7 @@ export class SwitchConsoleActionsComponent {
   @Input() actions: any[] = [];
   @Input() action: any;
   @Input() index: number;
+  @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
