@@ -13,6 +13,7 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() inverted: boolean = false;
+  @Input() readOnly : boolean = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
