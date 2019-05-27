@@ -13,6 +13,7 @@ export class CardConsoleActionComponent implements OnInit {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
@@ -29,16 +30,20 @@ export class CardConsoleActionComponent implements OnInit {
 
   public message: string;
 
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
-    setTimeout(function () {
-      let element = document.getElementById('chat-console-messages');
-      element.scrollTop = element.scrollHeight - element.clientHeight;
-    }, 500);
+
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
+
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }, 500);
+    }
+
     if (this.action.cards.length < 3) {
       this.SWIPER_CONFIG.loop = false;
     }

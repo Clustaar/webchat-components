@@ -12,6 +12,7 @@ export class LocationConsoleActionComponent implements OnInit {
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
 
@@ -27,10 +28,14 @@ export class LocationConsoleActionComponent implements OnInit {
   ngOnInit() {
     this.onLoadNextAction.emit(true);
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
-    setTimeout(function () {
-      let element = document.getElementById('chat-console-messages');
-      element.scrollTop = element.scrollHeight - element.clientHeight;
-    }, 500);
+
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
+
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }, 500);
+    }
   }
 
   getLocation() {
