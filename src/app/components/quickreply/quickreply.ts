@@ -14,6 +14,7 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   @Input() textColor: string = '#FFFFFF';
   @Input() inverted: boolean = false;
   @Input() readOnly : boolean = false;
+  @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
 
@@ -27,12 +28,16 @@ export class QuickreplyConsoleActionComponent implements OnInit {
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
-    setTimeout(function () {
-      let element = document.getElementById('chat-console-messages');
-      if (element != null) {
-        element.scrollTop = element.scrollHeight - element.clientHeight;
-      }
-    }, 500);
+
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
+
+        if (element != null) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
+      }, 500);
+    }
   }
 
   sendReply(indexSelectedButton, button) {

@@ -12,28 +12,33 @@ export class WaitConsoleActionComponent implements OnInit {
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  public isOver: boolean = false;
+
+  isOver: boolean = false;
 
   ngOnInit() {
-    setTimeout(function () {
-      let element = document.getElementById('chat-console-messages');
-      if (element != null) {
-        element.scrollTop = element.scrollHeight - element.clientHeight;
-      }
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
 
-    }, 500);
+        if (element != null) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
+      }, 500);
+    }
 
     let timeoutDelay = this.action.duration * 1000;
+
+    setTimeout(function(me) {
+      // self.onActionDelayed.emit(true);
+      me.onLoadNextAction.emit(true);
+      // me.store.dispatch(new console_.LoadNextAction({}, me.target));
+      me.isOver = true;
+    }, timeoutDelay, this);
+
     if (this.action.isPublished != null && this.action.isPublished == true) {
       this.isOver = true;
     }
-
-    setTimeout(function (me) {
-      //self.onActionDelayed.emit(true);
-      me.onLoadNextAction.emit(true);
-      //me.store.dispatch(new console_.LoadNextAction({}, me.target));
-      me.isOver = true;
-    }, timeoutDelay, this);
   }
 }

@@ -9,20 +9,23 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class UserMessageConsoleActionComponent implements OnInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
+  @Input() autoScroll? = true;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
 
-  public message: string;
+  message: string;
 
-
-  constructor() {
-  }
+  constructor() {}
 
   ngOnInit() {
     this.message = this.action.message;
-    setTimeout(function () {
-      let element = document.getElementById('chat-console-messages');
-      element.scrollTop = element.scrollHeight - element.clientHeight;
-    }, 500);
+
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
+
+        element.scrollTop = element.scrollHeight - element.clientHeight;
+      }, 500);
+    }
   }
 
 }
