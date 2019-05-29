@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'location-console-action',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
   encapsulation: ViewEncapsulation.None
 })
 
-export class LocationConsoleActionComponent implements OnInit {
+export class LocationConsoleActionComponent implements OnInit, AfterViewChecked {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
@@ -15,15 +15,17 @@ export class LocationConsoleActionComponent implements OnInit {
   @Input() autoScroll? = true;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
   public isOver: boolean = false;
   public indexSelectedButton: any;
-  private win: any = window;
   public latlng: string;
 
-  constructor() {
-  }
+  private win: any = window;
+  private initialActionRendered = false;
+
+  constructor() { }
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
@@ -35,6 +37,16 @@ export class LocationConsoleActionComponent implements OnInit {
 
         element.scrollTop = element.scrollHeight - element.clientHeight;
       }, 500);
+    }
+  }
+
+  ngAfterViewChecked() {
+    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
+    // called before view is rendered
+    if (!this.initialActionRendered) {
+      this.initialActionRendered = true;
+
+      this.onLastActionRendered.emit(true);
     }
   }
 
