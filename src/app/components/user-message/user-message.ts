@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, AfterViewChecked } from '@angular/core';
 
 @Component({
   selector: 'user-message-console-action',
@@ -6,15 +6,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./user-message.scss'],
 })
 
-export class UserMessageConsoleActionComponent implements OnInit {
+export class UserMessageConsoleActionComponent implements OnInit, AfterViewChecked {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   message: string;
 
-  constructor() {}
+  private initialActionRendered = false;
+
+  constructor() { }
 
   ngOnInit() {
     this.message = this.action.message;
@@ -28,4 +31,13 @@ export class UserMessageConsoleActionComponent implements OnInit {
     }
   }
 
+  ngAfterViewChecked() {
+    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
+    // called before view is rendered
+    if (!this.initialActionRendered) {
+      this.initialActionRendered = true;
+
+      this.onLastActionRendered.emit(true);
+    }
+  }
 }

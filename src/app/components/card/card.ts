@@ -1,4 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation, AfterViewChecked
+} from '@angular/core';
 
 import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
@@ -9,13 +11,14 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
   encapsulation: ViewEncapsulation.None
 })
 
-export class CardConsoleActionComponent implements OnInit {
+export class CardConsoleActionComponent implements OnInit, AfterViewChecked {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
 
   public isOver: boolean = false;
@@ -29,6 +32,8 @@ export class CardConsoleActionComponent implements OnInit {
   };
 
   public message: string;
+
+  private initialActionRendered = false;
 
   constructor() {}
 
@@ -46,6 +51,16 @@ export class CardConsoleActionComponent implements OnInit {
 
     if (this.action.cards.length < 3) {
       this.SWIPER_CONFIG.loop = false;
+    }
+  }
+
+  ngAfterViewChecked() {
+    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
+    // called before view is rendered
+    if (!this.initialActionRendered) {
+      this.initialActionRendered = true;
+
+      this.onLastActionRendered.emit(true);
     }
   }
 
