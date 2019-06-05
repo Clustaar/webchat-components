@@ -1,43 +1,43 @@
 <div class="switch-actions-component-console" *ngIf="action" [ngSwitch]="action.type">
   <div *ngSwitchCase="'send_text_action'">
-    <text-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"
-                         [textColor]="textColor" [indexAction]="index" [inverted]="inverted">
+    <text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action" [primaryColor]="primaryColor"
+                         [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
     </text-console-action>
   </div>
 
   <div *ngSwitchCase="'text'">
-    <user-message-console-action (onLoadNextAction)="loadNextAction()" [action]="action"
-                                 [inverted]="inverted">
+    <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                                 [inverted]="inverted" [autoScroll]="autoScroll">
     </user-message-console-action>
   </div>
 
   <div *ngSwitchCase="'send_image_action'">
-    <image-console-action (onLoadNextAction)="loadNextAction()" [action]="action"
-                          [primaryColor]="primaryColor" [inverted]="inverted">
+    <image-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                          [primaryColor]="primaryColor" [inverted]="inverted" [autoScroll]="autoScroll">
     </image-console-action>
   </div>
 
   <div *ngSwitchCase="'wait_action'">
-    <wait-console-action (onLoadNextAction)="loadNextAction()" [action]="action"
-                         [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted">
+    <wait-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                         [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted" [autoScroll]="autoScroll">
     </wait-console-action>
   </div>
 
   <div *ngSwitchCase="'send_quick_replies_action'">
-    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"
-                               [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted">
+    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                               [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted" [autoScroll]="autoScroll">
     </quickreply-console-action>
   </div>
 
   <div *ngSwitchCase="'send_cards_action'">
-    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action"
-                         [primaryColor]="primaryColor" [textColor]="textColor">
+    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                         [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
     </card-console-action>
   </div>
 
   <div *ngSwitchCase="'ask_location_action'">
-    <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action"
-                             [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted">
+    <location-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
+                             [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted" [autoScroll]="autoScroll">
     </location-console-action>
   </div>
 
