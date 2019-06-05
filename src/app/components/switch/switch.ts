@@ -13,7 +13,9 @@ export class SwitchConsoleActionsComponent {
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
 
@@ -22,6 +24,10 @@ export class SwitchConsoleActionsComponent {
 
   loadNextAction() {
     this.onLoadNextAction.emit(true);
+  }
+
+  lastActionRendered() {
+    this.onLastActionRendered.emit(true);
   }
 
   sendReply(reply) {
