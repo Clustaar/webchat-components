@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, AfterViewChecked } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output, AfterViewChecked } from
   styleUrls: ['./wait.scss'],
 })
 
-export class WaitConsoleActionComponent implements OnInit, AfterViewChecked {
+export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
@@ -17,8 +17,6 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewChecked {
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   isOver: boolean = false;
-
-  private initialActionRendered = false;
 
   ngOnInit() {
     if (this.autoScroll) {
@@ -45,13 +43,9 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+  ngAfterViewInit() {
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 }
