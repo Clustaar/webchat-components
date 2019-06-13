@@ -1,19 +1,17 @@
-import { Component, Input, Output, OnInit, EventEmitter, AfterViewChecked } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'image-console-action',
   templateUrl: './image.html',
   styleUrls: ['./image.scss'],
 })
-export class ImageConsoleActionComponent implements OnInit, AfterViewChecked {
+export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
   @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  private initialActionRendered = false;
 
   constructor() { }
 
@@ -30,13 +28,9 @@ export class ImageConsoleActionComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+  ngAfterViewInit() {
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 }
