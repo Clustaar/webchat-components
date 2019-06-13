@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewChecked } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'location-console-action',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, Afte
   encapsulation: ViewEncapsulation.None
 })
 
-export class LocationConsoleActionComponent implements OnInit, AfterViewChecked {
+export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
@@ -23,7 +23,6 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewChecked 
   public latlng: string;
 
   private win: any = window;
-  private initialActionRendered = false;
 
   constructor() { }
 
@@ -40,14 +39,10 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewChecked 
     }
   }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+  ngAfterViewInit() {
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 
   getLocation() {

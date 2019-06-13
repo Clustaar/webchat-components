@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewChecked } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, Afte
   encapsulation: ViewEncapsulation.None
 })
 
-export class QuickreplyConsoleActionComponent implements OnInit, AfterViewChecked {
+export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
@@ -22,8 +22,6 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewChecke
   isOver: boolean = false;
   indexSelectedButton: any;
   indexHoverButton: number = -1;
-
-  private initialActionRendered = false;
 
   constructor() { }
 
@@ -42,14 +40,10 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewChecke
     }
   }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+  ngAfterViewInit() {
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 
   sendReply(indexSelectedButton, button) {

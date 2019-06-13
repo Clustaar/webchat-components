@@ -1,5 +1,5 @@
 import {
-  Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation, AfterViewChecked
+  Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation, AfterViewInit
 } from '@angular/core';
 
 import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
@@ -11,7 +11,7 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
   encapsulation: ViewEncapsulation.None
 })
 
-export class CardConsoleActionComponent implements OnInit, AfterViewChecked {
+export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
@@ -33,8 +33,6 @@ export class CardConsoleActionComponent implements OnInit, AfterViewChecked {
 
   public message: string;
 
-  private initialActionRendered = false;
-
   constructor() {}
 
   ngOnInit() {
@@ -54,14 +52,10 @@ export class CardConsoleActionComponent implements OnInit, AfterViewChecked {
     }
   }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+  ngAfterViewInit() {
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 
   onSwiperIndexChange(event) {
