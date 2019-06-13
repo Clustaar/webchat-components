@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, AfterViewChecked } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'text-console-action',
   templateUrl: './text.html',
   styleUrls: ['./text.scss'],
 })
-export class TextConsoleActionComponent implements OnInit, AfterViewInit, AfterViewChecked {
+export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
   @Input() inverted: boolean = false;
@@ -14,8 +14,6 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit, AfterV
   @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-
-  private initialActionRendered = false;
 
   constructor() {}
 
@@ -39,15 +37,9 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit, AfterV
         a.setAttribute('target', '_blank');
       }
     });
-  }
 
-  ngAfterViewChecked() {
-    // Use a flag to detect view rendered in DOM only once, because `AfterViewInit` is sometimes
-    // called before view is rendered
-    if (!this.initialActionRendered) {
-      this.initialActionRendered = true;
-
+    setTimeout(() => {
       this.onLastActionRendered.emit(true);
-    }
+    }, 0);
   }
 }
