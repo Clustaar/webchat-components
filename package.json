@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "1.0.18-beta.3",
+  "version": "1.0.18-beta.5",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

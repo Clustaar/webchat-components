@@ -1,3 +1,7 @@
+# 1.0.18
+- Minimize Quick Replies buttons
+- Introduce Smooth Scrolling
+
 # 1.0.17
 
 - Migrate to Angular 7
