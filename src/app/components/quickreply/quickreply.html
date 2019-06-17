@@ -9,7 +9,7 @@
     <button (mouseenter)="indexHoverButton=i" (mouseleave)="indexHoverButton=-1" [style.border-color]="primaryColor"
             [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
             [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
-            class="quickreply-button"
+            class="quickreply-button" [disabled]="indexSelectedButton != null && i !== indexSelectedButton"
             [ngClass]="{'selected-button': i == indexSelectedButton, 'bot': !inverted, 'user' : inverted}"
             (click)="sendReply(i, button)" *ngFor="let button of action.buttons; let i = index;">
       {{button.title}}
@@ -18,7 +18,7 @@
 
   <ng-template #readyOnlyButton>
     <div class="quickreply-buttons">
-      <button class="quickreply-button-disabled" disabled
+      <button class="quickreply-button" disabled
               [style.border-color]="primaryColor"
               [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
               [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
