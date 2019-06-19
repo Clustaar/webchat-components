@@ -33,6 +33,16 @@
     }
   }
 
+  button {
+    &.bot {
+      float: left;
+    }
+
+    &.user {
+      float: right;
+    }
+  }
+
   .bubble {
     position: relative;
     padding: 12px;

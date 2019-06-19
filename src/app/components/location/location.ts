@@ -13,16 +13,14 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
+  @Input() readOnly : boolean = false;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
   public isOver: boolean = false;
-  public indexSelectedButton: any;
   public latlng: string;
-
-  private win: any = window;
 
   constructor() { }
 
@@ -78,15 +76,9 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
       'long': position.coords.longitude
     };
     this.isOver = true;
-    /*this.consoleService.updateInterlocutor(location, this.target).take(1).subscribe(() => {
-      this.sendReply();
-    })*/
-
   }
 
   sendReply() {
-    //this.win.analytics.track('Send Reply', {'type': 'go_to'});
-    //this.store.dispatch(new console_.SendReplyAction(this.action.action, this.target));
     this.onSendReply.emit(this.action.action);
   };
 
