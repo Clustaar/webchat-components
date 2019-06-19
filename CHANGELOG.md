@@ -1,4 +1,5 @@
 # 1.0.18
+
 - Minimize Quick Replies buttons
 - Introduce Smooth Scrolling
 
