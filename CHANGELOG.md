@@ -3,6 +3,7 @@
 - Minimize Quick Replies buttons
 - Introduce Smooth Scrolling
 - Add User Bubble Color
+- Add User Text Color ( calculed )
 
 # 1.0.17
 

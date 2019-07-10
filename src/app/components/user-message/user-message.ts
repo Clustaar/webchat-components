@@ -11,6 +11,7 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
   @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
   @Input() userBubbleColor: string = '#C5DBEA';
+  @Input() userTextColor: string = '#2C3F59';
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 

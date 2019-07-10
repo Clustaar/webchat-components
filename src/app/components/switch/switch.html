@@ -7,7 +7,7 @@
 
   <div *ngSwitchCase="'text'">
     <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()" [action]="action"
-                                 [inverted]="inverted" [autoScroll]="autoScroll" [userBubbleColor]="userBubbleColor">
+                                 [inverted]="inverted" [autoScroll]="autoScroll" [userBubbleColor]="userBubbleColor" [userTextColor]="userTextColor">
     </user-message-console-action>
   </div>
 
