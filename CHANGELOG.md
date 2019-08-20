@@ -1,3 +1,7 @@
+# 1.0.19
+
+- Migrate to Angular 8
+
 # 1.0.18
 
 - Minimize Quick Replies buttons
