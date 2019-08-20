@@ -1,5 +1,12 @@
 import {
-  Component, EventEmitter, Input, OnInit, Output, ViewChild, ViewEncapsulation, AfterViewInit
+  AfterViewInit,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewEncapsulation
 } from '@angular/core';
 
 import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
@@ -16,11 +23,11 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Input() readOnly : boolean = false;
+  @Input() readOnly: boolean = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @ViewChild('swiperCards') swiperCards: SwiperComponent;
+  @ViewChild('swiperCards', { static: false }) swiperCards: SwiperComponent;
 
   public isOver: boolean = false;
   public indexSelectedButton: any;
@@ -34,7 +41,8 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
