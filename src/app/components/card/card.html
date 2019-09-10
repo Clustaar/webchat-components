@@ -1,7 +1,10 @@
 <div style="margin-top:20px;" class="console-card-type">
   <!-- Left navigation card -->
-  <div *ngIf="currentCardIndex > 0" class="arrow-left" (click)="previousCard()">
-    <i [style.background-color]="primaryColor" [style.color]="textColor" class="material-icons">keyboard_arrow_left</i>
+  <div class="arrow-left" (click)="previousCard()">
+    <i [style.background-color]="primaryColor" [style.color]="textColor" class="material-icons"
+       [ngClass]="{'md-inactive' : isArrowLeftDisabled()}">
+      keyboard_arrow_left
+    </i>
   </div>
 
   <div class="cards-container">
@@ -44,8 +47,10 @@
   </div>
 
   <!-- Right navigation card -->
-  <div *ngIf="((currentCardIndex + 1) < action.cards.length) || action.cards.length > 3" class="arrow-right"
-       (click)="nextCard()">
-    <i [style.background-color]="primaryColor" [style.color]="textColor" class="material-icons">keyboard_arrow_right</i>
+  <div class="arrow-right" (click)="nextCard()">
+    <i [style.background-color]="primaryColor" [style.color]="textColor" class="material-icons"
+       [ngClass]="{'md-inactive' : isArrowRightDisabled()}">
+      keyboard_arrow_right
+    </i>
   </div>
 </div>
