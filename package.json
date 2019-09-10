@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "1.0.18-beta.10",
+  "version": "1.0.18-beta.11",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -48,7 +48,7 @@
     "karma-coverage-istanbul-reporter": "~1.4.2",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ng-packagr": "4.4.0",
+    "ng-packagr": "5.5.0",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tsickle": "^0.33.1",
