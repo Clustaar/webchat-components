@@ -65,12 +65,14 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   /** Move to the next card using right arrow */
   nextCard() {
+    if (this.isArrowRightDisabled()) return;
     this.swiperCards.directiveRef.nextSlide(300);
     this.swiperCards.directiveRef!!.update();
   }
 
   /** Move to the previous card using left arrow */
   previousCard() {
+    if (this.isArrowLeftDisabled()) return;
     this.swiperCards.directiveRef.prevSlide(300);
     this.swiperCards.directiveRef!!.update();
   }
@@ -93,4 +95,11 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     }
   }
 
+  isArrowRightDisabled() {
+    return this.action.cards.length === (this.currentCardIndex + 1);
+  }
+
+  isArrowLeftDisabled() {
+    return this.currentCardIndex <= 0;
+  }
 }
