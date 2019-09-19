@@ -4,6 +4,7 @@
 - Introduce Smooth Scrolling
 - Add User Bubble Color
 - Add User Text Color ( calculed )
+- Remove color white on link
 
 # 1.0.17
 
