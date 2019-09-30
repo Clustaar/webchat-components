@@ -47,7 +47,7 @@ export const DISPLAYED_ACTIONS = [
     "message": "What do you want to test ? ( juicy quick replies version )",
     "buttons": [
       {
-        "title": "Bouton 1",
+        "title": "Lorem ipsum dolor sit amet, consectetur cras amet.",
         "action": {
           "type": "go_to_action",
           "target": {
@@ -86,7 +86,7 @@ export const DISPLAYED_ACTIONS = [
         "buttons": [
           {
             "type": "button",
-            "title": "Bouton A",
+            "title": "Lorem ipsum dolor sit amet, consectetur cras amet.",
             "action": {
               "type": "go_to_action",
               "target": {
