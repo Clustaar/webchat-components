@@ -53,19 +53,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     LocationConsoleActionComponent,
     SendJsEventComponent
   ]
-
 })
 export class WebchatComponentsModule {
-  public static forRoot(): ModuleWithProviders {
-
-    return {
-      ngModule: WebchatComponentsModule,
-      providers: [
-        {
-          provide: SWIPER_CONFIG,
-          useValue: DEFAULT_SWIPER_CONFIG
-        }
-      ]
-    };
-  }
 }
