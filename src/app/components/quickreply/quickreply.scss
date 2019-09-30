@@ -10,7 +10,8 @@
     padding-top: 10px;
 
     .quickreply-button {
-      height: 32px;
+      height: 100%;
+      min-height: 32px;
       position: relative;
       padding: 5px 12px;
       border-radius: 18px;
