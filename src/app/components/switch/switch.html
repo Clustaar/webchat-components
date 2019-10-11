@@ -6,6 +6,21 @@
     </text-console-action>
   </div>
 
+  <div *ngSwitchCase="'title_message'">
+    <title-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                [action]="action" [indexAction]="index"
+                                [autoScroll]="autoScroll">
+    </title-console-action>
+  </div>
+
+  <div *ngSwitchCase="'support_text_action'">
+    <agent-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                [action]="action" [primaryColor]="primaryColor"
+                                [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
+                                [autoScroll]="autoScroll">
+    </agent-reply-console-action>
+  </div>
+
   <div *ngSwitchCase="'text'">
     <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                  [action]="action"

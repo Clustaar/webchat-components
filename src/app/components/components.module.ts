@@ -22,6 +22,8 @@ import { CardConsoleActionComponent } from './card/card';
 import { LocationConsoleActionComponent } from './location/location';
 import { SendJsEventComponent } from './send-js-event/send-js-event.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { AgentReplyComponent } from './agent-reply/agent-reply.component';
+import { TitleComponent } from './title/title.component';
 
 @NgModule({
   imports: [
@@ -40,7 +42,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
     LocationConsoleActionComponent,
-    SendJsEventComponent
+    SendJsEventComponent,
+    AgentReplyComponent,
+    TitleComponent
   ],
   exports: [
     SwitchConsoleActionsComponent,
@@ -51,7 +55,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
     LocationConsoleActionComponent,
-    SendJsEventComponent
+    SendJsEventComponent,
+    AgentReplyComponent,
+    TitleComponent
   ]
 })
 export class WebchatComponentsModule {

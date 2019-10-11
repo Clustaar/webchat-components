@@ -1,31 +1,24 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'user-message-console-action',
-  templateUrl: './user-message.html',
-  styleUrls: ['./user-message.scss'],
+  selector: 'title-console-action',
+  templateUrl: './title.component.html',
+  styleUrls: ['./title.component.scss']
 })
-
-export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit {
+export class TitleComponent implements OnInit, AfterViewInit {
+  @Input() indexAction: number;
   @Input() action: any;
-  @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
-  @Input() userBubbleColor: string = '#C5DBEA';
-  @Input() userTextColor: string = '#2C3F59';
-  @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  message: string;
-
-  constructor() {
-  }
-
   ngOnInit() {
-    this.message = this.action.message;
+    this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout(function() {
         let element = document.getElementById('chat-console-messages');
+
         if (element != null) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
         }
@@ -38,4 +31,5 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
       this.onLastActionRendered.emit(true);
     }, 0);
   }
+
 }
