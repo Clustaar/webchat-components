@@ -11,6 +11,14 @@ export const DISPLAYED_ACTIONS = [
     "text": "Hello, welcome to webchat components demo"
   },
   {
+    "type": "title_message",
+    "message": "An agent joined the conversation"
+  },
+  {
+    "type": "support_text_action",
+    "message": "Hello, I'm John. How can I Help You"
+  },
+  {
     "type": "send_image_action",
     "imageURL": "https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg"
   },

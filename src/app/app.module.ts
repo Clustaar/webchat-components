@@ -21,4 +21,5 @@ import { WebchatComponentsModule } from './components/components.module';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
