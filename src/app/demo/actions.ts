@@ -16,7 +16,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "support_text_action",
-    "message": "Hello, I'm John. How can I Help You"
+    "message": "Hello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help You"
   },
   {
     "type": "send_image_action",
