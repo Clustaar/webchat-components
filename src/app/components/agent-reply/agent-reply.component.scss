@@ -24,7 +24,7 @@
 
     &.bot {
       margin: 16px 24px 0 8px;
-      word-break: break-all;
+      word-break: break-word;
       color: #FFFFFF;
       border-bottom-left-radius: 0;
       background: #30B286;
@@ -33,7 +33,7 @@
 
     &.user {
       margin: 16px 8px 0 24px;
-      word-break: break-all;
+      word-break: break-word;
       color: #2C3F59;
       border-bottom-right-radius: 0;
       background: #C5DBEA;
