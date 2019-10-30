@@ -1,6 +1,7 @@
 # 1.0.19
 
 - Migrate to Angular 8
+- Display Support Agent messages
 
 # 1.0.18
 
