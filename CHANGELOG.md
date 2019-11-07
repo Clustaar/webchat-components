@@ -2,6 +2,7 @@
 
 - Migrate to Angular 8
 - Display Support Agent messages
+- Remove arrow on card when length > 1
 
 # 1.0.18
 
