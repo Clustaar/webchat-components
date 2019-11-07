@@ -232,6 +232,46 @@ export const DISPLAYED_ACTIONS = [
     "cards": [
       {
         "type": "card",
+        "title": "Test 1",
+        "subtitle": "",
+        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "url": "",
+        "buttons": [
+          {
+            "type": "button",
+            "title": "Lorem ipsum dolor sit amet, consectetur cras amet.",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          },
+          {
+            "type": "button",
+            "title": "Bouton B",
+            "action": {
+              "type": "go_to_action",
+              "target": {
+                "id": "5ad5f1dbe29c6000780f677f",
+                "type": "story",
+                "name": "Reserver"
+              },
+              "sessionValues": {}
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "send_cards_action",
+    "cards": [
+      {
+        "type": "card",
         "title": "Agence web Smez.fr : Site internet et application mobile sur mesure",
         "subtitle": "Smez.fr est une agence web spécialisée dans la création de site internet ou...",
         "imageURL": null,
