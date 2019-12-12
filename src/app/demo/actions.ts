@@ -228,6 +228,29 @@ export const DISPLAYED_ACTIONS = [
     ]
   },
   {
+    "type": "send_simple_cards_action",
+    "cards": [
+      {
+        "type": "card",
+        "title": "Test 1",
+        "subtitle": "",
+        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "url": "",
+        "buttons": [
+        ]
+      },
+      {
+        "type": "card",
+        "title": "Test 2",
+        "subtitle": "",
+        "imageURL": "http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg",
+        "url": "",
+        "buttons": [
+        ]
+      },
+    ]
+  },
+  {
     "type": "send_cards_action",
     "cards": [
       {

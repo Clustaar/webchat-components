@@ -24,6 +24,7 @@ import { SendJsEventComponent } from './send-js-event/send-js-event.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AgentReplyComponent } from './agent-reply/agent-reply.component';
 import { TitleComponent } from './title/title.component';
+import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { TitleComponent } from './title/title.component';
     UserMessageConsoleActionComponent,
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
+    SimpleCardConsoleActionComponent,
     LocationConsoleActionComponent,
     SendJsEventComponent,
     AgentReplyComponent,
@@ -54,6 +56,7 @@ import { TitleComponent } from './title/title.component';
     UserMessageConsoleActionComponent,
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
+    SimpleCardConsoleActionComponent,
     LocationConsoleActionComponent,
     SendJsEventComponent,
     AgentReplyComponent,
