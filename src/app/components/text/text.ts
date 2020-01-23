@@ -34,16 +34,16 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a) {
+    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a, openLinksInParentWindow) {
       if (a.getAttribute('target') == null) {
-        if (this.openLinksInParentWindow) {
+        if (openLinksInParentWindow) {
           a.setAttribute('target', '_parent');
         } else {
           a.setAttribute('target', '_blank');
         }
 
       }
-    });
+    }, this.openLinksInParentWindow );
 
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
