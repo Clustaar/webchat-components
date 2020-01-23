@@ -4,6 +4,7 @@
 - Display Support Agent messages
 - Remove arrow on card when length > 1
 - Ajout des actions iAdvize
+- Ajout du paramètre 'openLinksInParentWindow'
 
 # 1.0.18
 
