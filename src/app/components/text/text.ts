@@ -1,50 +1,52 @@
-import { Component, Input, Output, OnChanges, OnInit, AfterViewInit,  EventEmitter, ComponentFactoryResolver, ViewEncapsulation } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'text-console-action',
   templateUrl: './text.html',
   styleUrls: ['./text.scss'],
 })
-
 export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
+  @Input() inverted: boolean = false;
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
+  @Input() openLinksInParentWindow = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
-  public message: string;
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() {}
+  constructor() {
+  }
 
   ngOnInit() {
-    this.message = this.randomAlternative();
     this.onLoadNextAction.emit(true);
-    //this.store.dispatch(new console_.LoadNextAction({}, this.target));
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
-      if(element != null) {
-        element.scrollTop = element.scrollHeight - element.clientHeight;
-      }
-      
-    },500);
 
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
+
+        if (element != null) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
+      }, 500);
+    }
   }
 
   ngAfterViewInit() {
-    Array.from(document.querySelectorAll(".text-message-"+this.indexAction + " a")).forEach(function(a){
-      if(a.getAttribute('target') == null) {
-        a.setAttribute('target', '_blank');
+    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a, openLinksInParentWindow) {
+      if (a.getAttribute('target') == null) {
+        if (openLinksInParentWindow) {
+          a.setAttribute('target', '_parent');
+        } else {
+          a.setAttribute('target', '_blank');
+        }
+
       }
-    })
-  }
+    }, this.openLinksInParentWindow );
 
-
-  private randomAlternative() {
-    let rand = 0;
-
-    if (this.action.alternatives.length > 1) {
-      rand = Math.floor(Math.random() * this.action.alternatives.length);
-    }
-
-    return this.action.alternatives[rand];
+    setTimeout(() => {
+      this.onLastActionRendered.emit(true);
+    }, 0);
   }
 }

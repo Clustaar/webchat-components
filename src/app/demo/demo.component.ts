@@ -7,6 +7,9 @@ import { DISPLAYED_ACTIONS } from './actions';
   styleUrls: ['./demo.component.css']
 })
 export class DemoComponent {
-  displayedActions = DISPLAYED_ACTIONS
-  primaryColor = "#660066";
+  displayedActions = DISPLAYED_ACTIONS;
+  primaryColor = '#660066';
+  textColor = 'rgb(161, 161, 243)';
+  userBubbleColor = '#30B286';
+  userTextColor = '#FFFFFF';
 }

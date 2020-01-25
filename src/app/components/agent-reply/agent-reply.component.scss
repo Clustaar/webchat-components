@@ -1,7 +1,22 @@
 @import './../shared';
 
 
-.console-text-type {
+.console-agent-reply-type {
+  .agent-icon-container {
+    width: 36px;
+    height: 36px;
+    box-shadow: 0 1px 15px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+
   .bubble {
     position: relative;
     padding: 12px;
@@ -9,7 +24,7 @@
 
     &.bot {
       margin: 16px 24px 0 8px;
-
+      word-break: break-word;
       color: #FFFFFF;
       border-bottom-left-radius: 0;
       background: #30B286;
@@ -18,7 +33,7 @@
 
     &.user {
       margin: 16px 8px 0 24px;
-      word-break: break-all;
+      word-break: break-word;
       color: #2C3F59;
       border-bottom-right-radius: 0;
       background: #C5DBEA;
