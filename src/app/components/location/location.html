@@ -1,5 +1,15 @@
 <div class="console-quickreply-type">
-  <div class="bubble bot">{{action.message}}</div>
-  <button style="margin-top:10px;margin-left:60px;" (click)="getLocation()" [ngClass]="{'clustaar-green-button small': isOver, 'clustaar-blue-button secondary small': !isOver}">Send location</button>  
-  <img style="margin-top:10px;width: 80%;margin-left: 5px;" *ngIf="isOver" src="https://maps.googleapis.com/maps/api/staticmap?center={{latlng}}&zoom=16&size=300x300&sensor=false&key=AIzaSyC2f8kNtvvjIto5MSzXOh9rVZ0ZqLl0BCU">
+  <div class="bubble" [ngClass]="{'bot': !inverted, 'user': inverted}" [style.background-color]="primaryColor"
+       [style.color]="textColor">
+    <span *ngIf="!inverted" [style.border-right-color]="primaryColor" class="bubble-arrow"></span>
+    {{action.message}}
+    <span *ngIf="inverted" [style.border-left-color]="primaryColor" class="bubble-arrow-right"></span>
+  </div>
+  <button style="margin-top:10px;margin-left:60px;" (click)="getLocation()" [disabled]="readOnly"
+          [ngClass]="{'clustaar-green-button small': isOver, 'clustaar-blue-button secondary small': !isOver, 'bot': !inverted, 'user': inverted}">
+    Send location
+  </button>
+  <img [ngClass]="{'bot': !inverted, 'user': inverted}" style="margin-top:10px;width: 80%;margin-left: 5px;"
+       *ngIf="isOver"
+       src="https://maps.googleapis.com/maps/api/staticmap?center={{latlng}}&zoom=16&size=300x300&sensor=false&key=AIzaSyC2f8kNtvvjIto5MSzXOh9rVZ0ZqLl0BCU">
 </div>

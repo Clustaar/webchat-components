@@ -1,34 +1,86 @@
 <div class="switch-actions-component-console" *ngIf="action" [ngSwitch]="action.type">
   <div *ngSwitchCase="'send_text_action'">
-    <text-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor" [indexAction]="index"></text-console-action>
+    <text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                         [action]="action" [primaryColor]="primaryColor"
+                         [openLinksInParentWindow]="openLinksInParentWindow"
+                         [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
+    </text-console-action>
+  </div>
+
+  <div *ngSwitchCase="'title_message'">
+    <title-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                          [action]="action" [indexAction]="index"
+                          [autoScroll]="autoScroll">
+    </title-console-action>
+  </div>
+
+  <div *ngSwitchCase="'support_text_action'">
+    <agent-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                [action]="action" [primaryColor]="primaryColor"
+                                [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
+                                [autoScroll]="autoScroll">
+    </agent-reply-console-action>
   </div>
 
   <div *ngSwitchCase="'text'">
-    <user-message-console-action (onLoadNextAction)="loadNextAction()" [action]="action" ></user-message-console-action>
+    <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                 [action]="action"
+                                 [inverted]="inverted" [autoScroll]="autoScroll" [userBubbleColor]="userBubbleColor"
+                                 [userTextColor]="userTextColor">
+    </user-message-console-action>
   </div>
 
   <div *ngSwitchCase="'send_image_action'">
-    <image-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></image-console-action>
+    <image-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                          [action]="action"
+                          [primaryColor]="primaryColor" [inverted]="inverted" [autoScroll]="autoScroll"
+                          (onImageClicked)="onImageClicked.emit($event)">
+    </image-console-action>
   </div>
 
   <div *ngSwitchCase="'wait_action'">
-    <wait-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></wait-console-action>
+    <wait-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                         [action]="action"
+                         [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
+                         [autoScroll]="autoScroll">
+    </wait-console-action>
   </div>
 
   <div *ngSwitchCase="'send_quick_replies_action'">
-    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></quickreply-console-action>
+    <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
+                               (onLastActionRendered)="lastActionRendered()" [action]="action"
+                               [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
+                               [autoScroll]="autoScroll">
+    </quickreply-console-action>
   </div>
 
   <div *ngSwitchCase="'send_cards_action'">
-    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></card-console-action>
+    <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
+                         [openLinksInParentWindow]="openLinksInParentWindow"
+                         (onLastActionRendered)="lastActionRendered()" [action]="action"
+                         [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
+    </card-console-action>
+  </div>
+
+  <div *ngSwitchCase="'send_simple_cards_action'">
+    <simple-card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
+                                (onLastActionRendered)="lastActionRendered()" [action]="action"
+                                [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
+    </simple-card-console-action>
   </div>
 
   <div *ngSwitchCase="'ask_location_action'">
-    <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action" [primaryColor]="primaryColor"></location-console-action>
+    <location-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                             [action]="action"
+                             [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
+                             [autoScroll]="autoScroll">
+    </location-console-action>
   </div>
 
   <div *ngSwitchCase="'send_js_event_action'">
-    <send-js-event-console-action (onSendEvent)="sendEvent($event)" (onLoadNextAction)="loadNextAction()" [action]="action"></send-js-event-console-action>
+    <send-js-event-console-action (onSendEvent)="sendEvent($event)" (onLoadNextAction)="loadNextAction()"
+                                  [action]="action">
+    </send-js-event-console-action>
   </div>
 
 </div>

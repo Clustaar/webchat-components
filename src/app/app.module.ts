@@ -15,10 +15,11 @@ import { WebchatComponentsModule } from './components/components.module';
   imports: [
     BrowserModule,
     CommonModule,
-    WebchatComponentsModule.forRoot(),
+    WebchatComponentsModule,
     routing
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

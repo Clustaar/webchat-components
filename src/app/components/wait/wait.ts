@@ -1,4 +1,4 @@
-import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
 
 
 @Component({
@@ -7,34 +7,45 @@ import { Component,ViewChild, Input, Output, OnChanges, EventEmitter, ViewEncaps
   styleUrls: ['./wait.scss'],
 })
 
-export class WaitConsoleActionComponent implements OnInit {
+export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
-  public isOver: boolean = false;
+  @Input() inverted: boolean = false;
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
+  @Input() autoScroll? = true;
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  constructor() {}
+  isOver: boolean = false;
 
   ngOnInit() {
-    const self = this;
-    setTimeout(function(){
-      let element = document.getElementById("chat-console-messages");
-      if(element != null) {
-        element.scrollTop = element.scrollHeight - element.clientHeight;
-      }
-      
-    },500);
+    if (this.autoScroll) {
+      setTimeout(function () {
+        let element = document.getElementById('chat-console-messages');
 
-    let timeoutDelay = this.action.duration * 1000;
-    if(this.action.isPublished != null && this.action.isPublished == true) {
-      this.isOver = true;
+        if (element != null) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
+      }, 500);
     }
 
+    let timeoutDelay = this.action.duration * 1000;
+
     setTimeout(function(me) {
-      //self.onActionDelayed.emit(true);
+      // self.onActionDelayed.emit(true);
       me.onLoadNextAction.emit(true);
-      //me.store.dispatch(new console_.LoadNextAction({}, me.target));
+      // me.store.dispatch(new console_.LoadNextAction({}, me.target));
       me.isOver = true;
-    }, timeoutDelay,this);
+    }, timeoutDelay, this);
+
+    if (this.action.isPublished != null && this.action.isPublished == true) {
+      this.isOver = true;
+    }
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.onLastActionRendered.emit(true);
+    }, 0);
   }
 }

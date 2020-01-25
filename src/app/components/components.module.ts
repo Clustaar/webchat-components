@@ -21,13 +21,18 @@ import { QuickreplyConsoleActionComponent } from './quickreply/quickreply';
 import { CardConsoleActionComponent } from './card/card';
 import { LocationConsoleActionComponent } from './location/location';
 import { SendJsEventComponent } from './send-js-event/send-js-event.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { AgentReplyComponent } from './agent-reply/agent-reply.component';
+import { TitleComponent } from './title/title.component';
+import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    SwiperModule
+    SwiperModule,
+    FlexLayoutModule
   ],
   declarations: [
     SwitchConsoleActionsComponent,
@@ -37,8 +42,11 @@ import { SendJsEventComponent } from './send-js-event/send-js-event.component';
     UserMessageConsoleActionComponent,
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
+    SimpleCardConsoleActionComponent,
     LocationConsoleActionComponent,
-    SendJsEventComponent
+    SendJsEventComponent,
+    AgentReplyComponent,
+    TitleComponent
   ],
   exports: [
     SwitchConsoleActionsComponent,
@@ -48,22 +56,12 @@ import { SendJsEventComponent } from './send-js-event/send-js-event.component';
     UserMessageConsoleActionComponent,
     QuickreplyConsoleActionComponent,
     CardConsoleActionComponent,
+    SimpleCardConsoleActionComponent,
     LocationConsoleActionComponent,
-    SendJsEventComponent
+    SendJsEventComponent,
+    AgentReplyComponent,
+    TitleComponent
   ]
-
 })
 export class WebchatComponentsModule {
-  public static forRoot(): ModuleWithProviders {
-
-    return {
-      ngModule: WebchatComponentsModule,
-      providers: [
-        {
-          provide: SWIPER_CONFIG,
-          useValue: DEFAULT_SWIPER_CONFIG
-        }
-      ]
-    };
-  }
 }

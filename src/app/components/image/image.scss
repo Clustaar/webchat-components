@@ -1,4 +1,14 @@
 .console-image-type {
+  cursor: zoom-in;
+
+  &.bot {
+    float: left;
+  }
+
+  &.user {
+    float: right;
+  }
+
   img {
     max-width: 80%;
     margin: 8px 0 0 8px;

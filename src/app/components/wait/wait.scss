@@ -36,6 +36,16 @@
       color: #FFFFFF;
       border-bottom-left-radius: 0;
       background: #30B286;
+      float: left;
+    }
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      word-break: break-all;
+      color: #FFFFFF;
+      border-bottom-right-radius: 0;
+      background: #30B286;
+      float: right;
     }
   }
 

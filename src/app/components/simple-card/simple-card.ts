@@ -12,19 +12,18 @@ import {
 import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
-  selector: 'card-console-action',
-  templateUrl: './card.html',
-  styleUrls: ['./card.scss'],
+  selector: 'simple-card-console-action',
+  templateUrl: './simple-card.html',
+  styleUrls: ['./simple-card.scss'],
   encapsulation: ViewEncapsulation.None
 })
 
-export class CardConsoleActionComponent implements OnInit, AfterViewInit {
+export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly: boolean = false;
-  @Input() openLinksInParentWindow = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -95,22 +94,12 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   };
 
   openUrl(button) {
-    if (this.openLinksInParentWindow) {
-      window.open(button.action.url, '_parent');
-    } else {
-      window.open(button.action.url, '_blank');
-    }
-
+    window.open(button.action.url, '_blank');
   }
 
   openCardUrl(card) {
     if (card.url != '') {
-      if (this.openLinksInParentWindow) {
-        window.open(card.url, '_parent');
-      } else {
-        window.open(card.url, '_blank');
-      }
-
+      window.open(card.url, '_blank');
     }
   }
 

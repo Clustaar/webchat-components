@@ -1,3 +1,24 @@
+# 1.0.19
+
+- Migrate to Angular 8
+- Display Support Agent messages
+- Remove arrow on card when length > 1
+- Ajout des actions iAdvize
+- Ajout du paramètre 'openLinksInParentWindow'
+
+# 1.0.18
+
+- Minimize Quick Replies buttons
+- Introduce Smooth Scrolling
+- Add User Bubble Color
+- Add User Text Color ( calculed )
+- Remove color white on link
+
+# 1.0.17
+
+- Migrate to Angular 7
+- Ajout de l'affichage du text a la place d'un random des alternatives ( send_text_action )
+
 # 1.0.16
 
 - Add Send JS Event Action

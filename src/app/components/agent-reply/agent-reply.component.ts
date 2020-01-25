@@ -1,35 +1,44 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'image-console-action',
-  templateUrl: './image.html',
-  styleUrls: ['./image.scss'],
+  selector: 'agent-reply-console-action',
+  templateUrl: './agent-reply.component.html',
+  styleUrls: ['./agent-reply.component.scss']
 })
-export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
-
+export class AgentReplyComponent implements OnInit, AfterViewInit {
+  @Input() indexAction: number;
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onImageClicked = new EventEmitter<string>();
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout(function() {
         let element = document.getElementById('chat-console-messages');
 
-        element.scrollTop = element.scrollHeight - element.clientHeight;
+        if (element != null) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+        }
       }, 500);
     }
   }
 
   ngAfterViewInit() {
+    Array.from(document.querySelectorAll('.agent-reply-message-' + this.indexAction + ' a')).forEach(a => {
+      if (a.getAttribute('target') == null) {
+        a.setAttribute('target', '_blank');
+      }
+    });
+
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
     }, 0);
   }
+
 }
