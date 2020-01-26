@@ -1,10 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit } from '@angular/core';
-
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
+} from '@angular/core';
 
 @Component({
   selector: 'wait-console-action',
   templateUrl: './wait.html',
   styleUrls: ['./wait.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
@@ -18,34 +27,40 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
 
   isOver: boolean = false;
 
+  constructor(private cdr: ChangeDetectorRef) {
+  }
+
   ngOnInit() {
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-
         if (element != null) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
         }
       }, 500);
     }
 
     let timeoutDelay = this.action.duration * 1000;
 
-    setTimeout(function(me) {
+    setTimeout(() => {
       // self.onActionDelayed.emit(true);
-      me.onLoadNextAction.emit(true);
+      this.onLoadNextAction.emit(true);
       // me.store.dispatch(new console_.LoadNextAction({}, me.target));
-      me.isOver = true;
-    }, timeoutDelay, this);
+      this.isOver = true;
+      this.cdr.markForCheck();
+    }, timeoutDelay);
 
     if (this.action.isPublished != null && this.action.isPublished == true) {
       this.isOver = true;
     }
+    this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
+      this.cdr.markForCheck();
     }, 0);
   }
 }

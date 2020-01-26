@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'switch-console-actions',
   templateUrl: './switch.html',
   styleUrls: ['./switch.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SwitchConsoleActionsComponent {
