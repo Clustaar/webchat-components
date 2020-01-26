@@ -89,7 +89,7 @@ export const DISPLAYED_ACTIONS = [
         "type": "card",
         "title": "Test 1",
         "subtitle": "",
-        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "imageURL": "http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg",
         "url": "",
         "buttons": [
           {
@@ -234,7 +234,7 @@ export const DISPLAYED_ACTIONS = [
         "type": "card",
         "title": "Test 1",
         "subtitle": "",
-        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "imageURL": "http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg",
         "url": "",
         "buttons": [
         ]
@@ -257,7 +257,7 @@ export const DISPLAYED_ACTIONS = [
         "type": "card",
         "title": "Test 1",
         "subtitle": "",
-        "imageURL": "https://lemag.nikonclub.fr/wp-content/uploads/2017/07/08.jpg",
+        "imageURL": "http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg",
         "url": "",
         "buttons": [
           {
