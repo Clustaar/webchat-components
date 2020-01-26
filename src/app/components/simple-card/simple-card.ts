@@ -1,5 +1,7 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -15,7 +17,8 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
   selector: 'simple-card-console-action',
   templateUrl: './simple-card.html',
   styleUrls: ['./simple-card.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
@@ -41,7 +44,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit() {
@@ -49,26 +52,32 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout( () => {
         let element = document.getElementById('chat-console-messages');
+        if (element) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
+        }
 
-        element.scrollTop = element.scrollHeight - element.clientHeight;
       }, 500);
     }
 
     if (this.action.cards.length < 3) {
       this.SWIPER_CONFIG.loop = false;
     }
+    this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
+      this.cdr.markForCheck();
     }, 0);
   }
 
   onSwiperIndexChange(event) {
     this.currentCardIndex = event;
+    this.cdr.markForCheck();
   }
 
   /** Move to the next card using right arrow */
@@ -76,6 +85,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowRightDisabled()) return;
     this.swiperCards.directiveRef.nextSlide(300);
     this.swiperCards.directiveRef!!.update();
+    this.cdr.markForCheck();
   }
 
   /** Move to the previous card using left arrow */
@@ -83,6 +93,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowLeftDisabled()) return;
     this.swiperCards.directiveRef.prevSlide(300);
     this.swiperCards.directiveRef!!.update();
+    this.cdr.markForCheck();
   }
 
   sendReply(indexSelectedButton, button) {
@@ -90,6 +101,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
+      this.cdr.markForCheck();
     }
   };
 
