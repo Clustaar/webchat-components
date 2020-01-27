@@ -1,4 +1,4 @@
-import { ApplicationRef, ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'wc-root',
@@ -7,8 +7,4 @@ import { ApplicationRef, ChangeDetectionStrategy, Component } from '@angular/cor
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
-  constructor(app: ApplicationRef) {
-    app.tick();
-  }
-
 }
