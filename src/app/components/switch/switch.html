@@ -2,7 +2,6 @@
   <div *ngSwitchCase="'send_text_action'">
     <text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                          [action]="action" [primaryColor]="primaryColor"
-                         [openLinksInParentWindow]="openLinksInParentWindow"
                          [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
     </text-console-action>
   </div>
@@ -56,7 +55,6 @@
 
   <div *ngSwitchCase="'send_cards_action'">
     <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
-                         [openLinksInParentWindow]="openLinksInParentWindow"
                          (onLastActionRendered)="lastActionRendered()" [action]="action"
                          [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
     </card-console-action>

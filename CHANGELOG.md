@@ -2,6 +2,7 @@
 
 - Change Detection OnPush
 - Update zonejs and ngx-swiper
+- Suppression openLinksInParentWindow
 
 # 1.0.19
 
