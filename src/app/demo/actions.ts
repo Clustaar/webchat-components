@@ -24,7 +24,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "wait_action",
-    "duration": 60
+    "duration": 5
   },{
     "type": "ask_location_action",
     "message": "What is your location ?"
@@ -48,7 +48,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "wait_action",
-    "duration": 60
+    "duration": 5
   },
   {
     "type": "send_quick_replies_action",

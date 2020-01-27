@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -15,25 +16,25 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
   selector: 'card-console-action',
   templateUrl: './card.html',
   styleUrls: ['./card.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Input() readOnly: boolean = false;
-  @Input() openLinksInParentWindow = false;
+  @Input() readOnly = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @ViewChild('swiperCards', { static: false }) swiperCards: SwiperComponent;
 
-  public isOver: boolean = false;
+  public isOver = false;
   public indexSelectedButton: any;
-  public indexHoverButton: number = -1;
-  public currentCardIndex: number = 0;
+  public indexHoverButton = -1;
+  public currentCardIndex = 0;
   SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 1,
@@ -42,23 +43,26 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor() {
+  constructor(private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit() {
-    //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
+        if (element) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
+        }
 
-        element.scrollTop = element.scrollHeight - element.clientHeight;
       }, 500);
     }
 
     if (this.action.cards.length < 3) {
       this.SWIPER_CONFIG.loop = false;
+      this.cdr.markForCheck();
     }
   }
 
@@ -70,6 +74,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   onSwiperIndexChange(event) {
     this.currentCardIndex = event;
+    this.cdr.markForCheck();
   }
 
   /** Move to the next card using right arrow */
@@ -77,6 +82,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowRightDisabled()) return;
     this.swiperCards.directiveRef.nextSlide(300);
     this.swiperCards.directiveRef!!.update();
+    this.cdr.markForCheck();
   }
 
   /** Move to the previous card using left arrow */
@@ -84,6 +90,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowLeftDisabled()) return;
     this.swiperCards.directiveRef.prevSlide(300);
     this.swiperCards.directiveRef!!.update();
+    this.cdr.markForCheck();
   }
 
   sendReply(indexSelectedButton, button) {
@@ -91,26 +98,17 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
+      this.cdr.markForCheck();
     }
   };
 
   openUrl(button) {
-    if (this.openLinksInParentWindow) {
-      window.open(button.action.url, '_parent');
-    } else {
       window.open(button.action.url, '_blank');
-    }
-
   }
 
   openCardUrl(card) {
     if (card.url != '') {
-      if (this.openLinksInParentWindow) {
-        window.open(card.url, '_parent');
-      } else {
         window.open(card.url, '_blank');
-      }
-
     }
   }
 
