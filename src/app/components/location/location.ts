@@ -1,38 +1,49 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation, AfterViewInit } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy, ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'location-console-action',
   templateUrl: './location.html',
   styleUrls: ['./location.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() inverted: boolean = false;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
+  @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Input() readOnly : boolean = false;
+  @Input() readOnly = false;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   public message: string;
-  public isOver: boolean = false;
+  public isOver = false;
   public latlng: string;
 
-  constructor() { }
+  constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
-    //this.store.dispatch(new console_.LoadNextAction({}, this.target));
 
     if (this.autoScroll) {
-      setTimeout(function () {
+      setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-
-        element.scrollTop = element.scrollHeight - element.clientHeight;
+        if(element) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
+        }
       }, 500);
     }
   }
@@ -48,8 +59,7 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
           position => {
-            this.updatePosition(position),
-              console.log(position)
+            this.updatePosition(position)
           },
           error => {
             switch (error.code) {
@@ -71,11 +81,8 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
 
   updatePosition(position) {
     this.latlng = position.coords.latitude + ',' + position.coords.longitude;
-    let location = {
-      'lat': position.coords.latitude,
-      'long': position.coords.longitude
-    };
     this.isOver = true;
+    this.cdr.markForCheck();
   }
 
   sendReply() {

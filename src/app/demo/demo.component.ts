@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DISPLAYED_ACTIONS } from './actions';
 
 @Component({
   selector: 'demo',
   templateUrl: './demo.component.html',
-  styleUrls: ['./demo.component.css']
+  styleUrls: ['./demo.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DemoComponent {
   displayedActions = DISPLAYED_ACTIONS;

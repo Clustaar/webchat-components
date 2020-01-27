@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'switch-console-actions',
   templateUrl: './switch.html',
   styleUrls: ['./switch.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class SwitchConsoleActionsComponent {
@@ -16,7 +17,6 @@ export class SwitchConsoleActionsComponent {
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
   @Input() autoScroll? = true;
-  @Input() openLinksInParentWindow = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();

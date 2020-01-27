@@ -1,3 +1,9 @@
+# 1.1.0
+
+- Change Detection OnPush
+- Update zonejs and ngx-swiper
+- Suppression openLinksInParentWindow
+
 # 1.0.19
 
 - Migrate to Angular 8
