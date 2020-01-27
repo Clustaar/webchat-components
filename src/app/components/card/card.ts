@@ -26,7 +26,6 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly = false;
-  @Input() openLinksInParentWindow = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -104,22 +103,12 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   };
 
   openUrl(button) {
-    if (this.openLinksInParentWindow) {
-      window.open(button.action.url, '_parent');
-    } else {
       window.open(button.action.url, '_blank');
-    }
-
   }
 
   openCardUrl(card) {
     if (card.url != '') {
-      if (this.openLinksInParentWindow) {
-        window.open(card.url, '_parent');
-      } else {
         window.open(card.url, '_blank');
-      }
-
     }
   }
 

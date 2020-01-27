@@ -22,7 +22,6 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Input() openLinksInParentWindow = false;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -45,15 +44,11 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a, openLinksInParentWindow) {
+    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a) {
       if (a.getAttribute('target') == null) {
-        if (openLinksInParentWindow) {
-          a.setAttribute('target', '_parent');
-        } else {
           a.setAttribute('target', '_blank');
-        }
       }
-    }, this.openLinksInParentWindow );
+    });
     this.cdr.markForCheck();
 
     setTimeout(() => {
