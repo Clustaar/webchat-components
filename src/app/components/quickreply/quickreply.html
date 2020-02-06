@@ -2,7 +2,7 @@
   <div [style.background-color]="primaryColor" class="bubble" [ngClass]="{'bot': !inverted, 'user' : inverted}"
        [style.color]="textColor">
     <span *ngIf="!inverted" [style.border-right-color]="primaryColor" class="bubble-arrow"></span>
-    <span [innerHTML]="action.message">
+    <span class="quickreply-message-{{indexAction}}" [innerHTML]="action.message">
     </span>
     <span *ngIf="inverted" [style.border-left-color]="primaryColor" class="bubble-arrow-right"></span>
   </div>
