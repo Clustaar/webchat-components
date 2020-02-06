@@ -25,6 +25,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() inverted = false;
   @Input() readOnly = false;
   @Input() autoScroll? = true;
+  @Input() indexAction: number;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -52,10 +53,17 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    Array.from(document.querySelectorAll('.quickreply-message-' + this.indexAction + ' a')).forEach(function (a) {
+      if (a.getAttribute('target') == null) {
+        a.setAttribute('target', '_blank');
+      }
+    });
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
     }, 0);
+    this.cdr.markForCheck();
   }
+
 
   sendReply(indexSelectedButton, button) {
     if (!this.isOver) {
