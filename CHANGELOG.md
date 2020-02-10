@@ -4,6 +4,7 @@
 - Update zonejs and ngx-swiper
 - Suppression openLinksInParentWindow
 - Gestion des markup html dans les messages de quickreplies
+- Change Wait dots animation to be less greedy
 
 # 1.0.19
 
