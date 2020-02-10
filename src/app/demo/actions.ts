@@ -24,7 +24,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "wait_action",
-    "duration": 5
+    "duration": 60
   },{
     "type": "ask_location_action",
     "message": "What is your location ?"
@@ -32,14 +32,14 @@ export const DISPLAYED_ACTIONS = [
   {
     "type": "send_text_action",
     "alternatives": [
-      `Here a list with some links 
+      `Here a list with some links
       <ul>\n
       <li><a target=\"_blank\" href=\"http://www.google.com\">Link with specified target blank</a></li>\n
       <li><a target=\"_self\" href=\"http://www.google.com\">Link with target self</a></li>\n
       <li><a href=\"http://www.google.com\">Link without target specified</a></li>\n
       </ul>`
     ],
-    "text": `Here a list with some links 
+    "text": `Here a list with some links
       <ul>\n
       <li><a target=\"_blank\" href=\"http://www.google.com\">Link with specified target blank</a></li>\n
       <li><a target=\"_self\" href=\"http://www.google.com\">Link with target self</a></li>\n
