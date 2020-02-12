@@ -21,6 +21,7 @@
 - Add User Bubble Color
 - Add User Text Color ( calculed )
 - Remove color white on link
+- Align left text on quick reply buttons
 
 # 1.0.17
 
