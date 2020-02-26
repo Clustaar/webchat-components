@@ -1,8 +1,9 @@
 # 1.1.0
 
-- Change Detection OnPush
+- Change Detection Strategy OnPush
 - Update zonejs and ngx-swiper
 - Suppression openLinksInParentWindow
+- Gestion des markup html dans les messages de quickreplies
 
 # 1.0.19
 
