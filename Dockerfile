@@ -17,4 +17,4 @@ RUN npm install
 COPY . /webchat_components_image
 
 #Replace a setting in the Karma test runner to only run once
-CMD ["sh", "-c", "google-chrome --version && ng lint && npm run stylelint && ng test"]
+CMD ["sh", "-c", "google-chrome --version && ng test"]
