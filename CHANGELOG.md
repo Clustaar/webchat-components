@@ -5,6 +5,7 @@
 - Suppression openLinksInParentWindow
 - Gestion des markup html dans les messages de quickreplies
 - Change Wait dots animation to be less greedy
+- Suppression de la librairie flex-layout
 
 # 1.0.19
 
