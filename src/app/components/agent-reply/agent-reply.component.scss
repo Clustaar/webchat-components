@@ -2,6 +2,20 @@
 
 
 .console-agent-reply-type {
+  flex-direction: row;
+  box-sizing: border-box;
+  display: flex;
+
+  .agent-icon {
+    flex-direction: row;
+    box-sizing: border-box;
+    display: flex;
+    place-content: flex-end;
+    align-items: flex-end;
+    flex: 1 1 40px;
+    max-width: 40px;
+    min-width: 40px;
+  }
   .agent-icon-container {
     width: 36px;
     height: 36px;
@@ -10,6 +24,7 @@
     border-radius: 20px;
     display: flex;
     align-items: center;
+
 
     svg {
       margin: 0 auto;

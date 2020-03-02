@@ -12,12 +12,11 @@ import {
 
 @Component({
   selector: 'quickreply-console-action',
-  templateUrl: './quickreply.html',
-  styleUrls: ['./quickreply.scss'],
+  templateUrl: './quickreply.component.html',
+  styleUrls: ['./quickreply.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor = '#30B286';
@@ -37,7 +36,6 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   constructor(private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
-    //this.store.dispatch(new console_.LoadNextAction({}, this.target));
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
@@ -63,7 +61,6 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
     }, 0);
     this.cdr.markForCheck();
   }
-
 
   sendReply(indexSelectedButton, button) {
     if (!this.isOver) {

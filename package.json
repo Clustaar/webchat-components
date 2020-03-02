@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "1.1.0-beta.4",
+  "version": "1.1.0-beta.8",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -17,7 +17,6 @@
     "@angular/core": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/forms": "~8.2.0",
-    "@angular/flex-layout": "8.0.0-beta.26",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",

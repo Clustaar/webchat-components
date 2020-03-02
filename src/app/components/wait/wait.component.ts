@@ -11,11 +11,10 @@ import {
 
 @Component({
   selector: 'wait-console-action',
-  templateUrl: './wait.html',
-  styleUrls: ['./wait.scss'],
+  templateUrl: './wait.component.html',
+  styleUrls: ['./wait.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
