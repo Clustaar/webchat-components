@@ -17,14 +17,14 @@ import {
 })
 export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() inverted: boolean = false;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
+  @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  isOver: boolean = false;
+  isOver = false;
 
   constructor(private cdr: ChangeDetectorRef) {
   }
@@ -33,7 +33,7 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-        if (element != null) {
+        if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
