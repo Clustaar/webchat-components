@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "module": "es2015",
     "target": "es5",
     "typeRoots": [
       "node_modules/@types"
@@ -19,5 +20,8 @@
     "plugins": [
       { "name": "tslint-language-service"}
     ]
+  },
+  "angularCompilerOptions": {
+    "annotateForClosureCompiler": true
   }
 }

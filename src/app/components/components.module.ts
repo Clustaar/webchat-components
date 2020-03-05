@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -19,10 +18,8 @@ import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 
 @NgModule({
   imports: [
-    FormsModule,
-    ReactiveFormsModule,
     CommonModule,
-    SwiperModule,
+    SwiperModule
   ],
   declarations: [
     SwitchConsoleActionsComponent,

@@ -3,7 +3,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
 @Component({
   selector: 'send-js-event-console-action',
   templateUrl: './send-js-event.component.html',
-  styleUrls: ['./send-js-event.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SendJsEventComponent implements OnInit {
