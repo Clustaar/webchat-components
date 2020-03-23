@@ -1,3 +1,6 @@
+# 2.0.0
+- Angular 9
+
 # 1.1.0
 
 - Change Detection Strategy OnPush

@@ -30,7 +30,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @ViewChild('swiperCards', { static: false }) swiperCards: SwiperComponent;
+  @ViewChild('swiperCards') swiperCards: SwiperComponent;
 
   public isOver: boolean = false;
   public indexSelectedButton: any;
