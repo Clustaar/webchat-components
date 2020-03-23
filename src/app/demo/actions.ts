@@ -8,7 +8,7 @@ export const DISPLAYED_ACTIONS = [
     "alternatives": [
       "Hello, welcome to webchat components demo"
     ],
-    "text": "Hello, welcome to webchat components demo"
+    "text": "Hello, \nwelcome to webchat components demo"
   },
   {
     "type": "title_message",
