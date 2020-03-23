@@ -8,7 +8,7 @@ webchat-components is a framework to build webchats fast, originally built for t
 More documentation is available for building webchat on https://developers.clustaar.com 
 ![Clustaar Logo](https://clustaar.com/wp-content/uploads/2016/07/logo-black-1.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.
 
 ### Installation
 
@@ -108,11 +108,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Build to npm
 
 npm run packagr
-
-cd dist
-
-npm pack
-
-cd ..
 
 npm publish dist
