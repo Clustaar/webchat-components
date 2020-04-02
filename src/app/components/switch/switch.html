@@ -47,7 +47,10 @@
 
   <div *ngSwitchCase="'send_quick_replies_action'">
     <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
-                               (onLastActionRendered)="lastActionRendered()" [action]="action"
+                               (onLastActionRendered)="lastActionRendered()"
+                               [userBubbleColor]="userBubbleColor"
+                               [showSelectedButton]="showSelectedButton"
+                               [userTextColor]="userTextColor" [action]="action"
                                [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
                                [autoScroll]="autoScroll" [indexAction]="index">
     </quickreply-console-action>

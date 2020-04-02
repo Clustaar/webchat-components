@@ -10,7 +10,7 @@ import { DISPLAYED_ACTIONS } from './actions';
 export class DemoComponent {
   displayedActions = DISPLAYED_ACTIONS;
   primaryColor = '#660066';
-  textColor = 'rgb(161, 161, 243)';
+  textColor = '#ffffff';
   userBubbleColor = '#30B286';
   userTextColor = '#FFFFFF';
 }
