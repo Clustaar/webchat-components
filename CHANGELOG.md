@@ -1,22 +1,23 @@
 # 2.0.0
-- Angular 9
+- Migrate to Angular 9
+- Add showSelectedButton parameters
 
 # 1.1.0
 
 - Change Detection Strategy OnPush
 - Update zonejs and ngx-swiper
-- Suppression openLinksInParentWindow
+- Remove openLinksInParentWindow parameters
 - Gestion des markup html dans les messages de quickreplies
 - Change Wait dots animation to be less greedy
-- Suppression de la librairie flex-layout
+- Remove flex-layout library
 
 # 1.0.19
 
 - Migrate to Angular 8
 - Display Support Agent messages
 - Remove arrow on card when length > 1
-- Ajout des actions iAdvize
-- Ajout du paramètre 'openLinksInParentWindow'
+- Add iAdvize actions
+- Add 'openLinksInParentWindow' parameters
 
 # 1.0.18
 

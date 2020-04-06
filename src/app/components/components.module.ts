@@ -35,6 +35,7 @@ import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
     AgentReplyComponent,
     TitleComponent
   ],
+
   exports: [
     SwitchConsoleActionsComponent,
     ImageConsoleActionComponent,
