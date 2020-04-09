@@ -25,14 +25,14 @@
                   [style.background-color]="(indexHoverButton==indexButton || indexButton == indexSelectedButton)? primaryColor: null"
                   [style.color]="(indexHoverButton==indexButton || indexButton == indexSelectedButton)? textColor: null"
                   [ngClass]="{'selected-button': indexButton == indexSelectedButton}"
-                  *ngIf="button.action.type =='go_to_action'" (click)="sendReply(indexButton, button)"
+                  *ngIf="button.action.type =='go_to_action'" (click)="sendReply(indexButton, button, $event)"
                   class="button-card">{{button.title}}</button>
 
           <button (mouseenter)="indexHoverButton=indexButton" (mouseleave)="indexHoverButton=-1"
                   [style.border-color]="primaryColor" [disabled]="readOnly"
                   [style.background-color]="(indexHoverButton==indexButton)? primaryColor: null"
                   [style.color]="(indexHoverButton==indexButton)? textColor: null"
-                  *ngIf="button.action.type =='open_url_action'" (click)="openUrl(button)"
+                  *ngIf="button.action.type =='open_url_action'" (click)="openUrl(button, $event)"
                   class="button-card">{{button.title}}</button>
 
           <button (mouseenter)="indexHoverButton=indexButton" (mouseleave)="indexHoverButton=-1"
