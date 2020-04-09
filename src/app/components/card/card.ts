@@ -38,6 +38,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   SWIPER_CONFIG: SwiperConfigInterface = {
     direction: 'horizontal',
     slidesPerView: 1,
+    threshold: 10,
     loop: true
   };
 
@@ -93,22 +94,24 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     this.cdr.markForCheck();
   }
 
-  sendReply(indexSelectedButton, button) {
+  sendReply(indexSelectedButton, button, event) {
     if (!this.isOver) {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
       this.cdr.markForCheck();
     }
+    event.stopPropagation();
   };
 
-  openUrl(button) {
-      window.open(button.action.url, '_blank');
+  openUrl(button, event) {
+    window.open(button.action.url, '_blank');
+    event.stopPropagation();
   }
 
   openCardUrl(card) {
     if (card.url != '') {
-        window.open(card.url, '_blank');
+      window.open(card.url, '_blank');
     }
   }
 
