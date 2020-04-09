@@ -7,6 +7,10 @@
     border-radius: 12px;
     white-space: pre-wrap;
 
+    ul, ol {
+      white-space: normal;
+    }
+
     &.bot {
       margin: 16px 24px 0 8px;
 
