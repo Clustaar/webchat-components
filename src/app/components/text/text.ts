@@ -6,13 +6,15 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
 
 @Component({
   selector: 'text-console-action',
   templateUrl: './text.html',
   styleUrls: ['./text.scss'],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TextConsoleActionComponent implements OnInit, AfterViewInit {
