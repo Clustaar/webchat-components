@@ -107,6 +107,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Build to npm
 
-npm run packagr
-
-npm publish dist
+Run `ng build clustaar-webchat-components` to build the project. The build artifacts will be stored in the `dist/` directory.
+After building your library with `ng build clustaar-webchat-components`, go to the dist folder `cd dist/clustaar-webchat-components` and run `npm publish`.
