@@ -5,7 +5,7 @@ import { routing } from './app.routing';
 
 import { DemoComponent } from './demo/demo.component';
 import { AppComponent } from './app.component';
-import { WebchatComponentsModule } from './components/components.module';
+import { WebchatComponentsModule } from '../../projects/clustaar-webchat-components/src/lib/components.module';
 
 @NgModule({
   declarations: [
