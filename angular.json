@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "clustaar-webchat-components": {
+      "projectType": "library",
+      "root": "projects/clustaar-webchat-components",
+      "sourceRoot": "projects/clustaar-webchat-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/clustaar-webchat-components/tsconfig.lib.json",
+            "project": "projects/clustaar-webchat-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/clustaar-webchat-components/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/clustaar-webchat-components/src/test.ts",
+            "tsConfig": "projects/clustaar-webchat-components/tsconfig.spec.json",
+            "karmaConfig": "projects/clustaar-webchat-components/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/clustaar-webchat-components/tsconfig.lib.json",
+              "projects/clustaar-webchat-components/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "webchat-components"

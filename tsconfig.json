@@ -18,8 +18,16 @@
       "dom"
     ],
     "plugins": [
-      { "name": "tslint-language-service"}
-    ]
+      {
+        "name": "tslint-language-service"
+      }
+    ],
+    "paths": {
+      "clustaar-webchat-components": [
+        "dist/clustaar-webchat-components/clustaar-webchat-components",
+        "dist/clustaar-webchat-components"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "annotateForClosureCompiler": true
