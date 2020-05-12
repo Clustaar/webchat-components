@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ApplicationRef,
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -44,7 +44,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {
   }
 
   ngOnInit() {
@@ -75,7 +75,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   onSwiperIndexChange(event) {
     this.currentCardIndex = event;
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   /** Move to the next card using right arrow */
@@ -83,15 +83,15 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowRightDisabled()) return;
     this.swiperCards.directiveRef.nextSlide(300);
     this.swiperCards.directiveRef!!.update();
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   /** Move to the previous card using left arrow */
   previousCard() {
-    if (this.isArrowLeftDisabled()) return;
+    if (this.currentCardIndex <= 0) return;
     this.swiperCards.directiveRef.prevSlide(300);
     this.swiperCards.directiveRef!!.update();
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   sendReply(indexSelectedButton, button, event) {
@@ -99,7 +99,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
-      this.cdr.markForCheck();
+      this.detectChanges();
     }
     event.stopPropagation();
   };
@@ -119,7 +119,19 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
     return this.action.cards.length === (this.currentCardIndex + 1);
   }
 
-  isArrowLeftDisabled() {
-    return this.currentCardIndex <= 0;
+  onMouseEnter(i) {
+    this.indexHoverButton = i;
+    this.detectChanges();
   }
+
+  onMouseLeave() {
+    this.indexHoverButton = -1;
+    this.detectChanges();
+  }
+
+  detectChanges() {
+    this.cdr.markForCheck();
+    this.app.tick();
+  }
+
 }
