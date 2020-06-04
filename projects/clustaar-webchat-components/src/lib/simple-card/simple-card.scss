@@ -69,13 +69,11 @@
     padding-bottom: 10px;
 
     .button-card {
-      height: 32px;
+      height: 100%;
       min-height: 32px;
       margin-top: 10px;
       margin-right: 15px;
       font-size: 14px;
-      font-weight: 500;
-      min-width: 100px;
       max-width: calc(50% - 15px);
       cursor: pointer;
       border-radius: 100px;
@@ -84,7 +82,7 @@
       color: #2C3F59;
       background: white;
       outline: none;
-      padding: 5px;
+      padding: 5px 10px;
 
       &:disabled {
         background: unset;
@@ -94,12 +92,10 @@
       }
 
       &:hover {
-        background: linear-gradient(137.19deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.21) 100%);
         color: white;
       }
 
       &.selected-button {
-        background: linear-gradient(137.19deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.21) 100%);
         color: white;
         font-weight: 500;
         border: 1px solid transparent;
