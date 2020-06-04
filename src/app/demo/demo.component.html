@@ -3,6 +3,7 @@ Demo:
   <div *ngFor="let displayedAction of displayedActions; let i = index" id="chat-console-messages">
     <switch-console-actions [actions]="displayedActions" [action]="displayedAction" [index]="i"
                             [inverted]="false"
+                            [showSelectedButton]="false"
                             [primaryColor]="primaryColor"
                             [textColor]="textColor"
                             [userTextColor]="userTextColor"
