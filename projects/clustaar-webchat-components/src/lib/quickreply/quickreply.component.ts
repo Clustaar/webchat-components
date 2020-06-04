@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ApplicationRef,
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
   EventEmitter,
@@ -33,13 +33,14 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   indexSelectedButton: any;
   indexHoverButton = -1;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {
+  }
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout( () => {
+      setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
 
         if (element != null) {
@@ -67,8 +68,23 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
-      this.cdr.markForCheck();
+      this.detectChanges();
     }
+  }
+
+  onMouseEnter(i) {
+    this.indexHoverButton = i;
+    this.detectChanges();
+  }
+
+  onMouseLeave() {
+    this.indexHoverButton = -1;
+    this.detectChanges();
+  }
+
+  detectChanges() {
+    this.cdr.markForCheck();
+    this.app.tick();
   }
 
 }

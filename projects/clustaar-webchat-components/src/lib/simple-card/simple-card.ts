@@ -1,5 +1,5 @@
 import {
-  AfterViewInit,
+  AfterViewInit, ApplicationRef,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -44,7 +44,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor(private cdr: ChangeDetectorRef) {
+  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {
   }
 
   ngOnInit() {
@@ -52,7 +52,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     this.onLoadNextAction.emit(true);
 
     if (this.autoScroll) {
-      setTimeout( () => {
+      setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
         if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
@@ -85,7 +85,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowRightDisabled()) return;
     this.swiperCards.directiveRef.nextSlide(300);
     this.swiperCards.directiveRef!!.update();
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   /** Move to the previous card using left arrow */
@@ -93,7 +93,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.isArrowLeftDisabled()) return;
     this.swiperCards.directiveRef.prevSlide(300);
     this.swiperCards.directiveRef!!.update();
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   sendReply(indexSelectedButton, button) {
@@ -101,7 +101,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
       this.onSendReply.emit(button.action);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
-      this.cdr.markForCheck();
+      this.detectChanges();
     }
   };
 
@@ -121,5 +121,20 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
   isArrowLeftDisabled() {
     return this.currentCardIndex <= 0;
+  }
+
+  onMouseEnter(i) {
+    this.indexHoverButton = i;
+    this.detectChanges();
+  }
+
+  onMouseLeave() {
+    this.indexHoverButton = -1;
+    this.detectChanges();
+  }
+
+  detectChanges() {
+    this.cdr.markForCheck();
+    this.app.tick();
   }
 }

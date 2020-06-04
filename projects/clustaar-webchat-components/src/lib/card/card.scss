@@ -19,7 +19,7 @@
     cursor: pointer;
     background: transparent;
     user-select: none;
-    width: 34px;
+    width: 32px;
 
     svg {
       position: relative;
@@ -52,7 +52,7 @@
   .arrow-right {
     position: absolute;
     top: 0;
-    right: 1px;
+    right: 0px;
     bottom: 0;
   }
 
@@ -68,7 +68,7 @@
     padding-bottom: 10px;
 
     .button-card {
-      height: 100%;
+      height: 32px;
       min-height: 32px;
       margin-top: 10px;
       margin-right: 15px;

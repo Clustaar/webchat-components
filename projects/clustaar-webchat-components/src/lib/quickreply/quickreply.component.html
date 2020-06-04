@@ -7,7 +7,7 @@
     <span *ngIf="inverted" [style.border-left-color]="primaryColor" class="bubble-arrow-right"></span>
   </div>
   <div *ngIf="!readOnly; else readyOnlyButton" [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
-    <button (mouseenter)="indexHoverButton=i" (mouseleave)="indexHoverButton=-1" [style.border-color]="primaryColor"
+    <button (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [style.border-color]="primaryColor"
             [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
             [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
             class="quickreply-button" [disabled]="indexSelectedButton != null && i !== indexSelectedButton"
