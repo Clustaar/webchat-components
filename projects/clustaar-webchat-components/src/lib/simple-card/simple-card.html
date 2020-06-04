@@ -22,7 +22,7 @@
         </div>
 
         <div style="position:relative;text-align:center;" *ngFor="let button of card.buttons;let indexButton = index">
-          <button (mouseenter)="indexHoverButton=indexButton" (mouseleave)="indexHoverButton=-1"
+          <button (mouseenter)="onMouseEnter(indexButton)" (mouseleave)="onMouseLeave()"
                   [style.border-color]="primaryColor" [disabled]="readOnly"
                   [style.background-color]="(indexHoverButton==indexButton || indexButton == indexSelectedButton)? primaryColor: null"
                   [style.color]="(indexHoverButton==indexButton || indexButton == indexSelectedButton)? textColor: null"
@@ -30,14 +30,14 @@
                   *ngIf="button.action.type =='go_to_action'" (click)="sendReply(indexButton, button)"
                   class="button-card">{{button.title}}</button>
 
-          <button (mouseenter)="indexHoverButton=indexButton" (mouseleave)="indexHoverButton=-1"
+          <button (mouseenter)="onMouseEnter(indexButton)" (mouseleave)="onMouseLeave()"
                   [style.border-color]="primaryColor" [disabled]="readOnly"
                   [style.background-color]="(indexHoverButton==indexButton)? primaryColor: null"
                   [style.color]="(indexHoverButton==indexButton)? textColor: null"
                   *ngIf="button.action.type =='open_url_action'" (click)="openUrl(button)"
                   class="button-card">{{button.title}}</button>
 
-          <button (mouseenter)="indexHoverButton=indexButton" (mouseleave)="indexHoverButton=-1"
+          <button (mouseenter)="onMouseEnter(indexButton)" (mouseleave)="onMouseLeave()"
                   [style.border-color]="primaryColor" [disabled]="readOnly"
                   [style.background-color]="(indexHoverButton==indexButton)? primaryColor: null"
                   [style.color]="(indexHoverButton==indexButton)? textColor: null"
