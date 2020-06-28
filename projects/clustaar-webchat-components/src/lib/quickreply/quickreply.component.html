@@ -6,7 +6,7 @@
     </span>
     <span *ngIf="inverted" [style.border-left-color]="primaryColor" class="bubble-arrow-right"></span>
   </div>
-  <div *ngIf="!readOnly; else readyOnlyButton" [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
+  <div *ngIf="!readOnly && ( !isOver || showSelectedButton)" [ngClass]="{'is-over': isOver}" class="quickreply-buttons">
     <button (mouseenter)="onMouseEnter(i)" (mouseleave)="onMouseLeave()" [style.border-color]="primaryColor"
             [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
             [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
@@ -17,17 +17,27 @@
     </button>
   </div>
 
-  <ng-template #readyOnlyButton>
-    <div class="quickreply-buttons">
-      <button class="quickreply-button" disabled
-              [style.border-color]="primaryColor"
-              [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
-              [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
-              [ngClass]="{'selected-button': i == indexSelectedButton, 'bot': !inverted, 'user' : inverted}"
-              *ngFor="let button of action.buttons; let i = index;">
-        {{button.title}}
-      </button>
-    </div>
-  </ng-template>
+
+  <div style="clear:both;" *ngIf="isOver && !showSelectedButton">
+    <user-message-console-action [action]="{message: action.buttons[indexSelectedButton].title}"
+                                 [userTextColor]="userTextColor"
+                                 [userBubbleColor]="userBubbleColor"
+                                 [inverted]="inverted"
+                                 [autoScroll]="autoScroll">
+    </user-message-console-action>
+  </div>
+
+
+  <div *ngIf="readOnly && !isOver" class="quickreply-buttons">
+    <button class="quickreply-button" disabled
+            [style.border-color]="primaryColor"
+            [style.background-color]="(indexHoverButton==i || i == indexSelectedButton)? primaryColor: null"
+            [style.color]="(indexHoverButton==i || i == indexSelectedButton)? textColor: null"
+            [ngClass]="{'selected-button': i == indexSelectedButton, 'bot': !inverted, 'user' : inverted}"
+            *ngFor="let button of action.buttons; let i = index;">
+      {{button.title}}
+    </button>
+  </div>
+
 
 </div>
