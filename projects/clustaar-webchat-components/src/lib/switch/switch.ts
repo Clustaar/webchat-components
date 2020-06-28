@@ -11,12 +11,13 @@ export class SwitchConsoleActionsComponent {
   @Input() actions: any[] = [];
   @Input() action: any;
   @Input() index: number;
-  @Input() inverted: boolean = false;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
-  @Input() userBubbleColor: string = '#C5DBEA';
-  @Input() userTextColor: string = '#2C3F59';
+  @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
+  @Input() userBubbleColor = '#C5DBEA';
+  @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
+  @Input() showSelectedButton = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();

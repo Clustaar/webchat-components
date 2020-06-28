@@ -25,6 +25,9 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() readOnly = false;
   @Input() autoScroll? = true;
   @Input() indexAction: number;
+  @Input() showSelectedButton = true;
+  @Input() userBubbleColor = '#C5DBEA';
+  @Input() userTextColor = '#2C3F59';
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
