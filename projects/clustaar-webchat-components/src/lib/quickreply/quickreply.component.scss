@@ -10,15 +10,14 @@
     padding-top: 10px;
 
     .quickreply-button {
-      height: 32px;
+      height: 100%;
       min-height: 32px;
       position: relative;
-      padding: 5px 12px;
+      padding: 5px 10px;
       border-radius: 18px;
       border: 1px solid currentColor;
       font-family: inherit;
       font-size: 14px;
-      font-weight: 500;
       cursor: pointer;
       line-height: 20px;
       background-color: #fff;
@@ -31,7 +30,6 @@
       text-align: left;
 
       &:hover {
-        background: linear-gradient(137.19deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.21) 100%);
         color: white;
       }
 
