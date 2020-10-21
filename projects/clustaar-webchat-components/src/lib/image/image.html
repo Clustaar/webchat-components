@@ -1,4 +1,4 @@
 <div class="console-image-type" [ngClass]="{'bot': !inverted, 'user': inverted}"
      (click)="onImageClicked.emit(action.imageURL)">
-  <img [src]="action.imageURL">
+  <img alt="{{action.alt}}" [src]="action.imageURL">
 </div>
