@@ -1,13 +1,13 @@
 <div style="margin-top:20px;" class="console-card-type">
   <!-- Left navigation card -->
-  <div class="arrow-left" (click)="previousCard()">
+  <button aria-label="previous card" class="arrow-left" (click)="previousCard()">
     <svg *ngIf="action.cards.length > 1" [style.background-color]="primaryColor" [style.fill]="textColor"
          [ngClass]="{'md-inactive' : currentCardIndex <= 0}" xmlns="http://www.w3.org/2000/svg" width="36" height="36"
          viewBox="0 0 36 36">
       <path d="M23.12 11.12L21 9l-9 9 9 9 2.12-2.12L16.24 18z"/>
       <path d="M0 0h36v36H0z" fill="none"/>
     </svg>
-  </div>
+  </button>
 
   <div class="cards-container">
     <swiper id="swiper-cards-console" (indexChange)="onSwiperIndexChange($event)" [config]="SWIPER_CONFIG" #swiperCards>
@@ -49,10 +49,10 @@
   </div>
 
   <!-- Right navigation card -->
-  <div class="arrow-right" (click)="nextCard()">
+  <button aria-label="next card" class="arrow-right" (click)="nextCard()">
     <svg *ngIf="action.cards.length > 1" [style.background-color]="primaryColor" [style.fill]="textColor" [ngClass]="{'md-inactive' : isArrowRightDisabled()}" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
       <path d="M15 9l-2.12 2.12L19.76 18l-6.88 6.88L15 27l9-9z"/>
       <path d="M0 0h36v36H0z" fill="none"/>
     </svg>
-  </div>
+  </button>
 </div>
