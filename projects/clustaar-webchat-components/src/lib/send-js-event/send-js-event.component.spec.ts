@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SendJsEventComponent } from './send-js-event.component';
 
@@ -6,7 +6,7 @@ describe('SendJsEventComponent', () => {
   let component: SendJsEventComponent;
   let fixture: ComponentFixture<SendJsEventComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SendJsEventComponent ]
     })
