@@ -16,6 +16,9 @@
     "no-eval": true,
     "no-arg": true,
     "no-internal-module": true,
+    "deprecation": {
+      "severity": "warning"
+    },
     "no-bitwise": true,
     "no-shadowed-variable": true,
     "no-unused-expression": true,
@@ -63,7 +66,6 @@
         }
       }
     ],
-    "no-use-before-declare": true,
     "array-bracket-spacing": [true, "never"],
     "block-spacing": [
       true,
