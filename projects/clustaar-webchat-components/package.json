@@ -1,12 +1,12 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "2.0.0-beta.28",
+  "version": "3.0.0-beta.1",
   "dependencies": {
-    "ngx-swiper-wrapper": "8.0.2",
+    "ngx-swiper-wrapper": "10.0.0",
     "tslib": "^2.0.0"
   },
   "peerDependencies": {
-    "@angular/common": "9.1.3",
-    "@angular/core": "9.1.3"
+    "@angular/common": "11.0.3",
+    "@angular/core": "11.0.3"
   }
 }
