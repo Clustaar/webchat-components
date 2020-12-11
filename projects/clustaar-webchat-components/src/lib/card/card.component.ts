@@ -95,7 +95,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   sendReply(indexSelectedButton, button, event) {
     if (!this.isOver) {
-      this.onSendReply.emit(button.action);
+      this.onSendReply.emit(button);
       this.isOver = true;
       this.indexSelectedButton = indexSelectedButton;
       this.detectChanges();
