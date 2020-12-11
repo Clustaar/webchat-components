@@ -14,12 +14,11 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'card-console-action',
-  templateUrl: './card.html',
-  styleUrls: ['./card.scss'],
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor = '#30B286';
