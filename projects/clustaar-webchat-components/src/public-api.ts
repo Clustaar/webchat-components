@@ -8,7 +8,7 @@ export { WaitConsoleActionComponent } from './lib/wait/wait.component';
 export { TextConsoleActionComponent } from './lib/text/text';
 export { UserMessageConsoleActionComponent } from './lib/user-message/user-message';
 export { QuickreplyConsoleActionComponent } from './lib/quickreply/quickreply.component';
-export { CardConsoleActionComponent } from './lib/card/card';
+export { CardConsoleActionComponent } from './lib/card/card.component';
 export { LocationConsoleActionComponent } from './lib/location/location';
 export { SendJsEventComponent } from './lib/send-js-event/send-js-event.component';
 export { AgentReplyComponent } from './lib/agent-reply/agent-reply.component';
