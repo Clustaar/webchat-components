@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-beta.4",
   "dependencies": {
     "ngx-swiper-wrapper": "10.0.0",
     "tslib": "^2.0.0"

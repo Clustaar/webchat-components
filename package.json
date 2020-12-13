@@ -42,7 +42,7 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "ng-packagr": "^11.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "4.12.0",
     "swiper": "^6.3.5",
     "ts-node": "~7.0.0",
     "tsickle": "^0.38.1",
