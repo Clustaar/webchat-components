@@ -52,7 +52,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "send_quick_replies_action",
-    "message": "What do you want to test ? ( juicy quick replies version ) with <a href='google.fr'>link</a>",
+    "message": "What do you want to test ? \n( juicy quick replies version ) with <a href='google.fr'>link</a>",
     "buttons": [
       {
         "title": "Lorem ipsum dolor sit amet, consectetur cras amet.",
