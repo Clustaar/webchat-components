@@ -58,6 +58,7 @@
 
   <div *ngSwitchCase="'send_cards_action'">
     <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
+                         (onLinkClicked)="onLinkClicked.emit($event)"
                          (onLastActionRendered)="lastActionRendered()" [action]="action"
                          [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
     </card-console-action>
