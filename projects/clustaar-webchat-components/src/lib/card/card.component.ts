@@ -28,6 +28,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLinkClicked: EventEmitter<{ url: string, label: string }> = new EventEmitter<{ url: string, label: string }>();
   @ViewChild('swiperCards') swiperCards: SwiperComponent;
 
   public isOver = false;
@@ -105,12 +106,14 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   openUrl(button, event) {
     window.open(button.action.url, '_blank');
+    this.onLinkClicked.emit({ url: button.action.url, label: button.title });
     event.stopPropagation();
   }
 
   openCardUrl(card) {
     if (card.url != '') {
       window.open(card.url, '_blank');
+      this.onLinkClicked.emit({ url: card.url, label: card.title });
     }
   }
 
