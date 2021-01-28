@@ -1,6 +1,7 @@
 <div class="switch-actions-component-console" *ngIf="action" [ngSwitch]="action.type">
   <div *ngSwitchCase="'send_text_action'">
     <text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                         (onLinkClicked)="onLinkClicked.emit($event)"
                          [action]="action" [primaryColor]="primaryColor"
                          [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
     </text-console-action>

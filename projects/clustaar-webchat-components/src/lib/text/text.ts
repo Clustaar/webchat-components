@@ -2,11 +2,11 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  Component,
+  Component, ElementRef,
   EventEmitter,
   Input,
   OnInit,
-  Output,
+  Output, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -26,6 +26,9 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() autoScroll? = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLinkClicked: EventEmitter<{ url: string, label: string }> = new EventEmitter<{ url: string, label: string }>();
+
+  @ViewChild('textElement') textElement: ElementRef;
 
   constructor(private cdr: ChangeDetectorRef) {
   }
@@ -46,9 +49,16 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+
+    this.textElement.nativeElement.onclick = (event) => {
+      if (event.target.href && event.target.nodeName === 'A') {
+        this.onLinkClicked.emit({ url: event.target.href, label: event.target.innerText });
+      }
+    };
+
     Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a) {
       if (a.getAttribute('target') == null) {
-          a.setAttribute('target', '_blank');
+        a.setAttribute('target', '_blank');
       }
     });
     this.cdr.markForCheck();
@@ -58,4 +68,5 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
       this.cdr.markForCheck();
     }, 0);
   }
+
 }
