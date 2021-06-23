@@ -23,6 +23,7 @@ export class SwitchConsoleActionsComponent {
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageClicked = new EventEmitter<string>();
+  @Output() onLinkClicked = new EventEmitter<{ url: string, label: string }>();
 
   constructor() {
   }
