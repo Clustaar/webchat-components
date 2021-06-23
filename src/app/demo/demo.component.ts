@@ -13,4 +13,8 @@ export class DemoComponent {
   textColor = 'rgb(161, 161, 243)';
   userBubbleColor = '#30B286';
   userTextColor = '#FFFFFF';
+
+  onLinkClicked(url: string) {
+    console.log(url);
+  }
 }
