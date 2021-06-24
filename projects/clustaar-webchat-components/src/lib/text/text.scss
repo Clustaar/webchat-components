@@ -7,25 +7,26 @@
     border-radius: 12px;
     white-space: pre-wrap;
 
-    ul, ol {
+    ul,
+    ol {
       white-space: normal;
     }
 
     &.bot {
       margin: 16px 24px 0 8px;
-
-      color: #FFFFFF;
+      word-break: break-word;
+      color: #ffffff;
       border-bottom-left-radius: 0;
-      background: #30B286;
+      background: #30b286;
       float: left;
     }
 
     &.user {
       margin: 16px 8px 0 24px;
-      word-break: break-all;
-      color: #2C3F59;
+      word-break: break-word;
+      color: #2c3f59;
       border-bottom-right-radius: 0;
-      background: #C5DBEA;
+      background: #c5dbea;
       float: right;
     }
   }
