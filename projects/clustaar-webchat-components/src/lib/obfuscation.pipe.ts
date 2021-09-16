@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ObfuscationIcons } from './obfuscation-icons';
 
 @Pipe({
   name: 'obfuscation'
@@ -11,26 +12,26 @@ export class ObfuscationPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {
   }
 
-  transform(html: string) {
+  transform(html: string, textColor: string) {
     html = html.replace(this.REGEX, (value) => {
       const rules = value.replace(/\*\*/g, '').split('basic_obfuscation_of_');
       if (rules.length > 1) {
         switch (rules[1]) {
           case 'email_address':
-            return this.buildObfuscatedSpan('Email', 'icon-other-call.svg')
+            return this.buildObfuscatedIconSpan('Email', ObfuscationIcons.EMAIL, textColor)
           case 'phone_number':
-            return this.buildObfuscatedSpan('Phone number', 'icon-other-phone-number.svg')
+            return this.buildObfuscatedIconSpan('Phone number', ObfuscationIcons.PHONE, textColor)
           case 'credit_card_number':
-            return this.buildObfuscatedSpan('Credit Card', 'icon-other-cb-card.svg')
+            return this.buildObfuscatedIconSpan('Credit Card', ObfuscationIcons.CB_CARD, textColor)
           case 'social_security_number':
-            return this.buildObfuscatedSpan('FR SSN', 'icon-other-social-card.svg')
+            return this.buildObfuscatedIconSpan('FR SSN', ObfuscationIcons.SOCIAL, textColor)
           default:
             return value;
         }
       }
       const customRules = value.replace(/\*\*/g, '').split('custom_obfuscation_of_');
       if (customRules.length > 1) {
-        return this.buildObfuscatedSpan(customRules[1], 'icon-other-rule.svg')
+        return this.buildObfuscatedIconSpan(customRules[1], ObfuscationIcons.CUSTOM, textColor)
       }
       return value;
     })
@@ -38,7 +39,7 @@ export class ObfuscationPipe implements PipeTransform {
     return this.sanitizer.bypassSecurityTrustHtml(html)
   }
 
-  private buildObfuscatedSpan(label: string, icon: string) {
-    return `<span style="font-style: italic; font-weight: bold;"><img style="height: 15px;padding-left: 2px;padding-right: 2px;" src="/assets/icon/${icon}">${label}</span>`;
+  private buildObfuscatedIconSpan(label: string, iconSvg: string, textColor: string) {
+    return `<span style="font-style: italic; font-weight: bold;">${iconSvg.replace("#FFFFFF", textColor)}${label}</span>`;
   }
 }
