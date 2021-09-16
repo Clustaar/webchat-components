@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>87A5C8E2-1738-4B98-BD9A-1973F100B00C</title>
+    <defs>
+        <filter x="-59.9%" y="-59.9%" width="219.7%" height="219.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02.-BIS-Data-Privacy" transform="translate(-721.000000, -617.000000)" fill="#FFFFFF">
+            <g id="Group-3" transform="translate(104.000000, 148.000000)">
+                <g id="Rule-5" transform="translate(32.000000, 453.000000)">
+                    <g id="Icon-/-Other-/-Rule" filter="url(#filter-1)" transform="translate(585.000000, 16.000000)">
+                        <path d="M0.917087553,9.73857625 L2.58375422,9.73857625 L2.58375422,6.40524292 L4.25042089,6.40524292 L4.25042089,8.07190958 L5.91708755,8.07190958 L5.91708755,6.40524292 L7.58375422,6.40524292 L7.58375422,9.73857625 L9.25042089,9.73857625 L9.25042089,6.40524292 L10.9170876,6.40524292 L10.9170876,8.07190958 L12.5837542,8.07190958 L12.5837542,6.40524292 L14.2504209,6.40524292 L14.2504209,9.73857625 L15.9170876,9.73857625 L15.9170876,6.40524292 L16.7504209,6.40524292 L16.7504209,8.07190958 L18.4170876,8.07190958 L18.4170876,6.40524292 L19.7385763,6.40524292 L19.7385763,13.0719096 L-0.261423749,13.0719096 L-0.261423749,6.40524292 L0.917087553,6.40524292 L0.917087553,9.73857625 Z" id="Combined-Shape" transform="translate(9.738576, 9.738576) rotate(45.000000) translate(-9.738576, -9.738576) "></path>
+                        <path d="M11.8231458,4.2044075 L15.828618,8.242539 L4.75466551,19.4067849 L0.352973836,20.0248511 C0.321773231,20.0292322 0.290077244,20.0286709 0.259051301,20.023188 C0.0958939912,19.9943548 -0.0129972325,19.8387158 0.015835946,19.6755585 L0.015835946,19.6755585 L0.772754943,15.3924071 L11.8231458,4.2044075 Z M16.7003972,0 L20.0461445,3.37302749 L20.0461445,4.0381315 L17.5014916,6.60353269 L13.4960195,2.56540119 L16.0406724,0 L16.7003972,0 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
