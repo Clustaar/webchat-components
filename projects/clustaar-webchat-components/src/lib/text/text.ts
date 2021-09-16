@@ -24,9 +24,9 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onLinkClicked: EventEmitter<{ url: string, label: string }> = new EventEmitter<{ url: string, label: string }>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered = new EventEmitter<boolean>();
+  @Output() onLinkClicked = new EventEmitter<{ url: string, label: string }>();
 
   @ViewChild('textElement') textElement: ElementRef;
 

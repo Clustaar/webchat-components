@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>E86B8645-90A6-45F4-A2F3-5FFBEF8F078A</title>
+    <defs>
+        <filter x="-60.0%" y="-60.0%" width="220.0%" height="220.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02.-BIS-Data-Privacy" transform="translate(-721.000000, -545.000000)" fill="#FFFFFF">
+            <g id="Group-3" transform="translate(104.000000, 148.000000)">
+                <g id="Rule-4" transform="translate(32.000000, 381.000000)">
+                    <g id="Icon-/-Other-/-Phone-Number" filter="url(#filter-1)" transform="translate(585.000000, 16.000000)">
+                        <path d="M14.6721429,12.5214286 C13.5675251,13.6263197 12.9082394,14.2777483 12.6942857,14.4757143 C12.1062748,14.3336724 11.5370952,14.1226875 10.9985714,13.8471429 C8.88662915,12.8189264 7.18045102,11.1122453 6.15285714,9 C5.87731248,8.4614762 5.66632764,7.89229663 5.52428571,7.30428571 C5.72225173,7.09033205 6.3736803,6.43104634 7.47857143,5.32642857 L4.07142857,0 C1.35714286,2.74857143 0,4.30095238 0,4.65714286 C0,4.70071429 0.0714285714,8.99285714 5.49214286,14.5078571 C11.0071429,19.9285714 15.2992857,20 15.3428571,20 C15.6990476,20 17.2514286,18.6428571 20,15.9285714 L14.6721429,12.5214286 Z" id="Combined-Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
