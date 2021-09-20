@@ -7,7 +7,7 @@ import { ObfuscationIcons } from './obfuscation-icons';
 })
 export class ObfuscationPipe implements PipeTransform {
 
-  REGEX = /[(\*\*)](.*)[(/\*\*)]/;
+  REGEX = /(\*\*)((basic_obfuscation_of|custom_obfuscation_of).*?)(\*\*)/g;
 
   constructor(private sanitizer: DomSanitizer) {
   }
