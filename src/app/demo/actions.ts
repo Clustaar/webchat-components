@@ -5,7 +5,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     "type": "text",
-    "message": "This is my **basic_obfuscation_of_email_address**"
+    "message": "phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**"
   },
   {
     "type": "send_text_action",
