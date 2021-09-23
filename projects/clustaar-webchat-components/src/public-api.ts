@@ -14,4 +14,6 @@ export { SendJsEventComponent } from './lib/send-js-event/send-js-event.componen
 export { AgentReplyComponent } from './lib/agent-reply/agent-reply.component';
 export { TitleComponent } from './lib/title/title.component';
 export { SimpleCardConsoleActionComponent } from './lib/simple-card/simple-card';
+export { ObfuscationPipe } from './lib/obfuscation/obfuscation.pipe';
 export * from './lib/components.module';
+export * from './lib/obfuscation/obfuscation.module';
