@@ -15,12 +15,13 @@ import { SendJsEventComponent } from './send-js-event/send-js-event.component';
 import { AgentReplyComponent } from './agent-reply/agent-reply.component';
 import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
-import { ObfuscationPipe } from './obfuscation.pipe';
+import { ObfuscationModule } from './obfuscation/obfuscation.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    SwiperModule
+    SwiperModule,
+    ObfuscationModule
   ],
   declarations: [
     SwitchConsoleActionsComponent,
@@ -34,8 +35,7 @@ import { ObfuscationPipe } from './obfuscation.pipe';
     LocationConsoleActionComponent,
     SendJsEventComponent,
     AgentReplyComponent,
-    TitleComponent,
-    ObfuscationPipe
+    TitleComponent
   ],
   exports: [
     SwitchConsoleActionsComponent,
