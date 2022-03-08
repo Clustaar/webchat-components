@@ -5,6 +5,10 @@ export const DISPLAYED_ACTIONS = [
       "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
   },
   {
+    "type": "text",
+    "message": "phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**"
+  },
+  {
     type: 'send_text_action',
     alternatives: ['Hello, welcome to webchat components demo'],
     text: 'Hello, \nwelcome to webchat components demo'
