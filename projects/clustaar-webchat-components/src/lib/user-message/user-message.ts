@@ -6,8 +6,10 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  SecurityContext
 } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'user-message-console-action',
@@ -15,24 +17,30 @@ import {
   styleUrls: ['./user-message.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
-export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit {
+export class UserMessageConsoleActionComponent
+  implements OnInit, AfterViewInit
+{
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
-  message: string;
+  message: SafeHtml;
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    protected sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
-    this.message = this.action.message;
-
+    this.message = this.sanitizer.sanitize(
+      SecurityContext.HTML,
+      this.action.message
+    );
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
