@@ -1,0 +1,10 @@
+.console-text-type {
+    display: flex;
+
+    .user-message {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 50px;
+    }
+}

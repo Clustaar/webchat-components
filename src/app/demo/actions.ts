@@ -369,5 +369,36 @@ export const DISPLAYED_ACTIONS = [
         type: 'quick_reply'
       }
     ]
+  },
+  {
+    type: 'list_action',
+    list: {
+      message: 'List title',
+      sections: [
+        {
+          name: '',
+          choices: [
+            { name: 'zajeihgu' },
+            { name: 'pskdfonsdf' },
+            { name: 'pzienf' },
+            { name: 'xcovubze' },
+            { name: 'xvcxp' },
+            { name: 'uytvze' },
+            { name: 'xcva' },
+            { name: 'mpvcxu' },
+            { name: 'zeutac' },
+            { name: 'mpxcvloze' },
+            { name: 'uhygvz' },
+            { name: 'wcvuyt' },
+            { name: 'aepij' },
+            { name: 'aoubvdsc' },
+            { name: 'cxmvpokjiz' },
+            { name: 'zevnuscv' },
+            { name: 'xcovzefxcv' },
+            { name: 'svdijbh' },
+          ]
+        }
+      ]
+    }
   }
 ];
