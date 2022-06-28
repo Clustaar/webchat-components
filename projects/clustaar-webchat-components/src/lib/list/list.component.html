@@ -1,0 +1,15 @@
+<div class="console-text-type" [style.flex-direction]="inverted ? 'row' : 'row-reverse'">
+    <div class="bubble" [ngClass]="{'bot' : inverted, 'user': !inverted}" [style.background-color]="userBubbleColor">
+        <span *ngIf="inverted" [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
+        <div [style.color]="userTextColor" class="user-message">
+            {{ list.message }}
+            <input type="text" (keyup)="filter($event.target.value)" list="SearchResults"/>
+            <ng-container *ngIf="filteredSections.length">
+                <datalist id="SearchResults" *ngFor="let section of filteredSections">
+                   <option *ngFor="let choice of section.choices" [value]="choice">{{ choice.name }}</option>
+                </datalist>
+            </ng-container>
+        </div>
+        <span *ngIf="!inverted" [style.border-left-color]="userBubbleColor" class="bubble-arrow-right"></span>
+    </div>
+</div>

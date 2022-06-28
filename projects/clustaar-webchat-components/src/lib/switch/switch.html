@@ -85,4 +85,7 @@
     </send-js-event-console-action>
   </div>
 
+  <div *ngSwitchCase="'list_action'">
+    <list-action [list]="action.list"></list-action>
+  </div>
 </div>
