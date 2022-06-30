@@ -6,6 +6,7 @@ import { routing } from './app.routing';
 import { DemoComponent } from './demo/demo.component';
 import { AppComponent } from './app.component';
 import { WebchatComponentsModule } from '../../projects/clustaar-webchat-components/src/lib/components.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { WebchatComponentsModule } from '../../projects/clustaar-webchat-compone
     BrowserModule,
     CommonModule,
     WebchatComponentsModule,
-    routing
+    routing,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
