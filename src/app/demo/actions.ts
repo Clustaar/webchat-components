@@ -373,29 +373,70 @@ export const DISPLAYED_ACTIONS = [
   {
     type: 'list_action',
     list: {
-      message: 'List title',
+      type: 'send_choices_list_action',
+      message: 'List without sections',
       sections: [
         {
-          name: '',
+          type: 'section',
+          title: '',
           choices: [
-            { name: 'zajeihgu' },
-            { name: 'pskdfonsdf' },
-            { name: 'pzienf' },
-            { name: 'xcovubze' },
-            { name: 'xvcxp' },
-            { name: 'uytvze' },
-            { name: 'xcva' },
-            { name: 'mpvcxu' },
-            { name: 'zeutac' },
-            { name: 'mpxcvloze' },
-            { name: 'uhygvz' },
-            { name: 'wcvuyt' },
-            { name: 'aepij' },
-            { name: 'aoubvdsc' },
-            { name: 'cxmvpokjiz' },
-            { name: 'zevnuscv' },
-            { name: 'xcovzefxcv' },
-            { name: 'svdijbh' },
+            { type: 'choice', title: 'zajeihgu' },
+            { type: 'choice', title: 'pskdfonsdf' },
+            { type: 'choice', title: 'pzienf' },
+            { type: 'choice', title: 'xcovubze' },
+            { type: 'choice', title: 'xvcxp' },
+            { type: 'choice', title: 'uytvze' },
+            { type: 'choice', title: 'xcva' },
+            { type: 'choice', title: 'mpvcxu' },
+            { type: 'choice', title: 'zeutac' },
+            { type: 'choice', title: 'mpxcvloze' },
+            { type: 'choice', title: 'uhygvz' },
+            { type: 'choice', title: 'wcvuyt' },
+            { type: 'choice', title: 'aepij' },
+            { type: 'choice', title: 'aoubvdsc' },
+            { type: 'choice', title: 'cxmvpokjiz' },
+            { type: 'choice', title: 'zevnuscv' },
+            { type: 'choice', title: 'xcovzefxcv' },
+            { type: 'choice', title: 'svdijbh' },
+          ]
+        }
+      ]
+    }
+  },
+  {
+    type: 'list_action',
+    list: {
+      type: 'send_choices_list_action',
+      message: 'List with sections',
+      sections: [
+        {
+          type: 'section',
+          title: 'Section 1',
+          choices: [
+            { type: 'choice', title: 'zajeihgu' },
+            { type: 'choice', title: 'pskdfonsdf' },
+            { type: 'choice', title: 'pzienf' },
+            { type: 'choice', title: 'xcovubze' },
+            { type: 'choice', title: 'xvcxp' },
+            { type: 'choice', title: 'uytvze' },
+            { type: 'choice', title: 'xcva' },
+            { type: 'choice', title: 'mpvcxu' },
+          ]
+        },
+        {
+          type: 'section',
+          title: 'Section 2',
+          choices: [
+            { type: 'choice', title: 'zeutac' },
+            { type: 'choice', title: 'mpxcvloze' },
+            { type: 'choice', title: 'uhygvz' },
+            { type: 'choice', title: 'wcvuyt' },
+            { type: 'choice', title: 'aepij' },
+            { type: 'choice', title: 'aoubvdsc' },
+            { type: 'choice', title: 'cxmvpokjiz' },
+            { type: 'choice', title: 'zevnuscv' },
+            { type: 'choice', title: 'xcovzefxcv' },
+            { type: 'choice', title: 'svdijbh' },
           ]
         }
       ]
