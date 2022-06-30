@@ -1,10 +1,17 @@
 .console-text-type {
     display: flex;
+    padding-bottom: 16px;
 
     .user-message {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         min-height: 50px;
+
+        .list-input {
+            height: 22px;
+            border-radius: 4px;
+            border: 0px;
+        }
     }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { List, Section } from './list.model';
 import { cloneDeep } from 'lodash';
 
@@ -7,23 +7,24 @@ import { cloneDeep } from 'lodash';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class ListComponent {
   @Input() list: List;
   @Input() inverted: boolean = false;
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
-  filteredSections: Section[];
-
-  ngOnInit(): void {
-    this.filteredSections = cloneDeep(this.list.sections);
-  }
+  @Output() onSuggestionClick = new EventEmitter<string>();
+  filteredSections: Section[] = [];
 
   filter(inputValue: string): void {
-    if (this.list.sections) {
+    if (this.list.sections && inputValue != '') {
       this.filteredSections = cloneDeep(this.list.sections);
       this.filteredSections.forEach(section => {
-        section.choices = section.choices.filter((choice) => choice.name.toUpperCase().trim().includes(inputValue.toUpperCase().trim()));
+        section.choices = section.choices.filter((choice) => choice.title.toUpperCase().trim().includes(inputValue.toUpperCase().trim()));
       });
     }
+  }
+
+  sendSelectedValue(): void {
+    this.onSuggestionClick.emit('value');
   }
 }

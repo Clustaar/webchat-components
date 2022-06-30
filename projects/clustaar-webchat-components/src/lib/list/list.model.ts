@@ -1,15 +1,17 @@
 export interface List {
+    type: 'send_choices_list_action';
     message: string;
     sections: Section[];
 }
 
 export interface Section {
-    name: string;
+    type: 'section';
+    title: string;
     choices: Choice[];
 }
 
 interface Choice {
-    urlImage: string;
-    altImage: string;
-    name: string;
+    type: 'choice';
+    title: string;
+    imageUrl?: string;
 }
