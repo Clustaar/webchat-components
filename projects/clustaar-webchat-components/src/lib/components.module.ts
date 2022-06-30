@@ -17,6 +17,7 @@ import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -32,16 +33,16 @@ const components = [
   AgentReplyComponent,
   TitleComponent,
   ListComponent
-]
+];
 
 @NgModule({
   imports: [
     CommonModule,
     SwiperModule,
-    ObfuscationModule
+    ObfuscationModule,
+    MatAutocompleteModule
   ],
   declarations: components,
   exports: components
 })
-export class WebchatComponentsModule {
-}
+export class WebchatComponentsModule {}
