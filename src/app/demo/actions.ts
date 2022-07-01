@@ -404,7 +404,7 @@ export const DISPLAYED_ACTIONS = [
     }
   },
   {
-    type: 'list_action',
+    type: 'send_choices_list_action',
     list: {
       type: 'send_choices_list_action',
       message: 'List with sections',
