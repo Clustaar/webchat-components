@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 
 import { SwitchConsoleActionsComponent } from './switch/switch';
@@ -17,7 +20,6 @@ import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -40,7 +42,12 @@ const components = [
     CommonModule,
     SwiperModule,
     ObfuscationModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule,    
+    MatAutocompleteModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   declarations: components,
   exports: components

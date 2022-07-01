@@ -24,24 +24,28 @@ export class SwitchConsoleActionsComponent {
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageClicked = new EventEmitter<string>();
   @Output() onLinkClicked = new EventEmitter<{ url: string, label: string }>();
+  @Output() onSuggestionClick = new EventEmitter<string>();
 
   constructor() {
   }
 
-  loadNextAction() {
+  loadNextAction(): void {
     this.onLoadNextAction.emit(true);
   }
 
-  lastActionRendered() {
+  lastActionRendered(): void {
     this.onLastActionRendered.emit(true);
   }
 
-  sendReply(reply) {
+  sendReply(reply): void {
     this.onSendReply.emit(reply);
   }
 
-  sendEvent(event) {
+  sendEvent(event): void {
     this.onSendEvent.emit(event);
   }
 
+  onSuggestionClicked(choiceTitle: string): void {
+    this.onSuggestionClick.emit(choiceTitle);
+  }
 }

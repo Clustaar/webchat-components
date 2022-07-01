@@ -86,6 +86,6 @@
   </div>
 
   <div *ngSwitchCase="'list_action'">
-    <list-action [list]="action.list"></list-action>
+    <list-action [list]="action.list" (onSuggestionClick)="onSuggestionClicked($event)"></list-action>
   </div>
 </div>
