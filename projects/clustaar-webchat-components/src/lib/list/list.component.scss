@@ -11,7 +11,12 @@
         .list-input {
             height: 22px;
             border-radius: 4px;
-            border: 0px;
+            border: 2px solid transparent;
+            outline: none;
+
+            &:focus-visible {
+                border-color: #BEBEB9;
+            }
         }
     }
 }
