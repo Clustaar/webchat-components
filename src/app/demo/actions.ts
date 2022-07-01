@@ -5,8 +5,13 @@ export const DISPLAYED_ACTIONS = [
       "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
   },
   {
-    "type": "text",
-    "message": "phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**"
+    type: 'text',
+    message: "<img src=x onerror=alert('XSS') />"
+  },
+  {
+    type: 'text',
+    message:
+      'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
   },
   {
     type: 'send_text_action',
@@ -16,6 +21,14 @@ export const DISPLAYED_ACTIONS = [
   {
     type: 'title_message',
     message: 'An agent joined the conversation'
+  },
+  {
+    type: 'support_text_action',
+    message: "<a href='https://google.com'>google</a>"
+  },
+  {
+    type: 'support_text_action',
+    message: "<img src=x onerror=alert('XSS') />"
   },
   {
     type: 'support_text_action',
