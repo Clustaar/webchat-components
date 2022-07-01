@@ -85,7 +85,7 @@
     </send-js-event-console-action>
   </div>
 
-  <div *ngSwitchCase="'list_action'">
+  <div *ngSwitchCase="'send_choices_list_action'">
     <list-action [list]="action.list" (onSuggestionClick)="onSuggestionClicked($event)"></list-action>
   </div>
 </div>
