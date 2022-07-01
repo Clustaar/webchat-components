@@ -6,8 +6,10 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  SecurityContext
 } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'agent-reply-console-action',
@@ -22,14 +24,23 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   @Input() primaryColor = '#30B286';
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
+  message: SafeHtml;
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(
+    private cdr: ChangeDetectorRef,
+    protected sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
+    this.message = this.sanitizer.sanitize(
+      SecurityContext.HTML,
+      this.action.message
+    );
 
     if (this.autoScroll) {
       setTimeout(() => {
@@ -43,7 +54,11 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Array.from(document.querySelectorAll('.agent-reply-message-' + this.indexAction + ' a')).forEach(a => {
+    Array.from(
+      document.querySelectorAll(
+        '.agent-reply-message-' + this.indexAction + ' a'
+      )
+    ).forEach((a) => {
       if (a.getAttribute('target') == null) {
         a.setAttribute('target', '_blank');
       }
@@ -54,5 +69,4 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
       this.onLastActionRendered.emit(true);
     }, 0);
   }
-
 }
