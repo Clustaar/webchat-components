@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { List, Section } from './list.model';
 import { cloneDeep } from 'lodash';
 
@@ -7,13 +7,18 @@ import { cloneDeep } from 'lodash';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListComponent {
+export class ListComponent implements OnInit {
   @Input() list: List;
   @Input() inverted: boolean = false;
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
   @Output() onSuggestionClick = new EventEmitter<string>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
   filteredSections: Section[] = [];
+
+  ngOnInit(): void {
+    this.onLoadNextAction.emit(true);
+  }
 
   filter(inputValue: string): void {
     if (this.list.sections && inputValue != '') {
