@@ -31,6 +31,7 @@ export class ListComponent implements OnInit {
             .includes(inputValue.toUpperCase().trim())
         );
       });
+      this.filteredSections = this.filteredSections.filter((section) => section.choices.length > 0);
     } else {
       this.filteredSections = [];
     }
