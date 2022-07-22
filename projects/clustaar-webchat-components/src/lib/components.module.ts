@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { FormsModule  } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { SwiperModule } from 'ngx-swiper-wrapper';
@@ -44,10 +44,8 @@ const components = [
     ObfuscationModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatFormFieldModule,    
-    MatAutocompleteModule,
-    FormsModule, 
-    ReactiveFormsModule
+    MatFormFieldModule,
+    FormsModule
   ],
   declarations: components,
   exports: components

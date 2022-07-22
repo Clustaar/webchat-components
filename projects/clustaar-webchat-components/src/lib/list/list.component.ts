@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { List, Section } from './list.model';
-import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'list-action',
@@ -9,10 +8,10 @@ import { cloneDeep } from 'lodash';
 })
 export class ListComponent implements OnInit {
   @Input() list: List;
-  @Input() inverted: boolean = false;
-  @Input() userBubbleColor: string = '#C5DBEA';
-  @Input() userTextColor: string = '#2C3F59';
-  @Output() onSuggestionClick = new EventEmitter<string>();
+  @Input() inverted = false;
+  @Input() userBubbleColor = '#C5DBEA';
+  @Input() userTextColor = '#2C3F59';
+  @Output() onChoiceSelected = new EventEmitter<string>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   filteredSections: Section[] = [];
 
@@ -22,7 +21,7 @@ export class ListComponent implements OnInit {
 
   filter(inputValue: string): void {
     if (this.list.sections && inputValue != '') {
-      this.filteredSections = cloneDeep(this.list.sections);
+      this.filteredSections = JSON.parse(JSON.stringify(this.list.sections));
       this.filteredSections.forEach((section) => {
         section.choices = section.choices.filter((choice) =>
           choice.title
@@ -38,6 +37,6 @@ export class ListComponent implements OnInit {
   }
 
   sendSelectedValue(choiceTitle: string): void {
-    this.onSuggestionClick.emit(choiceTitle);
+    this.onChoiceSelected.emit(choiceTitle);
   }
 }
