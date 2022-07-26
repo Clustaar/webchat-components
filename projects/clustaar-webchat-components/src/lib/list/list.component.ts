@@ -7,7 +7,7 @@ import { List, Section } from './list.model';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() list: List;
+  @Input() action: { type: string; list: List};
   @Input() inverted = false;
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
@@ -20,8 +20,8 @@ export class ListComponent implements OnInit {
   }
 
   filter(inputValue: string): void {
-    if (this.list.sections && inputValue != '') {
-      this.filteredSections = JSON.parse(JSON.stringify(this.list.sections));
+    if (this.action.list.sections && inputValue != '') {
+      this.filteredSections = JSON.parse(JSON.stringify(this.action.list.sections));
       this.filteredSections.forEach((section) => {
         section.choices = section.choices.filter((choice) =>
           choice.title

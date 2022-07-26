@@ -86,6 +86,6 @@
   </div>
 
   <div *ngSwitchCase="'send_choices_list_action'">
-    <list-action [list]="action.list" (onChoiceSelected)="choiceSelected($event)" (onLoadNextAction)="loadNextAction()"></list-action>
+    <list-action [action]="action" (onChoiceSelected)="choiceSelected($event)" (onLoadNextAction)="loadNextAction()"></list-action>
   </div>
 </div>
