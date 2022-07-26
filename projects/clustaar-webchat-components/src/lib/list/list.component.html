@@ -2,7 +2,7 @@
     <div class="bubble" [ngClass]="{'bot' : inverted, 'user': !inverted}" [style.background-color]="userBubbleColor">
         <span *ngIf="inverted" [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
         <div [style.color]="userTextColor" class="user-message">
-            {{ list.message }}
+            {{ action.list.message }}
 
             <input type="text" class="list-input" (keyup)="filter($event.target.value)" matInput [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
