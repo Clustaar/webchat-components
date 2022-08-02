@@ -388,6 +388,15 @@ export const DISPLAYED_ACTIONS = [
     list: {
       type: 'send_choices_list_action',
       message: 'List with images',
+      defaultTarget: {
+        type: 'go_to_action',
+        target: {
+          id: '5ad5f1dbe29c6000780f677f',
+          type: 'story',
+          name: 'Reserver'
+        },
+        sessionValues: {}
+      },
       sections: [
         {
           type: 'section',
@@ -427,6 +436,15 @@ export const DISPLAYED_ACTIONS = [
     list: {
       type: 'send_choices_list_action',
       message: 'List with sections',
+      defaultTarget: {
+        type: 'go_to_action',
+        target: {
+          id: '5ad5f1dbe29c6000780f677f',
+          type: 'story',
+          name: 'Reserver'
+        },
+        sessionValues: {}
+      },
       sections: [
         {
           type: 'section',
