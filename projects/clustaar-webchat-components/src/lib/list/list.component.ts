@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { List, Section } from './list.model';
+import { Choice, List, Section, Target } from './list.model';
 
 @Component({
   selector: 'list-action',
@@ -11,7 +11,7 @@ export class ListComponent implements OnInit {
   @Input() inverted = false;
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
-  @Output() onChoiceSelected = new EventEmitter<string>();
+  @Output() onChoiceSelected = new EventEmitter<{selectedChoice: Choice, target: Target}>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   filteredSections: Section[] = [];
 
@@ -36,7 +36,8 @@ export class ListComponent implements OnInit {
     }
   }
 
-  sendSelectedValue(choiceTitle: string): void {
-    this.onChoiceSelected.emit(choiceTitle);
+  sendSelectedValue(selectedSection: Section, selectedChoice: Choice): void {
+    const target = selectedSection.sectionTarget ? selectedSection.sectionTarget : this.action.list.defaultTarget;
+    this.onChoiceSelected.emit({ selectedChoice, target });
   }
 }
