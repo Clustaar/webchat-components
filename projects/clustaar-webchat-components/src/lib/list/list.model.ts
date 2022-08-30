@@ -9,7 +9,6 @@ export interface Section {
     type: 'section';
     title: string;
     choices: Choice[];
-    sectionTarget?: Target;
 }
 
 export interface Choice {
@@ -26,5 +25,4 @@ export interface Target {
         name: string;
         id: string;
     };
-    sessionValues: {};
 }

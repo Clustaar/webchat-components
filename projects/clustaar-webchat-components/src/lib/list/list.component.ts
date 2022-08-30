@@ -36,8 +36,8 @@ export class ListComponent implements OnInit {
     }
   }
 
-  sendSelectedValue(selectedSection: Section, selectedChoice: Choice): void {
-    const target = selectedSection.sectionTarget ? selectedSection.sectionTarget : this.action.list.defaultTarget;
+  sendSelectedValue(selectedChoice: Choice): void {
+    const target = this.action.list.defaultTarget;
     this.onChoiceSelected.emit({ selectedChoice, target });
   }
 }

@@ -8,13 +8,13 @@
             <mat-autocomplete #auto="matAutocomplete">
                 <ng-container *ngFor="let section of filteredSections">
                     <mat-optgroup [label]="section.title" *ngIf="section.title">
-                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice.title)">
+                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
                             <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
                             {{ choice.title }}
                         </mat-option>
                     </mat-optgroup>
                     <ng-container *ngIf="!section.title">
-                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(section, choice)">
+                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
                             <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
                             {{ choice.title }}
                         </mat-option>
