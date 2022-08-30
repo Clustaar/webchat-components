@@ -2,26 +2,38 @@
     display: flex;
     padding-bottom: 16px;
 
-    .user-message {
+    .question-container {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        min-height: 50px;
-
-        .list-input {
-            height: 22px;
-            border-radius: 4px;
-            border: 2px solid transparent;
-            outline: none;
-
-            &:focus-visible {
-                border-color: #BEBEB9;
-            }
-        }
     }
 }
 
-.option-img {
-    vertical-align: middle;
-    margin-right: 8px;
+.list-container {
+    position: relative;
+
+    .option-img {
+        vertical-align: middle;
+        margin-right: 8px;
+    }
+
+    .list-input {
+        height: 22px;
+        border-radius: 4px;
+        border: 2px solid #BEBEB9;
+        outline: none;
+        margin-left: 8px;
+        margin-bottom: 8px;
+    }
+    
+    .list-icon {
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid #BEBEB9;
+        position: absolute;
+        top: 11px;
+        left: 140px;
+    }
+    
 }

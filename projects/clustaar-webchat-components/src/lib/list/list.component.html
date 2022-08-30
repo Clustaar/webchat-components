@@ -1,28 +1,41 @@
-<div class="console-text-type" [style.flex-direction]="inverted ? 'row' : 'row-reverse'">
-    <div class="bubble" [ngClass]="{'bot' : inverted, 'user': !inverted}" [style.background-color]="userBubbleColor">
-        <span *ngIf="inverted" [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
-        <div [style.color]="userTextColor" class="user-message">
+<div class="console-text-type" [style.flex-direction]="'row'">
+    <div class="bubble bot" [style.background-color]="userBubbleColor">
+        <span [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
+        <div [style.color]="userTextColor" class="question-container">
             {{ action.list.message }}
-
-            <input type="text" class="list-input" (keyup)="filter($event.target.value)" matInput [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-                <ng-container *ngFor="let section of filteredSections">
-                    <mat-optgroup [label]="section.title" *ngIf="section.title">
-                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
-                            <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
-                            {{ choice.title }}
-                        </mat-option>
-                    </mat-optgroup>
-                    <ng-container *ngIf="!section.title">
-                        <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
-                            <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
-                            {{ choice.title }}
-                        </mat-option>
-                    </ng-container>
-                </ng-container>
-            </mat-autocomplete>
         </div>
-
-        <span *ngIf="!inverted" [style.border-left-color]="userBubbleColor" class="bubble-arrow-right"></span>
     </div>
 </div>
+
+<div class="list-container" *ngIf="selectedChoice === undefined">
+    <input type="text"
+            class="list-input"
+            (keyup)="filter($event.target.value)"
+            matInput
+            [matAutocomplete]="auto"
+            [style.border-color]="userBubbleColor">
+    <div class="list-icon"></div>
+    <mat-autocomplete #auto="matAutocomplete">
+        <ng-container *ngFor="let section of filteredSections">
+            <mat-optgroup [label]="section.title" *ngIf="section.title">
+                <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
+                    <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
+                    {{ choice.title }}
+                </mat-option>
+            </mat-optgroup>
+            <ng-container *ngIf="!section.title">
+                <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
+                    <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
+                    {{ choice.title }}
+                </mat-option>
+            </ng-container>
+        </ng-container>
+    </mat-autocomplete>
+</div>
+
+<user-message-console-action [action]="{message: selectedChoice}"
+                            [userTextColor]="userTextColor"
+                            [userBubbleColor]="userBubbleColor"
+                            [inverted]="inverted"
+                            *ngIf="selectedChoice !== undefined">
+</user-message-console-action>

@@ -2,7 +2,7 @@ export interface List {
     type: 'send_choices_list_action';
     message: string;
     sections: Section[];
-    defaultTarget: Target;
+    action: Target;
 }
 
 export interface Section {
@@ -15,7 +15,10 @@ export interface Choice {
     type: 'choice';
     title: string;
     imageUrl?: string;
-    sessionValues?: {};
+    sessionValues?: {
+        key: string;
+        value: string
+    };
 }
 
 export interface Target {

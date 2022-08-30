@@ -11,9 +11,12 @@ export class ListComponent implements OnInit {
   @Input() inverted = false;
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
-  @Output() onChoiceSelected = new EventEmitter<{selectedChoice: Choice, target: Target}>();
+
+  @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
+
   filteredSections: Section[] = [];
+  selectedChoice: string;
 
   ngOnInit(): void {
     this.onLoadNextAction.emit(true);
@@ -37,7 +40,15 @@ export class ListComponent implements OnInit {
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
-    const target = this.action.list.defaultTarget;
-    this.onChoiceSelected.emit({ selectedChoice, target });
+    this.selectedChoice = selectedChoice.title;
+
+    const target = this.action.list.action;
+    target['sessionValues'] = selectedChoice.sessionValues;
+
+    this.onSendReply.emit({
+      action: target,
+      title: selectedChoice.title,
+      type: this.action.type
+    });
   }
 }
