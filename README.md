@@ -79,7 +79,7 @@ You can use a switch on a foreach loop for each action:
 
 #### List action
 ```
-<list-action [action]="action" (onChoiceSelected)="choiceSelected($event)" (onLoadNextAction)="loadNextAction()"></list-action>
+<list-action [action]="action" (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"></list-action>
 ```
 
 ## Development server
