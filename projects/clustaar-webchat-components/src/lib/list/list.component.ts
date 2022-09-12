@@ -7,7 +7,7 @@ import { Choice, List, Section, Target } from './list.model';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  @Input() action: { type: string; list: List};
+  @Input() action: List;
   @Input() inverted = false;
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
@@ -23,8 +23,8 @@ export class ListComponent implements OnInit {
   }
 
   filter(inputValue: string): void {
-    if (this.action.list.sections && inputValue != '') {
-      this.filteredSections = JSON.parse(JSON.stringify(this.action.list.sections));
+    if (this.action.sections && inputValue != '') {
+      this.filteredSections = JSON.parse(JSON.stringify(this.action.sections));
       this.filteredSections.forEach((section) => {
         section.choices = section.choices.filter((choice) =>
           choice.title
@@ -42,7 +42,7 @@ export class ListComponent implements OnInit {
   sendSelectedValue(selectedChoice: Choice): void {
     this.selectedChoice = selectedChoice.title;
 
-    const target = this.action.list.action;
+    const target = this.action.action;
     target['sessionValues'] = selectedChoice.sessionValues;
 
     this.onSendReply.emit({

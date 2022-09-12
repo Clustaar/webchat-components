@@ -385,110 +385,104 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_choices_list_action',
-    list: {
-      type: 'send_choices_list_action',
-      message: 'List with images',
-      defaultTarget: {
-        type: 'go_to_action',
-        target: {
-          id: '5ad5f1dbe29c6000780f677f',
-          type: 'story',
-          name: 'Reserver'
-        },
-        sessionValues: {}
+    message: 'List with images',
+    action: {
+      type: 'go_to_action',
+      target: {
+        id: '5ad5f1dbe29c6000780f677f',
+        type: 'story',
+        name: 'Reserver'
       },
-      sections: [
-        {
-          type: 'section',
-          title: '',
-          choices: [
-            { type: 'choice', title: 'Argentina', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Bolivia', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Cambodia', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Denmark', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Estonia', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'France', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Germany', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Hungary', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Iceland', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Japan', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Korea', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Laos', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Mongolia', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Nepal', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Oman', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Poland', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Qatar', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Russia', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Senegal', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Thailand', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'United Kingdom', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Vietnam', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Yemen', imageUrl: 'https://via.placeholder.com/25' },
-            { type: 'choice', title: 'Zambia', imageUrl: 'https://via.placeholder.com/25' },
-          ]
-        }
-      ]
-    }
+      sessionValues: {}
+    },
+    sections: [
+      {
+        type: 'section',
+        title: '',
+        choices: [
+          { type: 'choice', title: 'Argentina', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Bolivia', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Cambodia', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Denmark', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Estonia', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'France', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Germany', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Hungary', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Iceland', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Japan', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Korea', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Laos', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Mongolia', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Nepal', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Oman', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Poland', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Qatar', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Russia', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Senegal', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Thailand', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'United Kingdom', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Vietnam', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Yemen', imageUrl: 'https://via.placeholder.com/25' },
+          { type: 'choice', title: 'Zambia', imageUrl: 'https://via.placeholder.com/25' },
+        ]
+      }
+    ]
   },
   {
     type: 'send_choices_list_action',
-    list: {
-      type: 'send_choices_list_action',
-      message: 'List with sections',
-      defaultTarget: {
-        type: 'go_to_action',
-        target: {
-          id: '5ad5f1dbe29c6000780f677f',
-          type: 'story',
-          name: 'Reserver'
-        },
-        sessionValues: {}
+    message: 'List with sections',
+    action: {
+      type: 'go_to_action',
+      target: {
+        id: '5ad5f1dbe29c6000780f677f',
+        type: 'story',
+        name: 'Reserver'
       },
-      sections: [
-        {
-          type: 'section',
-          title: 'France',
-          choices: [
-            { type: 'choice', title: 'Paris' },
-            { type: 'choice', title: 'Marseille' },
-            { type: 'choice', title: 'Lyon' },
-            { type: 'choice', title: 'Toulouse' },
-            { type: 'choice', title: 'Nice' },
-            { type: 'choice', title: 'Nantes' },
-            { type: 'choice', title: 'Montpellier' },
-            { type: 'choice', title: 'Strasbourg' },
-            { type: 'choice', title: 'Bordeaux' },
-            { type: 'choice', title: 'Lille' },
-            { type: 'choice', title: 'Rennes' },
-            { type: 'choice', title: 'Reims' },
-            { type: 'choice', title: 'Toulon' },
-            { type: 'choice', title: 'Saint-Etienne' },
-            { type: 'choice', title: 'Le Havre' },
-          ]
-        },
-        {
-          type: 'section',
-          title: 'United Kingdom',
-          choices: [
-            { type: 'choice', title: 'Londres' },
-            { type: 'choice', title: 'Birmingham' },
-            { type: 'choice', title: 'Glasgow' },
-            { type: 'choice', title: 'Manchester' },
-            { type: 'choice', title: 'Edimbourg' },
-            { type: 'choice', title: 'Liverpool' },
-            { type: 'choice', title: 'Leeds' },
-            { type: 'choice', title: 'Bristol' },
-            { type: 'choice', title: 'Sheffield' },
-            { type: 'choice', title: 'Newcastle' },
-            { type: 'choice', title: 'Coventry' },
-            { type: 'choice', title: 'Cardiff' },
-            { type: 'choice', title: 'Hull' },
-            { type: 'choice', title: 'Bradford' },
-            { type: 'choice', title: 'Stroke-on-Trent' },
-          ]
-        }
-      ]
-    }
+      sessionValues: {}
+    },
+    sections: [
+      {
+        type: 'section',
+        title: 'France',
+        choices: [
+          { type: 'choice', title: 'Paris' },
+          { type: 'choice', title: 'Marseille' },
+          { type: 'choice', title: 'Lyon' },
+          { type: 'choice', title: 'Toulouse' },
+          { type: 'choice', title: 'Nice' },
+          { type: 'choice', title: 'Nantes' },
+          { type: 'choice', title: 'Montpellier' },
+          { type: 'choice', title: 'Strasbourg' },
+          { type: 'choice', title: 'Bordeaux' },
+          { type: 'choice', title: 'Lille' },
+          { type: 'choice', title: 'Rennes' },
+          { type: 'choice', title: 'Reims' },
+          { type: 'choice', title: 'Toulon' },
+          { type: 'choice', title: 'Saint-Etienne' },
+          { type: 'choice', title: 'Le Havre' },
+        ]
+      },
+      {
+        type: 'section',
+        title: 'United Kingdom',
+        choices: [
+          { type: 'choice', title: 'Londres' },
+          { type: 'choice', title: 'Birmingham' },
+          { type: 'choice', title: 'Glasgow' },
+          { type: 'choice', title: 'Manchester' },
+          { type: 'choice', title: 'Edimbourg' },
+          { type: 'choice', title: 'Liverpool' },
+          { type: 'choice', title: 'Leeds' },
+          { type: 'choice', title: 'Bristol' },
+          { type: 'choice', title: 'Sheffield' },
+          { type: 'choice', title: 'Newcastle' },
+          { type: 'choice', title: 'Coventry' },
+          { type: 'choice', title: 'Cardiff' },
+          { type: 'choice', title: 'Hull' },
+          { type: 'choice', title: 'Bradford' },
+          { type: 'choice', title: 'Stroke-on-Trent' },
+        ]
+      }
+    ]
   }
 ];
