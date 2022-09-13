@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -24,13 +24,17 @@ export class ListComponent implements OnInit {
   selectedChoice: string;
   inputControl = new FormControl('');
 
+  constructor(private cdr: ChangeDetectorRef) {}
+
   ngOnInit(): void {
+    console.log('test init list');
     this.onLoadNextAction.emit(true);
-    
+
     this.filteredSections$ = this.inputControl.valueChanges.pipe(
       startWith(''),
-      map(value => this._filter(value || '')),
+      map((value) => this._filter(value || ''))
     );
+    this.cdr.markForCheck();
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
@@ -44,6 +48,7 @@ export class ListComponent implements OnInit {
       title: selectedChoice.title,
       type: this.action.type
     });
+    this.cdr.markForCheck();
   }
 
   private _filter(inputValue: string): Section[] {
