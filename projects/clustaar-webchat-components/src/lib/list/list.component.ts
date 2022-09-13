@@ -14,8 +14,11 @@ import { FormControl } from '@angular/forms';
 export class ListComponent implements OnInit {
   @Input() action: List;
   @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
+  @Input() autoScroll? = true;
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
