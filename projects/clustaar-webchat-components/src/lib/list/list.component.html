@@ -1,7 +1,7 @@
 <div class="console-text-type" [style.flex-direction]="'row'">
-    <div class="bubble bot" [style.background-color]="userBubbleColor">
-        <span [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
-        <div [style.color]="userTextColor" class="question-container">
+    <div class="bubble bot" [style.background-color]="primaryColor">
+        <span [style.border-right-color]="primaryColor" class="bubble-arrow"></span>
+        <div [style.color]="textColor" class="question-container">
             {{ action.message }}
         </div>
     </div>
@@ -13,11 +13,10 @@
             [formControl]="inputControl"
             matInput
             [matAutocomplete]="auto"
-            [style.border-color]="userBubbleColor">
+            [style.border-color]="primaryColor">
     <div class="list-icon"></div>
     <mat-autocomplete #auto="matAutocomplete">
-
-        <ng-container *ngFor="let section of filteredSections">
+        <ng-container *ngFor="let section of filteredSections$ | async">
             <mat-optgroup [label]="section.title" *ngIf="section.title">
                 <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
                     <img class="option-img" aria-hidden [src]="choice.imageUrl" [alt]="choice.title" height="25" *ngIf="choice.imageUrl">
@@ -38,5 +37,6 @@
                             [userTextColor]="userTextColor"
                             [userBubbleColor]="userBubbleColor"
                             [inverted]="inverted"
+                            [autoScroll]="autoScroll"
                             *ngIf="selectedChoice !== undefined">
 </user-message-console-action>

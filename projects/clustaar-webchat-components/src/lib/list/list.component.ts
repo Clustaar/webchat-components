@@ -7,7 +7,7 @@ import {
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
-import { map, startWith, skip } from 'rxjs/operators';
+import { map, startWith, skip, takeWhile } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -31,7 +31,6 @@ export class ListComponent implements OnInit, AfterViewInit {
     new EventEmitter<boolean>();
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
-  filteredSections = [];
   selectedChoice: string;
   inputControl = new FormControl('');
 
@@ -44,8 +43,8 @@ export class ListComponent implements OnInit, AfterViewInit {
       startWith(''),
       map((value) => this._filter(value || ''))
     );
-    this.filteredSections$.pipe(skip(1)).subscribe((filteredSections) => {
-      this.filteredSections = filteredSections;
+
+    this.filteredSections$.pipe(skip(1), takeWhile(() => this.selectedChoice === undefined)).subscribe(() => {
       this.detectChanges();
     });
 
