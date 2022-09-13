@@ -1,10 +1,15 @@
+import { ChangeDetectionStrategy } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Choice, List, Section, Target } from './list.model';
+import { Choice, List, Section } from './list.model';
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'list-action',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListComponent implements OnInit {
   @Input() action: List;
@@ -15,28 +20,17 @@ export class ListComponent implements OnInit {
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
 
-  filteredSections: Section[] = [];
+  filteredSections$: Observable<Section[]> = new Observable<[]>();
   selectedChoice: string;
+  inputControl = new FormControl('');
 
   ngOnInit(): void {
     this.onLoadNextAction.emit(true);
-  }
-
-  filter(inputValue: string): void {
-    if (this.action.sections && inputValue != '') {
-      this.filteredSections = JSON.parse(JSON.stringify(this.action.sections));
-      this.filteredSections.forEach((section) => {
-        section.choices = section.choices.filter((choice) =>
-          choice.title
-            .toUpperCase()
-            .trim()
-            .includes(inputValue.toUpperCase().trim())
-        );
-      });
-      this.filteredSections = this.filteredSections.filter((section) => section.choices.length > 0);
-    } else {
-      this.filteredSections = [];
-    }
+    
+    this.filteredSections$ = this.inputControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
@@ -50,5 +44,23 @@ export class ListComponent implements OnInit {
       title: selectedChoice.title,
       type: this.action.type
     });
+  }
+
+  private _filter(inputValue: string): Section[] {
+    var filteredSections = [];
+    if (this.action.sections && inputValue != '') {
+      filteredSections = JSON.parse(JSON.stringify(this.action.sections));
+      filteredSections.forEach((section) => {
+        section.choices = section.choices.filter((choice) =>
+          choice.title
+            .toUpperCase()
+            .trim()
+            .includes(inputValue.toUpperCase().trim())
+        );
+      });
+      return filteredSections.filter((section) => section.choices.length > 0);
+    } else {
+      return filteredSections;
+    }
   }
 }

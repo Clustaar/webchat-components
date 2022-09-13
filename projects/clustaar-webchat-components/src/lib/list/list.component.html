@@ -10,7 +10,7 @@
 <div class="list-container" *ngIf="selectedChoice === undefined">
     <input type="text"
             class="list-input"
-            (keyup)="filter($event.target.value)"
+            [formControl]="inputControl"
             matInput
             [matAutocomplete]="auto"
             [style.border-color]="userBubbleColor">
