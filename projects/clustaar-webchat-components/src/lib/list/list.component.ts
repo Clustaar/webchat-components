@@ -1,8 +1,13 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import {
+  AfterViewInit,
+  ApplicationRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
+} from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { map, startWith, skip } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -11,7 +16,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterViewInit {
   @Input() action: List;
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
@@ -22,28 +27,50 @@ export class ListComponent implements OnInit {
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
+  filteredSections = [];
   selectedChoice: string;
   inputControl = new FormControl('');
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
 
   ngOnInit(): void {
-    console.log('test init list');
     this.onLoadNextAction.emit(true);
 
     this.filteredSections$ = this.inputControl.valueChanges.pipe(
       startWith(''),
       map((value) => this._filter(value || ''))
     );
+    this.filteredSections$.pipe(skip(1)).subscribe((filteredSections) => {
+      this.filteredSections = filteredSections;
+      this.detectChanges();
+    });
+
+    if (this.autoScroll) {
+      setTimeout(() => {
+        let element = document.getElementById('chat-console-messages');
+        if (element) {
+          element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
+        }
+      }, 500);
+    }
     this.cdr.markForCheck();
+  }
+
+  ngAfterViewInit() {
+    setTimeout(() => {
+      this.onLastActionRendered.emit(true);
+    }, 0);
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
     this.selectedChoice = selectedChoice.title;
 
-    const target = this.action.action;
+    let target = this.action.action;
     target['sessionValues'] = selectedChoice.sessionValues;
 
     this.onSendReply.emit({
@@ -55,7 +82,7 @@ export class ListComponent implements OnInit {
   }
 
   private _filter(inputValue: string): Section[] {
-    var filteredSections = [];
+    let filteredSections = [];
     if (this.action.sections && inputValue != '') {
       filteredSections = JSON.parse(JSON.stringify(this.action.sections));
       filteredSections.forEach((section) => {
@@ -70,5 +97,10 @@ export class ListComponent implements OnInit {
     } else {
       return filteredSections;
     }
+  }
+
+  detectChanges() {
+    this.cdr.markForCheck();
+    this.app.tick();
   }
 }
