@@ -2,7 +2,8 @@ import {
   AfterViewInit,
   ApplicationRef,
   ChangeDetectionStrategy,
-  ChangeDetectorRef
+  ChangeDetectorRef,
+  ViewEncapsulation
 } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
@@ -14,7 +15,8 @@ import { FormControl } from '@angular/forms';
   selector: 'list-action',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  encapsulation: ViewEncapsulation.None
 })
 export class ListComponent implements OnInit, AfterViewInit {
   @Input() action: List;
@@ -31,6 +33,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     new EventEmitter<boolean>();
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
+  filteredSections = [];
   selectedChoice: string;
   inputControl = new FormControl('');
 
@@ -44,9 +47,15 @@ export class ListComponent implements OnInit, AfterViewInit {
       map((value) => this._filter(value || ''))
     );
 
-    this.filteredSections$.pipe(skip(1), takeWhile(() => this.selectedChoice === undefined)).subscribe(() => {
-      this.detectChanges();
-    });
+    this.filteredSections$
+      .pipe(
+        skip(1),
+        takeWhile(() => this.selectedChoice === undefined)
+      )
+      .subscribe((filteredSections) => {
+        this.filteredSections = filteredSections;
+        this.detectChanges();
+      });
 
     if (this.autoScroll) {
       setTimeout(() => {
