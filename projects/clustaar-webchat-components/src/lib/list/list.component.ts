@@ -41,6 +41,7 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.onLoadNextAction.emit(true);
+    this.filteredSections = JSON.parse(JSON.stringify(this.action.sections));
 
     this.filteredSections$ = this.inputControl.valueChanges.pipe(
       startWith(''),
