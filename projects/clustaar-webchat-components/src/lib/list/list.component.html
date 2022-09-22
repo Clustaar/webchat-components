@@ -11,9 +11,11 @@
   <div class="list-container" *ngIf="selectedChoice === undefined">
     <input type="text"
             class="list-input"
+            [placeholder]="action.placeholder"
             [formControl]="inputControl"
             matInput
             [matAutocomplete]="auto"
+            (click)="detectChanges()"
             [style.border-color]="primaryColor">
     <div class="list-icon"></div>
     <mat-autocomplete class="list-autocomplete-panel" #auto="matAutocomplete">
