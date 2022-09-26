@@ -15,6 +15,7 @@
             [formControl]="inputControl"
             matInput
             [matAutocomplete]="auto"
+            (click)="onInputClick()"
             [style.border-color]="primaryColor">
     <div class="list-icon"></div>
     <mat-autocomplete autoActiveFirstOption class="list-autocomplete-panel" #auto="matAutocomplete">

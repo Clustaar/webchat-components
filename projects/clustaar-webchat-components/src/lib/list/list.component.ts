@@ -11,7 +11,7 @@ import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
 import { map, startWith, skip, takeWhile } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { MatAutocompleteTrigger } from '@angular/material/autocomplete'
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 
 @Component({
   selector: 'list-action',
@@ -77,11 +77,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
     }, 0);
+  }
 
-    setTimeout(() => {
-      this.auto.openPanel();
-      this.detectChanges();
-    }, 1000);
+  onInputClick() {
+    // This trigger the autocomplete detection change on zoneless mode
+    this.auto.updatePosition();
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
