@@ -86,6 +86,17 @@
   </div>
 
   <div *ngSwitchCase="'send_choices_list_action'">
-    <list-action [action]="action" [userTextColor]="userTextColor" [userBubbleColor]="userBubbleColor" (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()" [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll"></list-action>
+    <list-action [action]="action" 
+                [primaryColor]="primaryColor" 
+                [textColor]="textColor" 
+                [autoScroll]="autoScroll"
+                [userTextColor]="userTextColor" 
+                [userBubbleColor]="userBubbleColor"
+                [inverted]="inverted"
+                (onSendReply)="sendReply($event)" 
+                (onLoadNextAction)="loadNextAction()"
+                (onLastActionRendered)="lastActionRendered()" 
+                >
+  </list-action>
   </div>
 </div>

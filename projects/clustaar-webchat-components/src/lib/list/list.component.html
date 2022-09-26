@@ -15,10 +15,9 @@
             [formControl]="inputControl"
             matInput
             [matAutocomplete]="auto"
-            (click)="detectChanges()"
             [style.border-color]="primaryColor">
     <div class="list-icon"></div>
-    <mat-autocomplete class="list-autocomplete-panel" #auto="matAutocomplete">
+    <mat-autocomplete autoActiveFirstOption class="list-autocomplete-panel" #auto="matAutocomplete">
         <ng-container *ngFor="let section of filteredSections">
             <mat-optgroup [label]="section.title" *ngIf="section.title">
                 <mat-option *ngFor="let choice of section.choices" [value]="choice.title" (onSelectionChange)="sendSelectedValue(choice)">
