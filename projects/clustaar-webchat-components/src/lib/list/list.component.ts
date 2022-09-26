@@ -3,13 +3,15 @@ import {
   ApplicationRef,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
-  ViewEncapsulation
+  ViewEncapsulation,
+  ViewChild
 } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
 import { map, startWith, skip, takeWhile } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { MatAutocompleteTrigger } from '@angular/material/autocomplete'
 
 @Component({
   selector: 'list-action',
@@ -36,6 +38,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   filteredSections = [];
   selectedChoice: string;
   inputControl = new FormControl('');
+  @ViewChild(MatAutocompleteTrigger) auto: MatAutocompleteTrigger;
 
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
 
@@ -74,6 +77,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
     }, 0);
+
+    setTimeout(() => {
+      this.auto.openPanel();
+      this.detectChanges();
+    }, 1000);
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
@@ -87,7 +95,7 @@ export class ListComponent implements OnInit, AfterViewInit {
       title: selectedChoice.title,
       type: this.action.type
     });
-    this.cdr.markForCheck();
+    this.detectChanges();
   }
 
   private _filter(inputValue: string): Section[] {
@@ -104,7 +112,7 @@ export class ListComponent implements OnInit, AfterViewInit {
       });
       return filteredSections.filter((section) => section.choices.length > 0);
     } else {
-      return filteredSections;
+      return JSON.parse(JSON.stringify(this.action.sections));
     }
   }
 
