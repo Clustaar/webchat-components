@@ -386,6 +386,7 @@ export const DISPLAYED_ACTIONS = [
   {
     type: 'send_choices_list_action',
     message: 'List with images',
+    placeholder: 'Placeholder vraiment beaucoup trop long',
     action: {
       type: 'go_to_action',
       target: {
@@ -431,6 +432,7 @@ export const DISPLAYED_ACTIONS = [
   {
     type: 'send_choices_list_action',
     message: 'List with sections',
+    placeholder: 'Placeholder',
     action: {
       type: 'go_to_action',
       target: {
