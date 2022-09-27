@@ -12,6 +12,9 @@
 .list-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
   color: rgba(0, 0, 0, 0.87);
 }
+.list-autocomplete-panel .mat-option:hover {
+  background: #f4f4ed;
+}
 
 .console-list-type {
 
