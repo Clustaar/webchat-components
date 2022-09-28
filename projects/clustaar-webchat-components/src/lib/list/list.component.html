@@ -16,6 +16,7 @@
             matInput
             [matAutocomplete]="auto"
             (click)="onInputClick()"
+            (blur)="onInputBlur()"
             [style.border-color]="primaryColor">
     <div class="list-icon"></div>
     <mat-autocomplete autoActiveFirstOption class="list-autocomplete-panel" #auto="matAutocomplete">

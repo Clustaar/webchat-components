@@ -79,7 +79,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     }, 0);
   }
 
-  onInputClick() {
+  onInputClick(): void {
     // This trigger the autocomplete detection change on zoneless mode
     this.auto.updatePosition();
   }
@@ -116,7 +116,11 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  detectChanges() {
+  onInputBlur(): void {
+    this.auto.closePanel();
+  }
+
+  detectChanges(): void {
     this.cdr.markForCheck();
     this.app.tick();
   }

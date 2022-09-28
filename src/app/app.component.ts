@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ChangeDetectorRef, OnInit, ApplicationRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { DISPLAYED_ACTIONS } from './actions';
 
 @Component({
@@ -14,17 +14,5 @@ export class AppComponent {
   userBubbleColor = '#30B286';
   userTextColor = '#FFFFFF';
 
-  onLinkClicked(url: string) {
-    console.log(url);
-  }
-
-  constructor(private app: ApplicationRef) {
-
-  }
-
-  ngOnInit() {
-    console.log("on init");
-    //this.app.tick();
-    
-  }
+  constructor() {}
 }
