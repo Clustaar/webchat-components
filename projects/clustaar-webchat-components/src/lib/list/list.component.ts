@@ -117,7 +117,9 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   onInputBlur(): void {
-    this.auto.closePanel();
+    setTimeout(() => {
+      this.auto.closePanel();
+    }, 100);
   }
 
   detectChanges(): void {
