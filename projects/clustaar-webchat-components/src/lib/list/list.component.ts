@@ -128,7 +128,10 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.app.tick();
   }
 
-  togglePanel(): void {
+  togglePanel(event: Event): void {
+    event.stopPropagation();
+    event.preventDefault();
     this.auto.panelOpen ? this.auto.closePanel() : this.onInputClick();
+    this.detectChanges();
   }
 }
