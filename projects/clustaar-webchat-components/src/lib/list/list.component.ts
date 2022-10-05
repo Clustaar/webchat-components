@@ -28,6 +28,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
+  @Input() disabled? = false;
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
@@ -43,6 +44,9 @@ export class ListComponent implements OnInit, AfterViewInit {
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
 
   ngOnInit(): void {
+    if (this.disabled) {
+      this.inputControl.disable();
+    }
     this.onLoadNextAction.emit(true);
     this.filteredSections = JSON.parse(JSON.stringify(this.action.sections));
 
@@ -80,9 +84,12 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   onInputClick(): void {
-    this.auto.openPanel();
-    // This trigger the autocomplete detection change on zoneless mode
-    this.auto.updatePosition();
+    console.log(this.disabled)
+    if (!this.disabled) {
+      this.auto.openPanel();
+      // This trigger the autocomplete detection change on zoneless mode
+      this.auto.updatePosition();
+    }
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
