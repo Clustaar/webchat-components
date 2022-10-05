@@ -19,6 +19,7 @@ export class SwitchConsoleActionsComponent {
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
+  @Input() disabled? = false;
   @Input() showSelectedButton = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
