@@ -20,6 +20,12 @@
 }
 
 .console-list-type {
+  &.inverted {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
   .bubble {
     position: relative;
     padding: 12px;
@@ -55,8 +61,7 @@
   .list-container {
     position: relative;
     width: 230px;
-    margin-left: 8px;
-    margin-bottom: 8px;
+    margin: 0 8px 8px 8px;
 
     .option-img {
       vertical-align: middle;
