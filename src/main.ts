@@ -9,13 +9,13 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
+platformBrowserDynamic().bootstrapModule(AppModule, { ngZone: 'noop' })
   .then(moduleRef => {
     if (!environment.production) {
-      const applicationRef = moduleRef.injector.get(ApplicationRef);
+     /* const applicationRef = moduleRef.injector.get(ApplicationRef);
       const componentRef = applicationRef.components[0];
       // allows to run `ng.profiler.timeChangeDetection();`
-      enableDebugTools(componentRef);
+      enableDebugTools(componentRef);*/
     }
   })
   .catch(err => console.log(err));

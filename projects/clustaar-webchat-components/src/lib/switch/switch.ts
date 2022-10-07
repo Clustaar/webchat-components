@@ -1,4 +1,6 @@
+import { Target } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { Choice } from '../list/list.model';
 
 @Component({
   selector: 'switch-console-actions',
@@ -17,6 +19,7 @@ export class SwitchConsoleActionsComponent {
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
+  @Input() disabled? = false;
   @Input() showSelectedButton = true;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -28,20 +31,19 @@ export class SwitchConsoleActionsComponent {
   constructor() {
   }
 
-  loadNextAction() {
+  loadNextAction(): void {
     this.onLoadNextAction.emit(true);
   }
 
-  lastActionRendered() {
+  lastActionRendered(): void {
     this.onLastActionRendered.emit(true);
   }
 
-  sendReply(reply) {
+  sendReply(reply): void {
     this.onSendReply.emit(reply);
   }
 
-  sendEvent(event) {
+  sendEvent(event): void {
     this.onSendEvent.emit(event);
   }
-
 }
