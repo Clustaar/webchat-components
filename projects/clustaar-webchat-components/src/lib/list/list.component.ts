@@ -84,7 +84,6 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   onInputClick(): void {
-    console.log(this.disabled)
     if (!this.disabled) {
       this.auto.openPanel();
       // This trigger the autocomplete detection change on zoneless mode
