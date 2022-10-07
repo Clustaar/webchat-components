@@ -1,0 +1,98 @@
+.list-autocomplete-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87);
+
+  &:not([class*=mat-elevation-z]) {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  .mat-option.mat-selected:not(.mat-active):not(:hover) {
+    background: white;
+  }
+
+  .mat-option.mat-selected:not(.mat-active):not(:hover):not(.mat-option-disabled) {
+    color: rgba(0, 0, 0, 0.87);
+  }
+
+  .mat-option:hover {
+    background: #f4f4ed;
+  }
+}
+
+.console-list-type {
+  &.inverted {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .bubble {
+    position: relative;
+    padding: 12px;
+    border-radius: 12px;
+
+    &.bot {
+      margin: 16px 24px 0 8px;
+      color: #FFFFFF;
+      border-bottom-left-radius: 0;
+      background: #30B286;
+      float: left;
+    }
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      color: #FFFFFF;
+      border-bottom-right-radius: 0;
+      background: #30B286;
+      float: right;
+    }
+  }
+
+  .list-question {
+    display: flex;
+    padding-bottom: 16px;
+
+    .question-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .list-container {
+    position: relative;
+    width: 230px;
+    margin: 0 8px 8px 8px;
+
+    .option-img {
+      vertical-align: middle;
+      margin-right: 8px;
+  }
+
+  .list-input {
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 12px;
+    border: 2px solid #BEBEB9;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 20px;
+    font-size: 14px;
+
+    &[placeholder] {
+      text-overflow: ellipsis;
+    }
+  }
+
+    .list-icon {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #BEBEB9;
+      position: absolute;
+      top: 15px;
+      right: 10px;
+    }
+  }
+}

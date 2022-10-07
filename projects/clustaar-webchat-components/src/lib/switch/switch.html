@@ -85,4 +85,19 @@
     </send-js-event-console-action>
   </div>
 
+  <div *ngSwitchCase="'send_choices_list_action'">
+    <list-action [action]="action" 
+                [primaryColor]="primaryColor" 
+                [textColor]="textColor" 
+                [autoScroll]="autoScroll"
+                [userTextColor]="userTextColor" 
+                [userBubbleColor]="userBubbleColor"
+                [inverted]="inverted"
+                [disabled]="disabled"
+                (onSendReply)="sendReply($event)" 
+                (onLoadNextAction)="loadNextAction()"
+                (onLastActionRendered)="lastActionRendered()" 
+                >
+  </list-action>
+  </div>
 </div>

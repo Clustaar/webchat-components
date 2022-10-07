@@ -77,6 +77,11 @@ You can use a switch on a foreach loop for each action:
 <location-console-action (onLoadNextAction)="loadNextAction()" [action]="action"></location-console-action>
 ```
 
+#### List action
+```
+<list-action [action]="action" (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"></list-action>
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

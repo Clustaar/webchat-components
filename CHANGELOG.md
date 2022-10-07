@@ -1,7 +1,13 @@
+# 3.0.3
+
+- Ajout du composant list
+
 # 3.0.0
+
 - Angular 11
 
 # 2.0.0
+
 - Angular 9
 
 # 1.1.0

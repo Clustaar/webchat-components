@@ -5,10 +5,7 @@ import { DemoComponent } from './demo/demo.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'demo', pathMatch: 'full' },
   { path: '**', redirectTo: 'demo' },
-  {
-    path: 'demo',
-    component: DemoComponent
-  },
+  
 ];
 
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(routes, { useHash: true, relativeLinkResolution: 'legacy' });
