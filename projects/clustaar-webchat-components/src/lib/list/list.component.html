@@ -17,7 +17,7 @@
                 matInput
                 [matAutocomplete]="auto"
                 (click)="onInputClick()"
-                (blur)="onInputBlur()"
+                (blur)="onInputBlur($event)"
                 [style.border-color]="primaryColor">
         <div class="list-icon" (click)="togglePanel($event)"></div>
         <mat-autocomplete autoActiveFirstOption class="list-autocomplete-panel" #auto="matAutocomplete">
