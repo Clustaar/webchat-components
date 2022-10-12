@@ -123,10 +123,14 @@ export class ListComponent implements OnInit, AfterViewInit {
     }
   }
 
-  onInputBlur(): void {
-    setTimeout(() => {
-      this.auto.closePanel();
-    }, 100);
+  onInputBlur(event): void {
+    if (!event.relatedTarget?.classList.contains('mat-option')) {
+      setTimeout(() => {
+        if (this.auto) {
+          this.auto.closePanel();
+        }
+      }, 100);
+    }
   }
 
   detectChanges(): void {
