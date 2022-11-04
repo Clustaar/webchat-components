@@ -70,8 +70,6 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
       this.onLastActionRendered.emit(true);
     }, 0);
 
-    console.log(this.action);
-
     if (this.action.selected) {
       const indexSelectedButton = this.action.buttons.findIndex(
         (actionButton) => actionButton.title === this.action.selected.title
