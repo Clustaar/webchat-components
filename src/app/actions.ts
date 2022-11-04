@@ -353,7 +353,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_quick_replies_action',
-    message: 'Test de bouton déja cliquer',
+    message: 'Test de bouton déja cliqué',
     selected: {
       title: 'bouton 1',
       action: {
