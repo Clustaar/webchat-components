@@ -8,8 +8,18 @@
     </div>
 </div>
 
-<div class="file-action-container message" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
-    <button class="upload-button" (click)="dialogToggle()">Upload your file</button>
+<button class="upload-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
+
+<div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length">
+    <b>{{ action.message }}</b>
+    <div class="files-container clickable" (click)="dialogToggle()">
+        <div class="file-preview" *ngFor="let file of files; index as i">
+            <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z" fill="#213B55"/>
+            </svg>
+            <span class="file-name">{{ file.name }}</span>
+        </div>
+    </div>
 </div>
 
 <div class="file-dialog-container" *ngIf="dialogDisplayed">
@@ -23,7 +33,7 @@
             <p>Or</p>
             <label class="input-file">
                 <input type="file" (change)="onFileUpload($event.target.files)"/>
-                <span class="upload-button">Upload your file</span>
+                <span class="upload-button clickable">Upload your file</span>
             </label>
             <p>Max 7mo per file</p>
             <div class="file-preview" *ngFor="let file of files; index as i">
@@ -31,11 +41,11 @@
                     <path d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z" fill="#213B55"/>
                 </svg>
                 <span class="file-name">{{ file.name }}</span>
-                <svg class="delete-svg" (click)="deleteFile(i)" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg class="clickable" (click)="deleteFile(i)" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M10.1666 1.27334L9.22665 0.333336L5.49998 4.06L1.77331 0.333336L0.833313 1.27334L4.55998 5L0.833313 8.72667L1.77331 9.66667L5.49998 5.94L9.22665 9.66667L10.1666 8.72667L6.43998 5L10.1666 1.27334Z" fill="#213B55"/>
                 </svg>
             </div>
-            <a class="cancel-button" (click)="dialogToggle()">Cancel</a>
+            <a class="cancel-button clickable" (click)="dialogToggle()">Cancel</a>
         </div>
     </div>
 </div>

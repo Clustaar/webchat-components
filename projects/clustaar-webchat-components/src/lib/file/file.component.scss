@@ -26,30 +26,26 @@
     }
 }
 
+.upload-button {
+    padding: 8px 12px;
+    background-color: #213B55;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0 8px 8px 8px;
+}
+
+
 .file-action-container {
     padding: 12px;
     border-radius: 12px;
-
-    &.message {
-        margin: 8px;
-        display: flex;
-        justify-content: center;
-    }
-
-    .upload-button {
-        padding: 8px 12px;
-        background-color: #213B55;
-        border-radius: 12px;
-        border: none;
-        color: white;
-        font-size: 14px;
-        font-weight: 400;
-        cursor: pointer;
-    }
+    margin: 8px;
 
     .files-container {
         margin-top: 10px;
-        background-color: rgba(19, 17, 18, 0.2);
+        background-color: rgba(19, 17, 18, 0.15);
         border: 2px dashed white;
         border-radius: 8px;
         padding: 16px;
@@ -70,12 +66,8 @@
             margin: 5px 0;
         }
 
-        .cancel-button {
-            cursor: pointer;
-
-            &:hover {
-                text-decoration: underline;
-            }
+        .cancel-button:hover {
+            text-decoration: underline;
         }
 
         input[type="file"] {
@@ -95,10 +87,6 @@
             .file-name {
                 margin: 0 7px;
             }
-
-            .delete-svg {
-                cursor: pointer;
-            }
         }
     }
 }
@@ -114,4 +102,8 @@
     flex-direction: column;
     justify-content: center;
     background-color: rgba(19, 17, 18, 0.6);
+}
+
+.clickable {
+    cursor: pointer;
 }
