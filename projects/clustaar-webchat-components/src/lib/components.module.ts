@@ -20,6 +20,8 @@ import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
+import { FileComponent } from '../public-api';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -34,7 +36,8 @@ const components = [
   SendJsEventComponent,
   AgentReplyComponent,
   TitleComponent,
-  ListComponent
+  ListComponent,
+  FileComponent
 ];
 
 @NgModule({
@@ -45,6 +48,7 @@ const components = [
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
+    MatDialogModule,
     FormsModule,
     ReactiveFormsModule
   ],

@@ -1,0 +1,117 @@
+.file-question {
+    display: flex;
+    padding-bottom: 16px;
+
+    .question-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .bubble {
+        position: relative;
+        padding: 12px;
+        border-radius: 12px;
+    
+        &.bot {
+            margin: 16px 24px 0 8px;
+            border-bottom-left-radius: 0;
+            float: left;
+        }
+    
+        &.user {
+            margin: 16px 8px 0 24px;
+            border-bottom-right-radius: 0;
+            float: right;
+        }
+    }
+}
+
+.file-action-container {
+    padding: 12px;
+    border-radius: 12px;
+
+    &.message {
+        margin: 8px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .upload-button {
+        padding: 8px 12px;
+        background-color: #213B55;
+        border-radius: 12px;
+        border: none;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+
+    .files-container {
+        margin-top: 10px;
+        background-color: rgba(19, 17, 18, 0.2);
+        border: 2px dashed white;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .upload-svg {
+            margin-bottom: 10px;
+        }
+
+        .input-file {
+            display: flex;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        .cancel-button {
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        input[type="file"] {
+            position: absolute;
+            top: -1000px;
+        }
+
+        .file-preview {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 4px 8px;
+            border-radius: 8px;
+            color: #213B55;
+            margin-bottom: 5px;
+
+            .file-name {
+                margin: 0 7px;
+            }
+
+            .delete-svg {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.file-dialog-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(19, 17, 18, 0.6);
+}

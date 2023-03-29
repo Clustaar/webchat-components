@@ -82,6 +82,11 @@ You can use a switch on a foreach loop for each action:
 <list-action [action]="action" (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"></list-action>
 ```
 
+#### File action
+```
+<file-action [action]="action" (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"></file-action>
+```
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

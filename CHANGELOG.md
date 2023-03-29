@@ -1,6 +1,10 @@
+# 3.0.4
+
+- Add file component
+
 # 3.0.3
 
-- Ajout du composant list
+- Add list component
 
 # 3.0.0
 

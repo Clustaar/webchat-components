@@ -100,4 +100,20 @@
                 >
   </list-action>
   </div>
+
+  <div *ngSwitchCase="'send_file_action'">
+    <file-action [action]="action" 
+                [primaryColor]="primaryColor" 
+                [textColor]="textColor" 
+                [autoScroll]="autoScroll"
+                [userTextColor]="userTextColor" 
+                [userBubbleColor]="userBubbleColor"
+                [inverted]="inverted"
+                [disabled]="disabled"
+                (onSendReply)="sendReply($event)" 
+                (onLoadNextAction)="loadNextAction()"
+                (onLastActionRendered)="lastActionRendered()" 
+                >
+  </file-action>
+  </div>
 </div>

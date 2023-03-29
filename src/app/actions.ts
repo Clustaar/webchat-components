@@ -486,5 +486,9 @@ export const DISPLAYED_ACTIONS = [
         ]
       }
     ]
+  },
+  {
+    type: 'send_file_action',
+    message: 'Please send your ID card:'
   }
 ];
