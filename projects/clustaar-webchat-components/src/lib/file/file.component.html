@@ -25,14 +25,14 @@
 <div class="file-dialog-container" *ngIf="dialogDisplayed">
     <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
         <b>{{ action.message }}</b>
-        <div class="files-container">
+        <div class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
             <svg class="upload-svg" width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26.6063 8.805C25.6713 4.06125 21.505 0.5 16.5 0.5C12.5262 0.5 9.075 2.755 7.35625 6.055C3.2175 6.495 0 10.0013 0 14.25C0 18.8013 3.69875 22.5 8.25 22.5H26.125C29.92 22.5 33 19.42 33 15.625C33 11.995 30.1812 9.0525 26.6063 8.805ZM19.25 12.875V18.375H13.75V12.875H9.625L16.5 6L23.375 12.875H19.25Z" fill="white"/>
             </svg>
             <b>Drag and drop your file</b>
             <p>Or</p>
             <label class="input-file">
-                <input type="file" (change)="onFileUpload($event.target.files)"/>
+                <input type="file" (change)="onFileUpload($event.target.files[0])"/>
                 <span class="upload-button clickable">Upload your file</span>
             </label>
             <p>Max 7mo per file</p>

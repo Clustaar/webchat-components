@@ -22,6 +22,7 @@ import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
 import { FileComponent } from '../public-api';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DropFileDirective } from './file/drop-file.directive';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -37,7 +38,8 @@ const components = [
   AgentReplyComponent,
   TitleComponent,
   ListComponent,
-  FileComponent
+  FileComponent,
+  DropFileDirective
 ];
 
 @NgModule({

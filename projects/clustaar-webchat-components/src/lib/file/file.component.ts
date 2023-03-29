@@ -29,8 +29,8 @@ export class FileComponent {
     this.detectChanges();
   }
 
-  onFileUpload(files: File[]): void {
-    this.files.push(files[0]);
+  onFileUpload(file: File): void {
+    this.files.push(file);
     this.detectChanges();
   }
 
