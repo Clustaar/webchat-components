@@ -23,6 +23,7 @@ export class FileComponent {
   files: File[] = [];
   maxFileSize = 7000000;
   sizeError = false;
+  filesSended: string;
 
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) { }
 
@@ -52,7 +53,10 @@ export class FileComponent {
   }
 
   sendFiles(): void {
+    this.dialogToggle();
+    this.filesSended = this.files.map(file => file.name).join('\n');
     console.log('Send files to the back')
+    this.detectChanges();
   }
 
   private detectChanges(): void {

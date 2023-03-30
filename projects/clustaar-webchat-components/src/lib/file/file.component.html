@@ -10,7 +10,7 @@
 
 <button class="file-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
 
-<div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length">
+<div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length && !filesSended">
     <b>{{ action.message }}</b>
     <div class="files-container clickable" (click)="dialogToggle()">
         <div class="file-preview" *ngFor="let file of files; index as i">
@@ -60,3 +60,11 @@
         </svg>
     </div>
 </div>
+
+<user-message-console-action [action]="{message: filesSended}"
+                            [userTextColor]="userTextColor"
+                            [userBubbleColor]="userBubbleColor"
+                            [inverted]="inverted"
+                            [autoScroll]="autoScroll"
+                            *ngIf="filesSended">
+</user-message-console-action>
