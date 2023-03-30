@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<button class="upload-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
+<button class="file-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
 
 <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length">
     <b>{{ action.message }}</b>
@@ -33,7 +33,7 @@
             <p>Or</p>
             <label class="input-file">
                 <input type="file" (change)="onFileUpload($event.target.files[0])"/>
-                <span class="upload-button clickable">Upload your file</span>
+                <span class="file-button clickable">Upload your file</span>
             </label>
             <p>Max 7mo per file</p>
             <div class="file-preview" *ngFor="let file of files; index as i">
@@ -45,7 +45,18 @@
                     <path d="M10.1666 1.27334L9.22665 0.333336L5.49998 4.06L1.77331 0.333336L0.833313 1.27334L4.55998 5L0.833313 8.72667L1.77331 9.66667L5.49998 5.94L9.22665 9.66667L10.1666 8.72667L6.43998 5L10.1666 1.27334Z" fill="#213B55"/>
                 </svg>
             </div>
-            <a class="cancel-button clickable" (click)="dialogToggle()">Cancel</a>
         </div>
+        <div class="file-dialog-footer">
+            <span class="file-button clickable" (click)="sendFiles()" *ngIf="files.length">Send your file</span>
+            <a class="cancel-button clickable" (click)="dialogToggle()">Later</a>
+        </div>
+    </div>
+
+    <div class="error-container" *ngIf="sizeError">
+        Your file exceeds the allowed size of 7 MB
+
+        <svg class="clickable" (click)="closeError()" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.1666 1.27334L9.22665 0.333336L5.49998 4.06L1.77331 0.333336L0.833313 1.27334L4.55998 5L0.833313 8.72667L1.77331 9.66667L5.49998 5.94L9.22665 9.66667L10.1666 8.72667L6.43998 5L10.1666 1.27334Z" fill="#213B55"/>
+        </svg>
     </div>
 </div>

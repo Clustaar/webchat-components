@@ -21,6 +21,8 @@ export class FileComponent {
 
   dialogDisplayed = false;
   files: File[] = [];
+  maxFileSize = 7000000;
+  sizeError = false;
 
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) { }
 
@@ -30,13 +32,27 @@ export class FileComponent {
   }
 
   onFileUpload(file: File): void {
-    this.files.push(file);
+    if (file.size < this.maxFileSize) {
+      this.files.push(file);
+      this.sizeError = false;
+    } else {
+      this.sizeError = true;
+    }
     this.detectChanges();
   }
 
   deleteFile(index: number): void {
     this.files.splice(index, 1);
     this.detectChanges();
+  }
+
+  closeError(): void {
+    this.sizeError = false;
+    this.detectChanges();
+  }
+
+  sendFiles(): void {
+    console.log('Send files to the back')
   }
 
   private detectChanges(): void {
