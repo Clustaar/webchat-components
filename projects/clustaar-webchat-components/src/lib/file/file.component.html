@@ -10,9 +10,9 @@
 
 <button class="file-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
 
-<div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length && !filesSended">
-    <b>{{ action.message }}</b>
+<div class="file-action-container preview" [style.background-color]="userBubbleColor" [style.color]="userTextColor" *ngIf="files.length && !filesSended">
     <div class="files-container clickable" (click)="dialogToggle()">
+        <span class="file-button clickable">Upload your file</span>
         <div class="file-preview" *ngFor="let file of files; index as i">
             <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z" fill="#213B55"/>
@@ -20,17 +20,18 @@
             <span class="file-name">{{ file.name }}</span>
         </div>
     </div>
+    <span class="file-button clickable" (click)="sendFiles()" *ngIf="files.length">Send your file</span>
 </div>
 
 <div class="file-dialog-container" *ngIf="dialogDisplayed">
     <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
         <b>{{ action.message }}</b>
         <div class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
-            <svg class="upload-svg" width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg class="upload-svg desktop-only" width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M26.6063 8.805C25.6713 4.06125 21.505 0.5 16.5 0.5C12.5262 0.5 9.075 2.755 7.35625 6.055C3.2175 6.495 0 10.0013 0 14.25C0 18.8013 3.69875 22.5 8.25 22.5H26.125C29.92 22.5 33 19.42 33 15.625C33 11.995 30.1812 9.0525 26.6063 8.805ZM19.25 12.875V18.375H13.75V12.875H9.625L16.5 6L23.375 12.875H19.25Z" fill="white"/>
             </svg>
-            <b>Drag and drop your file</b>
-            <p>Or</p>
+            <b class="desktop-only">Drag and drop your file</b>
+            <p class="desktop-only">Or</p>
             <label class="input-file">
                 <input type="file" (change)="onFileUpload($event.target.files[0])"/>
                 <span class="file-button clickable">Upload your file</span>
