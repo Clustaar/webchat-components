@@ -22,6 +22,14 @@
     </agent-reply-console-action>
   </div>
 
+  <div *ngSwitchCase="'spellz_text_action'">
+    <spellz-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                [action]="action" [primaryColor]="primaryColor"
+                                [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
+                                [autoScroll]="autoScroll">
+    </spellz-reply-console-action>
+  </div>
+
   <div *ngSwitchCase="'text'">
     <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                  [action]="action"

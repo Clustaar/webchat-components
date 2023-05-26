@@ -36,6 +36,38 @@ export const DISPLAYED_ACTIONS = [
       "Hello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help You"
   },
   {
+    type: 'spellz_text_action',
+    replyMessage:
+    "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",
+    confidence: "low",
+    resources: [{
+      title: 'Source: How to change your battery...',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
+      url: 'http://google.fr' 
+    }]
+  },
+  {
+    type: 'spellz_text_action',
+    replyMessage:
+    "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",
+    confidence: "low",
+    resources: [{
+      title: '1. Source: How to change your battery...',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
+      url: 'http://google.fr' 
+    },
+    {
+      title: '2. Source: How to change your battery...',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
+      url: 'http://google.fr' 
+    },
+    {
+      title: '3. Source: How to change your battery...',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
+      url: 'http://google.fr' 
+    }]
+  },
+  {
     type: 'send_image_action',
     imageURL:
       'https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg'

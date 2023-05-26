@@ -20,6 +20,7 @@ import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
+import { SpellzReplyComponent } from './spellz-reply/spellz-reply.component';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -33,6 +34,7 @@ const components = [
   LocationConsoleActionComponent,
   SendJsEventComponent,
   AgentReplyComponent,
+  SpellzReplyComponent,
   TitleComponent,
   ListComponent
 ];

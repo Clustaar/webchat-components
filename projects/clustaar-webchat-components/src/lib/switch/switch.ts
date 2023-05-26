@@ -1,6 +1,4 @@
-import { Target } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Choice } from '../list/list.model';
 
 @Component({
   selector: 'switch-console-actions',
