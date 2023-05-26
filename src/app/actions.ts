@@ -385,7 +385,20 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_quick_replies_action',
-    message: 'Test de bouton',
+    message: 'Test de bouton déja cliqué',
+    selected: {
+      title: 'bouton 1',
+      action: {
+        type: 'go_to_action',
+        target: {
+          id: '5ae71abcdc877d000d1a317d',
+          type: 'story',
+          name: 'bonjour'
+        },
+        sessionValues: {}
+      },
+      type: 'quick_reply'
+    },
     buttons: [
       {
         title: 'bouton 1',
@@ -433,30 +446,126 @@ export const DISPLAYED_ACTIONS = [
         type: 'section',
         title: '',
         choices: [
-          { type: 'choice', title: 'Argentina', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Bolivia', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Cambodia', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Denmark', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Estonia', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'France', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Germany', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Hungary', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Iceland', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Japan', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Korea', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Laos', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Mongolia', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Nepal', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Oman', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Poland', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Qatar', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Russia', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Senegal', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Thailand', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'United Kingdom', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Vietnam', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Yemen', imageUrl: 'https://via.placeholder.com/25' },
-          { type: 'choice', title: 'Zambia', imageUrl: 'https://via.placeholder.com/25' },
+          {
+            type: 'choice',
+            title: 'Argentina',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Bolivia',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Cambodia',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Denmark',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Estonia',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'France',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Germany',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Hungary',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Iceland',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Japan',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Korea',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Laos',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Mongolia',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Nepal',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Oman',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Poland',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Qatar',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Russia',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Senegal',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Thailand',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'United Kingdom',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Vietnam',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Yemen',
+            imageUrl: 'https://via.placeholder.com/25'
+          },
+          {
+            type: 'choice',
+            title: 'Zambia',
+            imageUrl: 'https://via.placeholder.com/25'
+          }
         ]
       }
     ]
@@ -493,7 +602,7 @@ export const DISPLAYED_ACTIONS = [
           { type: 'choice', title: 'Reims' },
           { type: 'choice', title: 'Toulon' },
           { type: 'choice', title: 'Saint-Etienne' },
-          { type: 'choice', title: 'Le Havre' },
+          { type: 'choice', title: 'Le Havre' }
         ]
       },
       {
@@ -514,7 +623,7 @@ export const DISPLAYED_ACTIONS = [
           { type: 'choice', title: 'Cardiff' },
           { type: 'choice', title: 'Hull' },
           { type: 'choice', title: 'Bradford' },
-          { type: 'choice', title: 'Stroke-on-Trent' },
+          { type: 'choice', title: 'Stroke-on-Trent' }
         ]
       }
     ]
