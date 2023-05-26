@@ -12,6 +12,7 @@ export { CardConsoleActionComponent } from './lib/card/card.component';
 export { LocationConsoleActionComponent } from './lib/location/location';
 export { SendJsEventComponent } from './lib/send-js-event/send-js-event.component';
 export { AgentReplyComponent } from './lib/agent-reply/agent-reply.component';
+export { SpellzReplyComponent } from './lib/spellz-reply/spellz-reply.component';
 export { TitleComponent } from './lib/title/title.component';
 export { SimpleCardConsoleActionComponent } from './lib/simple-card/simple-card';
 export { ObfuscationPipe } from './lib/obfuscation/obfuscation.pipe';
