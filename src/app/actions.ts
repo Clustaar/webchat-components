@@ -41,8 +41,8 @@ export const DISPLAYED_ACTIONS = [
     "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",
     confidence: "low",
     resources: [{
-      title: 'Source: How to change your battery...',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
+      title: '2ÈME WEBINAIRE POST-COVID - ADAPTATION SOCIALE, DU TRAVAIL ET DU QUOTIDIEN',
+      text: "Un dépôt de demande AI est indiqué. Au bureau de l'AI on m'a dit que je devrais faire du home-office, mais je ne supporte pas de regarder mon ordinateur plus que 30 minutes.. je me sens bloquée. pas de travail physique ni mental de possible. Un dépôt de demande AI est indiqué (si ce n'est pas déjà le cas). Je travaille péniblement à 50% depuis 1an. Je ne veux pas ne rien faire. Mais comment se reconvertir si j’ai déjà beaucoup de peine à faire mon travail dans un bureau et en Home Office! Cela m’angoisse beaucoup, car je ne veux pas perdre mon travail. Un dépôt de demande AI sans tarder est indiqué si l'atteinte à la santé empêche ou limite l'exercice de l'activité habituelle. Covid long depuis 14 mois et les APG ne veulent plus payer les allocations, car il manque des preuves médicales prouvant mon Long Covid. L'assurance estime que je suis en mesure de travailler à 100 % alors que ce n'est pas le cas. Que faire ?",
       url: 'http://google.fr' 
     }]
   },

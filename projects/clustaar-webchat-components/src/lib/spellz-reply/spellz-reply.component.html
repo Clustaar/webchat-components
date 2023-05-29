@@ -38,7 +38,7 @@
 
   <div [style.color]="primaryColor" class="confidence">Confidence: {{action.confidence}}</div>
 
-  <span class="show-source" (click)="toggleSource()"><ng-container *ngIf="!showSource">Show source</ng-container><ng-container *ngIf="showSource">Hide source</ng-container></span>
+  <span *ngIf="action.resources?.length > 0" class="show-source" (click)="toggleSource()"><ng-container *ngIf="!showSource">Show source{{action.resources.length > 1 ? 's' : ''}}</ng-container><ng-container *ngIf="showSource">Hide source{{action.resources.length > 1 ? 's' : ''}}</ng-container></span>
   <div *ngIf="showSource" class="reply-sources">
       <!-- Left navigation card -->
     <div class="previous-arrow-container">
@@ -58,7 +58,7 @@
           <div>
             <h3 [ngStyle]="source.url != '' && {'cursor': 'pointer'}" (click)="openSourceUrl(source)"
                 class="source-title" [style.color]="primaryColor">{{source.title}}</h3>
-            <p class="source-text">{{source.text}}</p>
+            <p class="source-text">{{source.text | slice:0:300}}</p>
           </div>
 
         </div>

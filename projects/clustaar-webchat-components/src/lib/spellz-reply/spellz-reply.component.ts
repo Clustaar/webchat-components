@@ -58,6 +58,12 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
       SecurityContext.HTML,
       this.action.replyMessage
     );
+    
+    for(let resource of this.action.resources) {
+      resource.title = this.truncate(resource.title, 50, true);
+      resource.text = this.truncate(resource.text, 180, true);
+    }
+
 
     if (this.autoScroll) {
       setTimeout(() => {
@@ -69,6 +75,14 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
       }, 500);
     }
   }
+
+  truncate( str, n, useWordBoundary ){
+    if (str.length <= n) { return str; }
+    const subString = str.slice(0, n-1); // the original check
+    return (useWordBoundary 
+      ? subString.slice(0, subString.lastIndexOf(" ")) 
+      : subString) + "...";
+  };
 
   ngAfterViewInit() {
     Array.from(
