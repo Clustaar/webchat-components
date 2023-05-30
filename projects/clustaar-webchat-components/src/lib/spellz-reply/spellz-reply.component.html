@@ -56,9 +56,11 @@
       <swiper id="swiper-cards-console" (indexChange)="onSwiperIndexChange($event)" [config]="SWIPER_CONFIG" #swiperSources>
         <div *ngFor="let source of action.resources; let i = index;" class="swiper-slide source">
           <div>
-            <h3 [ngStyle]="source.url != '' && {'cursor': 'pointer'}" (click)="openSourceUrl(source)"
-                class="source-title" [style.color]="primaryColor">{{source.title}}</h3>
-            <p class="source-text">{{source.text | slice:0:300}}</p>
+            <h3 [ngStyle]="source.url != null && source.url != '' && {'cursor': 'pointer'}" (click)="openSourceUrl(source)"
+                class="source-title" [title]="source.title" [style.color]="primaryColor">{{source.limitedTitle}}</h3>
+            <p class="source-text">{{source.showMore ? source.text : source.limitedText}} 
+              <span [style.color]="textColor" (click)="showMore(source)" class="show-more-text" *ngIf="!source.showMore && source.text.length > this.sourceTextLimit">...</span>
+            </p>
           </div>
 
         </div>

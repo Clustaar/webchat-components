@@ -44,7 +44,9 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
     threshold: 10,
     loop: true
   };
-  showSource = false;
+  showSource = true;
+  sourceTitleLimit = 50;
+  sourceTextLimit = 180;
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -60,8 +62,14 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
     );
     
     for(let resource of this.action.resources) {
-      resource.title = this.truncate(resource.title, 50, true);
-      resource.text = this.truncate(resource.text, 180, true);
+      resource.limitedTitle = this.truncate(resource.title, this.sourceTitleLimit, true);
+      resource.showMore = false;
+      if(resource.text == null || resource.text?.length == 0 ) {
+        resource.text = this.message;
+      }
+
+      resource.limitedText = this.truncate(resource.text, this.sourceTextLimit, true);
+      
     }
 
 
@@ -74,6 +82,8 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
         }
       }, 500);
     }
+
+    
   }
 
   truncate( str, n, useWordBoundary ){
@@ -81,7 +91,7 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
     const subString = str.slice(0, n-1); // the original check
     return (useWordBoundary 
       ? subString.slice(0, subString.lastIndexOf(" ")) 
-      : subString) + "...";
+      : subString);
   };
 
   ngAfterViewInit() {
@@ -126,11 +136,16 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
     this.detectChanges();
   }
 
-  openSourceUrl(card) {
-    if (card.url != '') {
-      window.open(card.url, '_blank');
-      this.onLinkClicked.emit({ url: card.url, label: card.title });
+  openSourceUrl(source) {
+    if (source.url != null && source.url.length > 0) {
+      window.open(source.url, '_blank');
+      this.onLinkClicked.emit({ url: source.url, label: source.title });
     }
+  }
+
+  showMore(source) {
+    source.showMore = true;
+    this.detectChanges();
   }
 
   isArrowRightDisabled() {
