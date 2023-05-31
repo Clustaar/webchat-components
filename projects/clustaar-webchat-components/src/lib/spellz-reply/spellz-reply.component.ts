@@ -68,6 +68,8 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
         resource.text = this.message;
       }
 
+      resource.text = this.decodeHtml(resource.text);
+
       resource.limitedText = this.truncate(resource.text, this.sourceTextLimit, true);
       
     }
@@ -86,6 +88,12 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
     
   }
 
+  decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+  }
+
   truncate( str, n, useWordBoundary ){
     if (str.length <= n) { return str; }
     const subString = str.slice(0, n-1); // the original check
@@ -93,6 +101,8 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
       ? subString.slice(0, subString.lastIndexOf(" ")) 
       : subString);
   };
+
+  
 
   ngAfterViewInit() {
     Array.from(

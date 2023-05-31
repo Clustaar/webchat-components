@@ -59,7 +59,7 @@
             <h3 [ngStyle]="source.url != null && source.url != '' && {'cursor': 'pointer'}" (click)="openSourceUrl(source)"
                 class="source-title" [title]="source.title" [style.color]="primaryColor">{{source.limitedTitle}}</h3>
             <p class="source-text">{{source.showMore ? source.text : source.limitedText}} 
-              <span [style.color]="textColor" (click)="showMore(source)" class="show-more-text" *ngIf="!source.showMore && source.text.length > this.sourceTextLimit">...</span>
+              <span [style.color]="primaryColor" (click)="showMore(source)" class="show-more-text" *ngIf="!source.showMore && source.text.length > this.sourceTextLimit">...</span>
             </p>
           </div>
 
