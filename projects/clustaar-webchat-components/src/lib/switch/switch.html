@@ -22,6 +22,15 @@
     </agent-reply-console-action>
   </div>
 
+  
+  <div *ngSwitchCase="'spellz_separator_action'">
+    <spellz-separator-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                                [action]="action" [primaryColor]="primaryColor"
+                                [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
+                                [autoScroll]="autoScroll">
+    </spellz-separator-console-action>
+  </div>
+
   <div *ngSwitchCase="'spellz_text_action'">
     <spellz-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                 [action]="action" [primaryColor]="primaryColor"

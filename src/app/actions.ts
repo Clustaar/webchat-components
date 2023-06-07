@@ -47,6 +47,11 @@ export const DISPLAYED_ACTIONS = [
     }]
   },
   {
+    type: 'spellz_separator_action',
+    message:
+      "New context"
+  },
+  {
     type: 'spellz_text_action',
     replyMessage:
     "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",

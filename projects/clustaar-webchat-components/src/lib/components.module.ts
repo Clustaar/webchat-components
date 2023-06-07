@@ -21,6 +21,7 @@ import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
 import { SpellzReplyComponent } from './spellz-reply/spellz-reply.component';
+import { SpellzSeparatorComponent } from './spellz-separator/spellz-separator';
 
 const components = [
   SwitchConsoleActionsComponent,
@@ -36,7 +37,8 @@ const components = [
   AgentReplyComponent,
   SpellzReplyComponent,
   TitleComponent,
-  ListComponent
+  ListComponent,
+  SpellzSeparatorComponent
 ];
 
 @NgModule({
