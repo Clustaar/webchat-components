@@ -7,6 +7,14 @@
     </text-console-action>
   </div>
 
+  <div *ngSwitchCase="'temporary_text_action'">
+    <temporary-text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                         (onLinkClicked)="onLinkClicked.emit($event)"
+                         [action]="action" [primaryColor]="primaryColor"
+                         [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
+    </temporary-text-console-action>
+  </div>
+
   <div *ngSwitchCase="'title_message'">
     <title-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                           [action]="action" [indexAction]="index"

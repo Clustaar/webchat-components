@@ -10,6 +10,7 @@ import { SwitchConsoleActionsComponent } from './switch/switch';
 import { ImageConsoleActionComponent } from './image/image';
 import { WaitConsoleActionComponent } from './wait/wait.component';
 import { TextConsoleActionComponent } from './text/text';
+import { TemporaryTextConsoleActionComponent } from './temporary-text/temporary-text';
 import { UserMessageConsoleActionComponent } from './user-message/user-message';
 import { QuickreplyConsoleActionComponent } from './quickreply/quickreply.component';
 import { CardConsoleActionComponent } from './card/card.component';
@@ -28,6 +29,7 @@ const components = [
   ImageConsoleActionComponent,
   WaitConsoleActionComponent,
   TextConsoleActionComponent,
+  TemporaryTextConsoleActionComponent,
   UserMessageConsoleActionComponent,
   QuickreplyConsoleActionComponent,
   CardConsoleActionComponent,
@@ -38,7 +40,8 @@ const components = [
   SpellzReplyComponent,
   TitleComponent,
   ListComponent,
-  SpellzSeparatorComponent
+  SpellzSeparatorComponent,
+  TemporaryTextConsoleActionComponent
 ];
 
 @NgModule({

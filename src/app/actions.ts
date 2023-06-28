@@ -19,6 +19,11 @@ export const DISPLAYED_ACTIONS = [
     text: 'Hello, \nwelcome to webchat components demo'
   },
   {
+    type: 'temporary_text_action',
+    text: 'Hello, temporary text action',
+    duration: 1000
+  },
+  {
     type: 'title_message',
     message: 'An agent joined the conversation'
   },
