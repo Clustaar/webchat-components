@@ -40,8 +40,7 @@ const components = [
   SpellzReplyComponent,
   TitleComponent,
   ListComponent,
-  SpellzSeparatorComponent,
-  TemporaryTextConsoleActionComponent
+  SpellzSeparatorComponent
 ];
 
 @NgModule({

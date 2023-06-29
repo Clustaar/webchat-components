@@ -3,40 +3,44 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  ViewChild,
-  ViewEncapsulation
+  SecurityContext
 } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'temporary-text-console-action',
   templateUrl: './temporary-text.html',
   styleUrls: ['./temporary-text.scss'],
-  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TemporaryTextConsoleActionComponent implements OnInit, AfterViewInit {
-  @Input() indexAction: number;
+export class TemporaryTextConsoleActionComponent
+  implements OnInit, AfterViewInit
+{
   @Input() action: any;
-  @Input() inverted = false;
-  @Input() primaryColor = '#30B286';
-  @Input() textColor = '#FFFFFF';
+  @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
-  @Input() duration = 1000;
+  @Input() userBubbleColor: string = '#C5DBEA';
+  @Input() userTextColor: string = '#2C3F59';
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
-  @ViewChild('textElement') textElement: ElementRef;
+  message: SafeHtml;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(
+    private cdr: ChangeDetectorRef,
+    protected sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
-    this.onLoadNextAction.emit(true);
-
+    this.message = this.sanitizer.sanitize(
+      SecurityContext.HTML,
+      this.action.message
+    );
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
@@ -50,8 +54,6 @@ export class TemporaryTextConsoleActionComponent implements OnInit, AfterViewIni
   }
 
   ngAfterViewInit() {
-    this.cdr.markForCheck();
-
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
