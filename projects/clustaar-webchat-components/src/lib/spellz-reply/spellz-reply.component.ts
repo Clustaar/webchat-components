@@ -67,11 +67,8 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
       if(resource.text == null || resource.text?.length == 0 ) {
         resource.text = this.message;
       }
-
       resource.text = this.decodeHtml(resource.text);
-
       resource.limitedText = this.truncate(resource.text, this.sourceTextLimit, true);
-      
     }
 
 
@@ -133,6 +130,9 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
 
   nextSource() {
     if (this.isArrowRightDisabled()) return;
+    for(let resource of this.action.resources) {
+      resource.showMore = false; 
+    }
     this.swiperSources.directiveRef.nextSlide(300);
     this.swiperSources.directiveRef!!.update();
     this.detectChanges();
@@ -141,6 +141,9 @@ export class SpellzReplyComponent implements OnInit, AfterViewInit {
   /** Move to the previous card using left arrow */
   previousSource() {
     if (this.currentSourceIndex <= 0) return;
+    for(let resource of this.action.resources) {
+      resource.showMore = false; 
+    }
     this.swiperSources.directiveRef.prevSlide(300);
     this.swiperSources.directiveRef!!.update();
     this.detectChanges();
