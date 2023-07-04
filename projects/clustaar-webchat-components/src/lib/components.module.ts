@@ -23,12 +23,14 @@ import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
 import { SpellzReplyComponent } from './spellz-reply/spellz-reply.component';
 import { SpellzSeparatorComponent } from './spellz-separator/spellz-separator';
+import { TemporaryWaitConsoleActionComponent } from './temporary-wait/temporary-wait.component';
 
 const components = [
   SwitchConsoleActionsComponent,
   ImageConsoleActionComponent,
   WaitConsoleActionComponent,
   TextConsoleActionComponent,
+  TemporaryWaitConsoleActionComponent,
   TemporaryTextConsoleActionComponent,
   UserMessageConsoleActionComponent,
   QuickreplyConsoleActionComponent,

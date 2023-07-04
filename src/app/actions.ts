@@ -20,8 +20,10 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'temporary_text_action',
-    message: 'Hello, temporary text action',
-    duration: 1000
+    message: 'Hello, temporary text action'
+  },
+  {
+    type: 'temporary_wait_action',
   },
   {
     type: 'title_message',

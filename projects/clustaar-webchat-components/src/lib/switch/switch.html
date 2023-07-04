@@ -71,6 +71,14 @@
     </wait-console-action>
   </div>
 
+  <div *ngSwitchCase="'temporary_wait_action'">
+    <temporary-wait-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
+                         [action]="action"
+                         [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
+                         [autoScroll]="autoScroll">
+    </temporary-wait-console-action>
+  </div>
+
   <div *ngSwitchCase="'send_quick_replies_action'">
     <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
                                (onLastActionRendered)="lastActionRendered()" [action]="action"

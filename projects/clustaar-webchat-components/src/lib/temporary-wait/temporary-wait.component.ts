@@ -1,53 +1,50 @@
 import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
   OnInit,
   Output,
-  ViewEncapsulation
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef
 } from '@angular/core';
 
 @Component({
-  selector: 'spellz-separator-console-action',
-  templateUrl: './spellz-separator.html',
-  styleUrls: ['./spellz-separator.scss'],
-  encapsulation: ViewEncapsulation.None,
+  selector: 'temporary-wait-console-action',
+  templateUrl: './temporary-wait.component.html',
+  styleUrls: ['./temporary-wait.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SpellzSeparatorComponent implements OnInit, AfterViewInit {
-  @Input() indexAction: number;
+export class TemporaryWaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() inverted: boolean = false;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
+  @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
+  isOver = false;
 
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {
+  }
 
   ngOnInit() {
-    this.onLoadNextAction.emit(true);
-
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-        if (element != null) {
+        if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
       }, 500);
     }
+    this.onLoadNextAction.emit(true);
+
     this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
-    this.cdr.markForCheck();
-
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
