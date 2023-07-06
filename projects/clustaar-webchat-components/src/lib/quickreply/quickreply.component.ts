@@ -29,6 +29,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() showSelectedButton = true;
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> =
     new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
@@ -52,7 +53,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
   }
 

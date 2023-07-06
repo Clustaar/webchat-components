@@ -21,6 +21,7 @@ export class TemporaryWaitConsoleActionComponent implements OnInit, AfterViewIni
   @Input() primaryColor = '#30B286';
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -37,7 +38,7 @@ export class TemporaryWaitConsoleActionComponent implements OnInit, AfterViewIni
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
     this.onLoadNextAction.emit(true);
 

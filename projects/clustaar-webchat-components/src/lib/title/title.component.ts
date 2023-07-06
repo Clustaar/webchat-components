@@ -19,6 +19,7 @@ export class TitleComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 

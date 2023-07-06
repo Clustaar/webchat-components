@@ -25,6 +25,7 @@ export class UserMessageConsoleActionComponent
   @Input() autoScroll? = true;
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> =
     new EventEmitter<boolean>();

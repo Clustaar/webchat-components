@@ -19,6 +19,7 @@ export class SwitchConsoleActionsComponent {
   @Input() autoScroll? = true;
   @Input() disabled? = false;
   @Input() showSelectedButton = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();

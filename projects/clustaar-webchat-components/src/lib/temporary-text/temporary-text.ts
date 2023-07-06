@@ -25,6 +25,7 @@ export class TemporaryTextConsoleActionComponent
   @Input() autoScroll? = true;
   @Input() userBubbleColor: string = '#C5DBEA';
   @Input() userTextColor: string = '#2C3F59';
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> =
     new EventEmitter<boolean>();
@@ -48,7 +49,7 @@ export class TemporaryTextConsoleActionComponent
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
     this.cdr.markForCheck();
   }

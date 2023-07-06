@@ -24,6 +24,7 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   @Input() primaryColor = '#30B286';
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> =
     new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> =
@@ -49,7 +50,7 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
   }
 

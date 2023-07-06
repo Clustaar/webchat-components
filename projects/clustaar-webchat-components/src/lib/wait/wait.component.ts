@@ -21,6 +21,7 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor = '#30B286';
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 

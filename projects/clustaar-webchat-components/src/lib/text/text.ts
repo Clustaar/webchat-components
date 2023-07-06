@@ -26,6 +26,7 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered = new EventEmitter<boolean>();
   @Output() onLinkClicked = new EventEmitter<{ url: string; label: string }>();

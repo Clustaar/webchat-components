@@ -2,6 +2,7 @@
   <div *ngSwitchCase="'send_text_action'">
     <text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                          (onLinkClicked)="onLinkClicked.emit($event)"
+                         [scrollDuration]="scrollDuration"
                          [action]="action" [primaryColor]="primaryColor"
                          [textColor]="textColor" [indexAction]="index" [inverted]="inverted" [autoScroll]="autoScroll">
     </text-console-action>
@@ -10,6 +11,7 @@
   <div *ngSwitchCase="'temporary_text_action'">
     <temporary-text-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                  [action]="action"
+                                 [scrollDuration]="scrollDuration"
                                  [inverted]="inverted" [autoScroll]="autoScroll" [userBubbleColor]="userBubbleColor"
                                  [userTextColor]="userTextColor">
     </temporary-text-console-action>
@@ -18,6 +20,7 @@
   <div *ngSwitchCase="'title_message'">
     <title-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                           [action]="action" [indexAction]="index"
+                          [scrollDuration]="scrollDuration"
                           [autoScroll]="autoScroll">
     </title-console-action>
   </div>
@@ -25,6 +28,7 @@
   <div *ngSwitchCase="'support_text_action'">
     <agent-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                 [action]="action" [primaryColor]="primaryColor"
+                                [scrollDuration]="scrollDuration"
                                 [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
                                 [autoScroll]="autoScroll">
     </agent-reply-console-action>
@@ -34,6 +38,7 @@
   <div *ngSwitchCase="'spellz_separator_action'">
     <spellz-separator-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                 [action]="action" [primaryColor]="primaryColor"
+                                [scrollDuration]="scrollDuration"
                                 [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
                                 [autoScroll]="autoScroll">
     </spellz-separator-console-action>
@@ -42,6 +47,7 @@
   <div *ngSwitchCase="'spellz_text_action'">
     <spellz-reply-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                 [action]="action" [primaryColor]="primaryColor"
+                                [scrollDuration]="scrollDuration"
                                 [textColor]="textColor" [indexAction]="index" [inverted]="inverted"
                                 [autoScroll]="autoScroll">
     </spellz-reply-console-action>
@@ -50,6 +56,7 @@
   <div *ngSwitchCase="'text'">
     <user-message-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                                  [action]="action"
+                                 [scrollDuration]="scrollDuration"
                                  [inverted]="inverted" [autoScroll]="autoScroll" [userBubbleColor]="userBubbleColor"
                                  [userTextColor]="userTextColor">
     </user-message-console-action>
@@ -58,6 +65,7 @@
   <div *ngSwitchCase="'send_image_action'">
     <image-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                           [action]="action"
+                          [scrollDuration]="scrollDuration"
                           [primaryColor]="primaryColor" [inverted]="inverted" [autoScroll]="autoScroll"
                           (onImageClicked)="onImageClicked.emit($event)">
     </image-console-action>
@@ -66,6 +74,7 @@
   <div *ngSwitchCase="'wait_action'">
     <wait-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                          [action]="action"
+                         [scrollDuration]="scrollDuration"
                          [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
                          [autoScroll]="autoScroll">
     </wait-console-action>
@@ -83,6 +92,7 @@
     <quickreply-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
                                (onLastActionRendered)="lastActionRendered()" [action]="action"
                                [showSelectedButton]="showSelectedButton"
+                               [scrollDuration]="scrollDuration"
                                [userTextColor]="userTextColor" [userBubbleColor]="userBubbleColor"
                                [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
                                [autoScroll]="autoScroll" [indexAction]="index">
@@ -93,6 +103,7 @@
     <card-console-action (onSendReply)="sendReply($event)" (onLoadNextAction)="loadNextAction()"
                          (onLinkClicked)="onLinkClicked.emit($event)"
                          (onLastActionRendered)="lastActionRendered()" [action]="action"
+                         [scrollDuration]="scrollDuration"
                          [primaryColor]="primaryColor" [textColor]="textColor" [autoScroll]="autoScroll">
     </card-console-action>
   </div>
@@ -107,6 +118,7 @@
   <div *ngSwitchCase="'ask_location_action'">
     <location-console-action (onLoadNextAction)="loadNextAction()" (onLastActionRendered)="lastActionRendered()"
                              [action]="action"
+                             [scrollDuration]="scrollDuration"
                              [primaryColor]="primaryColor" [textColor]="textColor" [inverted]="inverted"
                              [autoScroll]="autoScroll">
     </location-console-action>
@@ -127,9 +139,11 @@
                 [userBubbleColor]="userBubbleColor"
                 [inverted]="inverted"
                 [disabled]="disabled"
+                [scrollDuration]="scrollDuration"
                 (onSendReply)="sendReply($event)" 
                 (onLoadNextAction)="loadNextAction()"
                 (onLastActionRendered)="lastActionRendered()" 
+                
                 >
   </list-action>
   </div>
