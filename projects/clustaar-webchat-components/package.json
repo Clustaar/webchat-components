@@ -3,7 +3,7 @@
   "version": "4.0.0-beta.1",
   "dependencies": {
     "ngx-swiper-wrapper": "10.0.0",
-    "@angular/material": "11.2.13"
+    "@angular/material": "12.2.13"
   },
   "peerDependencies": {
     "@angular/common": "12.2.17",
