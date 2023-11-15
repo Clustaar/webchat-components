@@ -21,6 +21,7 @@ export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onImageClicked = new EventEmitter<string>();
@@ -39,7 +40,7 @@ export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
           this.cdr.markForCheck();
         }
 
-      }, 500);
+      }, this.scrollDuration);
     }
   }
 

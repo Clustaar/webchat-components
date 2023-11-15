@@ -12,23 +12,24 @@ import {
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
-  selector: 'agent-reply-console-action',
-  templateUrl: './agent-reply.component.html',
-  styleUrls: ['./agent-reply.component.scss'],
+  selector: 'temporary-text-console-action',
+  templateUrl: './temporary-text.html',
+  styleUrls: ['./temporary-text.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AgentReplyComponent implements OnInit, AfterViewInit {
-  @Input() indexAction: number;
+export class TemporaryTextConsoleActionComponent
+  implements OnInit, AfterViewInit
+{
   @Input() action: any;
-  @Input() inverted = false;
-  @Input() primaryColor = '#30B286';
-  @Input() textColor = '#FFFFFF';
+  @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
+  @Input() userBubbleColor: string = '#C5DBEA';
+  @Input() userTextColor: string = '#2C3F59';
   @Input() scrollDuration = 500;
-  @Output() onLoadNextAction: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> =
     new EventEmitter<boolean>();
+
   message: SafeHtml;
 
   constructor(
@@ -37,37 +38,26 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.onLoadNextAction.emit(true);
     this.message = this.sanitizer.sanitize(
       SecurityContext.HTML,
       this.action.message
     );
-
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-        if (element) {
+        if (element != null) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
       }, this.scrollDuration);
     }
+    this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
-    Array.from(
-      document.querySelectorAll(
-        '.agent-reply-message-' + this.indexAction + ' a'
-      )
-    ).forEach((a) => {
-      if (a.getAttribute('target') == null) {
-        a.setAttribute('target', '_blank');
-      }
-    });
-    this.cdr.markForCheck();
-
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
+      this.cdr.markForCheck();
     }, 0);
   }
 }

@@ -24,6 +24,7 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly = false;
+  @Input() scrollDuration = 500;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -44,7 +45,7 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
   }
 

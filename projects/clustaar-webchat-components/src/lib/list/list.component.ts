@@ -29,6 +29,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
   @Input() disabled? = false;
+  @Input() scrollDuration = 500;
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
@@ -72,7 +73,7 @@ export class ListComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
     this.cdr.markForCheck();
   }

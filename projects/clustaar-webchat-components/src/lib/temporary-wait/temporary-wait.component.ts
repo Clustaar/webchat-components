@@ -10,12 +10,12 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'wait-console-action',
-  templateUrl: './wait.component.html',
-  styleUrls: ['./wait.component.scss'],
+  selector: 'temporary-wait-console-action',
+  templateUrl: './temporary-wait.component.html',
+  styleUrls: ['./temporary-wait.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
+export class TemporaryWaitConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
@@ -38,22 +38,10 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
+    this.onLoadNextAction.emit(true);
 
-    let timeoutDelay = this.action.duration * 1000;
-
-    setTimeout(() => {
-      // self.onActionDelayed.emit(true);
-      this.onLoadNextAction.emit(true);
-      // me.store.dispatch(new console_.LoadNextAction({}, me.target));
-      this.isOver = true;
-      this.cdr.markForCheck();
-    }, timeoutDelay);
-
-    if (this.action.isPublished != null && this.action.isPublished == true) {
-      this.isOver = true;
-    }
     this.cdr.markForCheck();
   }
 

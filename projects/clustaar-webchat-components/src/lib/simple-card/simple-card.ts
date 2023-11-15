@@ -27,6 +27,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly: boolean = false;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -59,7 +60,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
           this.cdr.markForCheck();
         }
 
-      }, 500);
+      }, this.scrollDuration);
     }
 
     if (this.action.cards.length < 3) {

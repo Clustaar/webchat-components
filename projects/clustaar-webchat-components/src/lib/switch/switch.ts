@@ -1,6 +1,4 @@
-import { Target } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Choice } from '../list/list.model';
 
 @Component({
   selector: 'switch-console-actions',
@@ -21,6 +19,7 @@ export class SwitchConsoleActionsComponent {
   @Input() autoScroll? = true;
   @Input() disabled? = false;
   @Input() showSelectedButton = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();

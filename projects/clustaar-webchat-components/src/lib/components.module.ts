@@ -10,6 +10,7 @@ import { SwitchConsoleActionsComponent } from './switch/switch';
 import { ImageConsoleActionComponent } from './image/image';
 import { WaitConsoleActionComponent } from './wait/wait.component';
 import { TextConsoleActionComponent } from './text/text';
+import { TemporaryTextConsoleActionComponent } from './temporary-text/temporary-text';
 import { UserMessageConsoleActionComponent } from './user-message/user-message';
 import { QuickreplyConsoleActionComponent } from './quickreply/quickreply.component';
 import { CardConsoleActionComponent } from './card/card.component';
@@ -20,12 +21,17 @@ import { TitleComponent } from './title/title.component';
 import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
 import { ObfuscationModule } from './obfuscation/obfuscation.module';
 import { ListComponent } from './list/list.component';
+import { SpellzReplyComponent } from './spellz-reply/spellz-reply.component';
+import { SpellzSeparatorComponent } from './spellz-separator/spellz-separator';
+import { TemporaryWaitConsoleActionComponent } from './temporary-wait/temporary-wait.component';
 
 const components = [
   SwitchConsoleActionsComponent,
   ImageConsoleActionComponent,
   WaitConsoleActionComponent,
   TextConsoleActionComponent,
+  TemporaryWaitConsoleActionComponent,
+  TemporaryTextConsoleActionComponent,
   UserMessageConsoleActionComponent,
   QuickreplyConsoleActionComponent,
   CardConsoleActionComponent,
@@ -33,8 +39,10 @@ const components = [
   LocationConsoleActionComponent,
   SendJsEventComponent,
   AgentReplyComponent,
+  SpellzReplyComponent,
   TitleComponent,
-  ListComponent
+  ListComponent,
+  SpellzSeparatorComponent
 ];
 
 @NgModule({

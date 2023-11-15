@@ -6,22 +6,28 @@ import {
   EventEmitter,
   Input,
   OnInit,
-  Output
+  Output,
+  ViewEncapsulation
 } from '@angular/core';
 
 @Component({
-  selector: 'title-console-action',
-  templateUrl: './title.component.html',
-  styleUrls: ['./title.component.scss'],
+  selector: 'spellz-separator-console-action',
+  templateUrl: './spellz-separator.html',
+  styleUrls: ['./spellz-separator.scss'],
+  encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TitleComponent implements OnInit, AfterViewInit {
+export class SpellzSeparatorComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
+  @Input() inverted: boolean = false;
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() scrollDuration = 500;
-  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLoadNextAction = new EventEmitter<boolean>();
+  @Output() onLastActionRendered = new EventEmitter<boolean>();
+
 
   constructor(private cdr: ChangeDetectorRef) {}
 
@@ -31,21 +37,21 @@ export class TitleComponent implements OnInit, AfterViewInit {
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-
         if (element != null) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
+          this.cdr.markForCheck();
         }
-        this.cdr.markForCheck();
       }, 500);
     }
     this.cdr.markForCheck();
   }
 
   ngAfterViewInit() {
+    this.cdr.markForCheck();
+
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
     }, 0);
   }
-
 }
