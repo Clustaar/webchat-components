@@ -11,7 +11,7 @@ import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
 import { map, startWith, skip, takeWhile } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
-import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { MatLegacyAutocompleteTrigger as MatAutocompleteTrigger } from '@angular/material/legacy-autocomplete';
 
 @Component({
   selector: 'list-action',
