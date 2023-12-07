@@ -10,7 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
 import { map, startWith, skip, takeWhile } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
 
 @Component({
@@ -38,7 +38,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   filteredSections$: Observable<Section[]> = new Observable<[]>();
   filteredSections = [];
   selectedChoice: string;
-  inputControl = new FormControl('');
+  inputControl = new UntypedFormControl('');
   @ViewChild(MatAutocompleteTrigger) auto: MatAutocompleteTrigger;
 
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
