@@ -1,13 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef
-} from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'wait-console-action',
@@ -27,8 +18,7 @@ export class WaitConsoleActionComponent implements OnInit, AfterViewInit {
 
   isOver = false;
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     if (this.autoScroll) {

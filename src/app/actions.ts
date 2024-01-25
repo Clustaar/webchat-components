@@ -1,8 +1,7 @@
 export const DISPLAYED_ACTIONS = [
   {
     type: 'text',
-    message:
-      "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
+    message: "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
   },
   {
     type: 'text',
@@ -10,8 +9,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'text',
-    message:
-      'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
+    message: 'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
   },
   {
     type: 'send_text_action',
@@ -23,7 +21,7 @@ export const DISPLAYED_ACTIONS = [
     message: 'Hello, temporary text action'
   },
   {
-    type: 'temporary_wait_action',
+    type: 'temporary_wait_action'
   },
   {
     type: 'title_message',
@@ -43,46 +41,8 @@ export const DISPLAYED_ACTIONS = [
       "Hello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help YouHello, I'm John. How can I Help You"
   },
   {
-    type: 'spellz_text_action',
-    replyMessage:
-    "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",
-    confidence: "low",
-    resources: [{
-      title: '2ÈME WEBINAIRE POST-COVID - ADAPTATION SOCIALE, DU TRAVAIL ET DU QUOTIDIEN',
-      text: "Un dépôt de demande AI est indiqué. Au bureau de l'AI on m'a dit que je devrais faire du home-office, mais je ne supporte pas de regarder mon ordinateur plus que 30 minutes.. je me sens bloquée. pas de travail physique ni mental de possible. Un dépôt de demande AI est indiqué (si ce n'est pas déjà le cas). Je travaille péniblement à 50% depuis 1an. Je ne veux pas ne rien faire. Mais comment se reconvertir si j’ai déjà beaucoup de peine à faire mon travail dans un bureau et en Home Office! Cela m’angoisse beaucoup, car je ne veux pas perdre mon travail. Un dépôt de demande AI sans tarder est indiqué si l'atteinte à la santé empêche ou limite l'exercice de l'activité habituelle. Covid long depuis 14 mois et les APG ne veulent plus payer les allocations, car il manque des preuves médicales prouvant mon Long Covid. L'assurance estime que je suis en mesure de travailler à 100 % alors que ce n'est pas le cas. Que faire ?",
-      url: 'http://google.fr' 
-    }]
-  },
-  {
-    type: 'spellz_separator_action',
-    message:
-      "New context"
-  },
-  {
-    type: 'spellz_text_action',
-    replyMessage:
-    "Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani  diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque",
-    confidence: "low",
-    resources: [{
-      title: '1. Source: How to change your battery...',
-      text: "&#233;Un dépôt de demande AI est indiqué. Au bureau de l'AI on m'a dit que je devrais faire du home-office, mais je ne supporte pas de regarder mon ordinateur plus que 30 minutes.. je me sens bloquée. pas de travail physique ni mental de possible. Un dépôt de demande AI est indiqué (si ce n'est pas déjà le cas). Je travaille péniblement à 50% depuis 1an. Je ne veux pas ne rien faire. Mais comment se reconvertir si j’ai déjà beaucoup de peine à faire mon travail dans un bureau et en Home Office! Cela m’angoisse beaucoup, car je ne veux pas perdre mon travail. Un dépôt de demande AI sans tarder est indiqué si l'atteinte à la santé empêche ou limite l'exercice de l'activité habituelle. Covid long depuis 14 mois et les APG ne veulent plus payer les allocations, car il manque des preuves médicales prouvant mon Long Covid. L'assurance estime que je suis en mesure de travailler à 100 % alors que ce n'est pas le cas. Que faire ?",
-      url: 'http://google.fr' 
-    },
-    {
-      title: '2. Source: How to change your battery...',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor...',
-      url: '' 
-    },
-    {
-      title: '3. Source: How to change your battery...',
-      text: "Un dépôt de demande AI est indiqué. Au bureau de l'AI on m'a dit que je devrais faire du home-office, mais je ne supporte pas de regarder mon ordinateur plus que 30 minutes.. je me sens bloquée. pas de travail physique ni mental de possible. Un dépôt de demande AI est indiqué (si ce n'est pas déjà le cas). Je travaille péniblement à 50% depuis 1an. Je ne veux pas ne rien faire. Mais comment se reconvertir si j’ai déjà beaucoup de peine à faire mon travail dans un bureau et en Home Office! Cela m’angoisse beaucoup, car je ne veux pas perdre mon travail. Un dépôt de demande AI sans tarder est indiqué si l'atteinte à la santé empêche ou limite l'exercice de l'activité habituelle. Covid long depuis 14 mois et les APG ne veulent plus payer les allocations, car il manque des preuves médicales prouvant mon Long Covid. L'assurance estime que je suis en mesure de travailler à 100 % alors que ce n'est pas le cas. Que faire ?",
-      url: null
-    }]
-  },
-  {
     type: 'send_image_action',
-    imageURL:
-      'https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg'
+    imageURL: 'https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg'
   },
   {
     type: 'wait_action',
@@ -115,8 +75,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_quick_replies_action',
-    message:
-      "What do you want to test ? \n( juicy quick replies version ) with <a href='google.fr'>link</a>",
+    message: "What do you want to test ? \n( juicy quick replies version ) with <a href='google.fr'>link</a>",
     buttons: [
       {
         title: 'Lorem ipsum dolor sit amet, consectetur cras amet.',
@@ -189,8 +148,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 2',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -225,8 +183,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 3',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -261,8 +218,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 4',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -311,8 +267,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 2',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: []
       }
@@ -364,31 +319,24 @@ export const DISPLAYED_ACTIONS = [
     cards: [
       {
         type: 'card',
-        title:
-          'Agence web Smez.fr : Site internet et application mobile sur mesure',
-        subtitle:
-          'Smez.fr est une agence web spécialisée dans la création de site internet ou...',
+        title: 'Agence web Smez.fr : Site internet et application mobile sur mesure',
+        subtitle: 'Smez.fr est une agence web spécialisée dans la création de site internet ou...',
         imageURL: null,
         url: 'http://smez.fr/',
         buttons: []
       },
       {
         type: 'card',
-        title:
-          'Cordova / Ionic : Publier son application sur Google Play - Smez.fr ...',
-        subtitle:
-          "7 déc. 2015 ... Pour pouvoir mettre l'application sur Google Play il va...",
-        imageURL:
-          'http://smez.fr/wp-content/uploads/2015/12/ionic-html5-native-framework.jpg',
+        title: 'Cordova / Ionic : Publier son application sur Google Play - Smez.fr ...',
+        subtitle: "7 déc. 2015 ... Pour pouvoir mettre l'application sur Google Play il va...",
+        imageURL: 'http://smez.fr/wp-content/uploads/2015/12/ionic-html5-native-framework.jpg',
         url: 'http://smez.fr/ionic/ionic-publier-sur-android/',
         buttons: []
       },
       {
         type: 'card',
-        title:
-          'Mon CV - Smez.fr : Agence web spécialisée dans la création de site ...',
-        subtitle:
-          'Sélectionner une page. Accueil · Contact. [rb_resume id="155"]. Design de...',
+        title: 'Mon CV - Smez.fr : Agence web spécialisée dans la création de site ...',
+        subtitle: 'Sélectionner une page. Accueil · Contact. [rb_resume id="155"]. Design de...',
         imageURL: null,
         url: 'http://smez.fr/cv/',
         buttons: []

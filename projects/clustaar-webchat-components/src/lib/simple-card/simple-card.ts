@@ -1,8 +1,10 @@
 import {
-  AfterViewInit, ApplicationRef,
+  AfterViewInit,
+  ApplicationRef,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ElementRef,
   EventEmitter,
   Input,
   OnInit,
@@ -10,8 +12,7 @@ import {
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
-
-import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { Swiper } from 'swiper/types';
 
 @Component({
   selector: 'simple-card-console-action',
@@ -20,24 +21,23 @@ import { SwiperComponent, SwiperConfigInterface } from 'ngx-swiper-wrapper';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() primaryColor: string = '#30B286';
   @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly: boolean = false;
-  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
-  @ViewChild('swiperCards') swiperCards: SwiperComponent;
+
+  @ViewChild('swiperCards') swiperCards: ElementRef | undefined;
+  swiper?: Swiper;
 
   public isOver: boolean = false;
   public indexSelectedButton: any;
   public indexHoverButton: number = -1;
-  public currentCardIndex: number = 0;
-  SWIPER_CONFIG: SwiperConfigInterface = {
+  SWIPER_CONFIG = {
     direction: 'horizontal',
     slidesPerView: 1,
     loop: true
@@ -45,8 +45,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
 
   ngOnInit() {
     //this.store.dispatch(new console_.LoadNextAction({}, this.target));
@@ -59,8 +58,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-
-      }, this.scrollDuration);
+      }, 500);
     }
 
     if (this.action.cards.length < 3) {
@@ -70,30 +68,27 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.swiper = this.swiperCards?.nativeElement.swiper;
+
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
     }, 0);
   }
 
-  onSwiperIndexChange(event) {
-    this.currentCardIndex = event;
-    this.cdr.markForCheck();
-  }
-
   /** Move to the next card using right arrow */
   nextCard() {
     if (this.isArrowRightDisabled()) return;
-    this.swiperCards.directiveRef.nextSlide(300);
-    this.swiperCards.directiveRef!!.update();
+    this.swiper.slideNext(300);
+    this.swiper.update();
     this.detectChanges();
   }
 
   /** Move to the previous card using left arrow */
   previousCard() {
     if (this.isArrowLeftDisabled()) return;
-    this.swiperCards.directiveRef.prevSlide(300);
-    this.swiperCards.directiveRef!!.update();
+    this.swiper.slidePrev(300);
+    this.swiper.update();
     this.detectChanges();
   }
 
@@ -104,7 +99,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
       this.indexSelectedButton = indexSelectedButton;
       this.detectChanges();
     }
-  };
+  }
 
   openUrl(button) {
     window.open(button.action.url, '_blank');
@@ -117,11 +112,11 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   isArrowRightDisabled() {
-    return this.action.cards.length === (this.currentCardIndex + 1);
+    return this.action.cards.length === this.swiper?.activeIndex + 1;
   }
 
   isArrowLeftDisabled() {
-    return this.currentCardIndex <= 0;
+    return this.swiper?.activeIndex <= 0;
   }
 
   onMouseEnter(i) {

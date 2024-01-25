@@ -39,7 +39,7 @@
       background-color: rgba(0, 0, 0, 0.26) !important;
       color: rgba(255, 255, 255, 0.3) !important;
       cursor: default;
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 
@@ -78,8 +78,8 @@
       cursor: pointer;
       border-radius: 100px;
       text-align: center;
-      border: 1px solid #004F80;
-      color: #2C3F59;
+      border: 1px solid #004f80;
+      color: #2c3f59;
       background: white;
       outline: none;
       padding: 5px 10px;
@@ -109,7 +109,7 @@
 
     .card-title {
       margin: 8px 0;
-      color: #2C3F59;
+      color: #2c3f59;
       font-size: 14px;
       text-transform: none;
       font-weight: 500;
@@ -120,8 +120,8 @@
     .card-desc {
       margin: 8px 0;
       font-size: 12px;
-      color: #8DABC4;
-      font-family: Heebo;
+      color: #8dabc4;
+      font-family: Figtree;
       opacity: 1;
     }
   }

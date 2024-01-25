@@ -60,9 +60,7 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
       }
     };
 
-    Array.from(
-      document.querySelectorAll('.text-message-' + this.indexAction + ' a')
-    ).forEach(function (a) {
+    Array.from(document.querySelectorAll('.text-message-' + this.indexAction + ' a')).forEach(function (a) {
       if (a.getAttribute('target') == null) {
         a.setAttribute('target', '_blank');
       }

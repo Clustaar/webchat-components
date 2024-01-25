@@ -6,7 +6,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   styleUrls: ['./switch.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class SwitchConsoleActionsComponent {
   @Input() actions: any[] = [];
   @Input() action: any;
@@ -19,16 +18,14 @@ export class SwitchConsoleActionsComponent {
   @Input() autoScroll? = true;
   @Input() disabled? = false;
   @Input() showSelectedButton = true;
-  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageClicked = new EventEmitter<string>();
-  @Output() onLinkClicked = new EventEmitter<{ url: string, label: string }>();
+  @Output() onLinkClicked = new EventEmitter<{ url: string; label: string }>();
 
-  constructor() {
-  }
+  constructor() {}
 
   loadNextAction(): void {
     this.onLoadNextAction.emit(true);

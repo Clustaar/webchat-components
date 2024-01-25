@@ -17,9 +17,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   styleUrls: ['./user-message.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class UserMessageConsoleActionComponent
-  implements OnInit, AfterViewInit
-{
+export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted: boolean = false;
   @Input() autoScroll? = true;
@@ -27,21 +25,14 @@ export class UserMessageConsoleActionComponent
   @Input() userTextColor: string = '#2C3F59';
   @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   message: SafeHtml;
 
-  constructor(
-    private cdr: ChangeDetectorRef,
-    protected sanitizer: DomSanitizer
-  ) {}
+  constructor(private cdr: ChangeDetectorRef, protected sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.message = this.sanitizer.sanitize(
-      SecurityContext.HTML,
-      this.action.message
-    );
+    this.message = this.sanitizer.sanitize(SecurityContext.HTML, this.action.message);
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');

@@ -1,17 +1,10 @@
-import {
-  AfterViewInit,
-  ApplicationRef,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  ViewEncapsulation,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
 import { map, startWith, skip, takeWhile } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
-import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
+import { UntypedFormControl } from '@angular/forms';
+import { MatLegacyAutocompleteTrigger as MatAutocompleteTrigger } from '@angular/material/legacy-autocomplete';
 
 @Component({
   selector: 'list-action',
@@ -33,13 +26,12 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
   filteredSections = [];
   selectedChoice: string;
-  inputControl = new FormControl('');
+  inputControl = new UntypedFormControl('');
   @ViewChild(MatAutocompleteTrigger) auto: MatAutocompleteTrigger;
 
   constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
@@ -73,7 +65,7 @@ export class ListComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, this.scrollDuration);
+      }, 500);
     }
     this.cdr.markForCheck();
   }
@@ -111,12 +103,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     if (this.action.sections && inputValue != '') {
       filteredSections = JSON.parse(JSON.stringify(this.action.sections));
       filteredSections.forEach((section) => {
-        section.choices = section.choices.filter((choice) =>
-          choice.title
-            .toUpperCase()
-            .trim()
-            .includes(inputValue.toUpperCase().trim())
-        );
+        section.choices = section.choices.filter((choice) => choice.title.toUpperCase().trim().includes(inputValue.toUpperCase().trim()));
       });
       return filteredSections.filter((section) => section.choices.length > 0);
     } else {

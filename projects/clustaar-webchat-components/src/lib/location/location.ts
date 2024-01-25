@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
-  ChangeDetectionStrategy, ChangeDetectorRef,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Input,
@@ -16,7 +17,6 @@ import {
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
   @Input() inverted = false;
@@ -24,7 +24,6 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly = false;
-  @Input() scrollDuration = 500;
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -33,7 +32,7 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
   public isOver = false;
   public latlng: string;
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
@@ -41,11 +40,11 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');
-        if(element) {
+        if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, this.scrollDuration);
+      }, 500);
     }
   }
 
@@ -59,10 +58,10 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
     if (!this.isOver) {
       if (window.navigator && window.navigator.geolocation) {
         window.navigator.geolocation.getCurrentPosition(
-          position => {
-            this.updatePosition(position)
+          (position) => {
+            this.updatePosition(position);
           },
-          error => {
+          (error) => {
             switch (error.code) {
               case 1:
                 console.log('Permission Denied');
@@ -88,6 +87,5 @@ export class LocationConsoleActionComponent implements OnInit, AfterViewInit {
 
   sendReply() {
     this.onSendReply.emit(this.action.action);
-  };
-
+  }
 }
