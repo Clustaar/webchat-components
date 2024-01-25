@@ -1,13 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'image-console-action',
@@ -16,7 +7,6 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
-
   @Input() action: any;
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
@@ -25,8 +15,7 @@ export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onImageClicked = new EventEmitter<string>();
 
-  constructor(private cdr: ChangeDetectorRef) {
-  }
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
@@ -38,7 +27,6 @@ export class ImageConsoleActionComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-
       }, 500);
     }
   }

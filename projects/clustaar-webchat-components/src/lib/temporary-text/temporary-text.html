@@ -1,0 +1,7 @@
+<div class="console-temporary-text-type">
+  <div class="bubble" [ngClass]="{'bot' : inverted, 'user': !inverted}" [style.background-color]="userBubbleColor">
+    <span *ngIf="inverted" [style.border-right-color]="userBubbleColor" class="bubble-arrow"></span>
+    <span [style.color]="userTextColor" class="user-message" [innerHTML]="message | obfuscation: userTextColor"></span>
+    <span *ngIf="!inverted" [style.border-left-color]="userBubbleColor" class="bubble-arrow-right"></span>
+  </div>
+</div>

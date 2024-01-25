@@ -1,27 +1,29 @@
-import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { MatLegacyAutocompleteModule as MatAutocompleteModule } from "@angular/material/legacy-autocomplete";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { MatLegacyInputModule as MatInputModule } from "@angular/material/legacy-input";
-import { MatLegacyFormFieldModule as MatFormFieldModule } from "@angular/material/legacy-form-field";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { MatLegacyAutocompleteModule as MatAutocompleteModule } from '@angular/material/legacy-autocomplete';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
 
-import { SwitchConsoleActionsComponent } from "./switch/switch";
-import { ImageConsoleActionComponent } from "./image/image";
-import { WaitConsoleActionComponent } from "./wait/wait.component";
-import { TextConsoleActionComponent } from "./text/text";
-import { UserMessageConsoleActionComponent } from "./user-message/user-message";
-import { QuickreplyConsoleActionComponent } from "./quickreply/quickreply.component";
-import { CardConsoleActionComponent } from "./card/card.component";
-import { LocationConsoleActionComponent } from "./location/location";
-import { SendJsEventComponent } from "./send-js-event/send-js-event.component";
-import { AgentReplyComponent } from "./agent-reply/agent-reply.component";
-import { TitleComponent } from "./title/title.component";
-import { SimpleCardConsoleActionComponent } from "./simple-card/simple-card";
-import { ObfuscationModule } from "./obfuscation/obfuscation.module";
-import { ListComponent } from "./list/list.component";
+import { SwitchConsoleActionsComponent } from './switch/switch';
+import { ImageConsoleActionComponent } from './image/image';
+import { WaitConsoleActionComponent } from './wait/wait.component';
+import { TextConsoleActionComponent } from './text/text';
+import { UserMessageConsoleActionComponent } from './user-message/user-message';
+import { QuickreplyConsoleActionComponent } from './quickreply/quickreply.component';
+import { CardConsoleActionComponent } from './card/card.component';
+import { LocationConsoleActionComponent } from './location/location';
+import { SendJsEventComponent } from './send-js-event/send-js-event.component';
+import { AgentReplyComponent } from './agent-reply/agent-reply.component';
+import { TitleComponent } from './title/title.component';
+import { SimpleCardConsoleActionComponent } from './simple-card/simple-card';
+import { ObfuscationModule } from './obfuscation/obfuscation.module';
+import { ListComponent } from './list/list.component';
 
-import { register } from "swiper/element/bundle";
-import { SwiperDirective } from "./directives/swiper-directive";
+import { register } from 'swiper/element/bundle';
+import { SwiperDirective } from './directives/swiper-directive';
+import { TemporaryWaitConsoleActionComponent } from './temporary-wait/temporary-wait.component';
+import { TemporaryTextConsoleActionComponent } from './temporary-text/temporary-text';
 register();
 
 const components = [
@@ -29,6 +31,8 @@ const components = [
   ImageConsoleActionComponent,
   WaitConsoleActionComponent,
   TextConsoleActionComponent,
+  TemporaryWaitConsoleActionComponent,
+  TemporaryTextConsoleActionComponent,
   UserMessageConsoleActionComponent,
   QuickreplyConsoleActionComponent,
   CardConsoleActionComponent,
@@ -37,7 +41,7 @@ const components = [
   SendJsEventComponent,
   AgentReplyComponent,
   TitleComponent,
-  ListComponent,
+  ListComponent
 ];
 
 @NgModule({
@@ -49,10 +53,10 @@ const components = [
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    SwiperDirective,
+    SwiperDirective
   ],
   declarations: components,
   exports: components,
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class WebchatComponentsModule {}

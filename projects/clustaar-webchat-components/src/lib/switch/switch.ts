@@ -1,6 +1,4 @@
-import { Target } from '@angular/compiler';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Choice } from '../list/list.model';
 
 @Component({
   selector: 'switch-console-actions',
@@ -8,7 +6,6 @@ import { Choice } from '../list/list.model';
   styleUrls: ['./switch.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-
 export class SwitchConsoleActionsComponent {
   @Input() actions: any[] = [];
   @Input() action: any;
@@ -26,10 +23,9 @@ export class SwitchConsoleActionsComponent {
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageClicked = new EventEmitter<string>();
-  @Output() onLinkClicked = new EventEmitter<{ url: string, label: string }>();
+  @Output() onLinkClicked = new EventEmitter<{ url: string; label: string }>();
 
-  constructor() {
-  }
+  constructor() {}
 
   loadNextAction(): void {
     this.onLoadNextAction.emit(true);

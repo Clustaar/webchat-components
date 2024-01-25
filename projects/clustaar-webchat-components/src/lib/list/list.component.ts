@@ -1,11 +1,4 @@
-import {
-  AfterViewInit,
-  ApplicationRef,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  ViewEncapsulation,
-  ViewChild
-} from '@angular/core';
+import { AfterViewInit, ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
@@ -29,11 +22,11 @@ export class ListComponent implements OnInit, AfterViewInit {
   @Input() userTextColor = '#2C3F59';
   @Input() autoScroll? = true;
   @Input() disabled? = false;
+  @Input() scrollDuration = 500;
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onLoadNextAction = new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
   filteredSections = [];
@@ -110,12 +103,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     if (this.action.sections && inputValue != '') {
       filteredSections = JSON.parse(JSON.stringify(this.action.sections));
       filteredSections.forEach((section) => {
-        section.choices = section.choices.filter((choice) =>
-          choice.title
-            .toUpperCase()
-            .trim()
-            .includes(inputValue.toUpperCase().trim())
-        );
+        section.choices = section.choices.filter((choice) => choice.title.toUpperCase().trim().includes(inputValue.toUpperCase().trim()));
       });
       return filteredSections.filter((section) => section.choices.length > 0);
     } else {

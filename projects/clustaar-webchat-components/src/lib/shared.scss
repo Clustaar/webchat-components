@@ -1,8 +1,10 @@
-ul, ol {
+ul,
+ol {
   white-space: normal !important;
 }
 
-.bubble-arrow, .bubble-arrow-right {
+.bubble-arrow,
+.bubble-arrow-right {
   position: absolute;
   bottom: 0px;
   border-width: 8px;
@@ -26,7 +28,7 @@ ul, ol {
 }
 
 .bubble {
-  font: 14px/16px Heebo;
+  font: 14px/16px Figtree;
   a {
     color: inherit;
   }

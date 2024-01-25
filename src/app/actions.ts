@@ -1,8 +1,7 @@
 export const DISPLAYED_ACTIONS = [
   {
     type: 'text',
-    message:
-      "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
+    message: "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
   },
   {
     type: 'text',
@@ -10,13 +9,19 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'text',
-    message:
-      'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
+    message: 'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
   },
   {
     type: 'send_text_action',
     alternatives: ['Hello, welcome to webchat components demo'],
     text: 'Hello, \nwelcome to webchat components demo'
+  },
+  {
+    type: 'temporary_text_action',
+    message: 'Hello, temporary text action'
+  },
+  {
+    type: 'temporary_wait_action'
   },
   {
     type: 'title_message',
@@ -37,8 +42,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_image_action',
-    imageURL:
-      'https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg'
+    imageURL: 'https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg'
   },
   {
     type: 'wait_action',
@@ -71,8 +75,7 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_quick_replies_action',
-    message:
-      "What do you want to test ? \n( juicy quick replies version ) with <a href='google.fr'>link</a>",
+    message: "What do you want to test ? \n( juicy quick replies version ) with <a href='google.fr'>link</a>",
     buttons: [
       {
         title: 'Lorem ipsum dolor sit amet, consectetur cras amet.',
@@ -145,8 +148,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 2',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -181,8 +183,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 3',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -217,8 +218,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 4',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
           {
@@ -267,8 +267,7 @@ export const DISPLAYED_ACTIONS = [
         type: 'card',
         title: 'Test 2',
         subtitle: '',
-        imageURL:
-          'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
+        imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: []
       }
@@ -320,31 +319,24 @@ export const DISPLAYED_ACTIONS = [
     cards: [
       {
         type: 'card',
-        title:
-          'Agence web Smez.fr : Site internet et application mobile sur mesure',
-        subtitle:
-          'Smez.fr est une agence web spécialisée dans la création de site internet ou...',
+        title: 'Agence web Smez.fr : Site internet et application mobile sur mesure',
+        subtitle: 'Smez.fr est une agence web spécialisée dans la création de site internet ou...',
         imageURL: null,
         url: 'http://smez.fr/',
         buttons: []
       },
       {
         type: 'card',
-        title:
-          'Cordova / Ionic : Publier son application sur Google Play - Smez.fr ...',
-        subtitle:
-          "7 déc. 2015 ... Pour pouvoir mettre l'application sur Google Play il va...",
-        imageURL:
-          'http://smez.fr/wp-content/uploads/2015/12/ionic-html5-native-framework.jpg',
+        title: 'Cordova / Ionic : Publier son application sur Google Play - Smez.fr ...',
+        subtitle: "7 déc. 2015 ... Pour pouvoir mettre l'application sur Google Play il va...",
+        imageURL: 'http://smez.fr/wp-content/uploads/2015/12/ionic-html5-native-framework.jpg',
         url: 'http://smez.fr/ionic/ionic-publier-sur-android/',
         buttons: []
       },
       {
         type: 'card',
-        title:
-          'Mon CV - Smez.fr : Agence web spécialisée dans la création de site ...',
-        subtitle:
-          'Sélectionner une page. Accueil · Contact. [rb_resume id="155"]. Design de...',
+        title: 'Mon CV - Smez.fr : Agence web spécialisée dans la création de site ...',
+        subtitle: 'Sélectionner une page. Accueil · Contact. [rb_resume id="155"]. Design de...',
         imageURL: null,
         url: 'http://smez.fr/cv/',
         buttons: []

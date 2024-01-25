@@ -1,0 +1,30 @@
+@import '../shared';
+
+.console-temporary-text-type {
+  .bubble {
+    position: relative;
+    opacity: 0.4;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    &.user {
+      margin: 16px 8px 0 24px;
+      word-break: break-word;
+      color: #2c3f59;
+      border-bottom-right-radius: 0;
+      background: #c5dbea;
+      float: right;
+    }
+
+    &.bot {
+      margin: 16px 24px 0 8px;
+      word-break: break-word;
+      color: #2c3f59;
+      border-bottom-left-radius: 0;
+      background: #c5dbea;
+      float: left;
+    }
+  }
+}

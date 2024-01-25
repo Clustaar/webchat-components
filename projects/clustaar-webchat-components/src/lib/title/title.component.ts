@@ -1,13 +1,4 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'title-console-action',
@@ -19,6 +10,7 @@ export class TitleComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
   @Input() autoScroll? = true;
+  @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
@@ -46,5 +38,4 @@ export class TitleComponent implements OnInit, AfterViewInit {
       this.cdr.markForCheck();
     }, 0);
   }
-
 }

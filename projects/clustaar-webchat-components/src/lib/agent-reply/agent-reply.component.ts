@@ -24,23 +24,16 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   @Input() primaryColor = '#30B286';
   @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
-  @Output() onLoadNextAction: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Input() scrollDuration = 500;
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   message: SafeHtml;
 
-  constructor(
-    private cdr: ChangeDetectorRef,
-    protected sanitizer: DomSanitizer
-  ) {}
+  constructor(private cdr: ChangeDetectorRef, protected sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
-    this.message = this.sanitizer.sanitize(
-      SecurityContext.HTML,
-      this.action.message
-    );
+    this.message = this.sanitizer.sanitize(SecurityContext.HTML, this.action.message);
 
     if (this.autoScroll) {
       setTimeout(() => {
@@ -49,16 +42,12 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
         }
-      }, 500);
+      }, this.scrollDuration);
     }
   }
 
   ngAfterViewInit() {
-    Array.from(
-      document.querySelectorAll(
-        '.agent-reply-message-' + this.indexAction + ' a'
-      )
-    ).forEach((a) => {
+    Array.from(document.querySelectorAll('.agent-reply-message-' + this.indexAction + ' a')).forEach((a) => {
       if (a.getAttribute('target') == null) {
         a.setAttribute('target', '_blank');
       }

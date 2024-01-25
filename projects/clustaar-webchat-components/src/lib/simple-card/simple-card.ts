@@ -10,39 +10,37 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation,
-} from "@angular/core";
-import { Swiper } from "swiper/types";
+  ViewEncapsulation
+} from '@angular/core';
+import { Swiper } from 'swiper/types';
 
 @Component({
-  selector: "simple-card-console-action",
-  templateUrl: "./simple-card.html",
-  styleUrls: ["./simple-card.scss"],
+  selector: 'simple-card-console-action',
+  templateUrl: './simple-card.html',
+  styleUrls: ['./simple-card.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() primaryColor: string = "#30B286";
-  @Input() textColor: string = "#FFFFFF";
+  @Input() primaryColor: string = '#30B286';
+  @Input() textColor: string = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly: boolean = false;
-  @Output() onLoadNextAction: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  @ViewChild("swiperCards") swiperCards: ElementRef | undefined;
+  @ViewChild('swiperCards') swiperCards: ElementRef | undefined;
   swiper?: Swiper;
 
   public isOver: boolean = false;
   public indexSelectedButton: any;
   public indexHoverButton: number = -1;
   SWIPER_CONFIG = {
-    direction: "horizontal",
+    direction: 'horizontal',
     slidesPerView: 1,
-    loop: true,
+    loop: true
   };
 
   public message: string;
@@ -55,7 +53,7 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
     if (this.autoScroll) {
       setTimeout(() => {
-        let element = document.getElementById("chat-console-messages");
+        let element = document.getElementById('chat-console-messages');
         if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
@@ -104,12 +102,12 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   openUrl(button) {
-    window.open(button.action.url, "_blank");
+    window.open(button.action.url, '_blank');
   }
 
   openCardUrl(card) {
-    if (card.url != "") {
-      window.open(card.url, "_blank");
+    if (card.url != '') {
+      window.open(card.url, '_blank');
     }
   }
 

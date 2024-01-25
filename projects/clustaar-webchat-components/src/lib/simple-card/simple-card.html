@@ -17,39 +17,17 @@
   </div>
 
   <div class="cards-container">
-    <swiper-container
-      fmSwiper
-      id="swiper-cards-console"
-      [config]="SWIPER_CONFIG"
-      init="false"
-      #swiperCards
-    >
-      <swiper-slide
-        *ngFor="let card of action.cards; let i = index;"
-        class="swiper-slide card-console"
-      >
+    <swiper-container fmSwiper id="swiper-cards-console" [config]="SWIPER_CONFIG" init="false" #swiperCards>
+      <swiper-slide *ngFor="let card of action.cards; let i = index;" class="swiper-slide card-console">
         <div *ngIf="card.imageURL != ''" class="image-preview-container">
-          <img
-            (click)="openCardUrl(card)"
-            style="width: 100%"
-            src="{{card.imageURL}}"
-          />
+          <img (click)="openCardUrl(card)" style="width: 100%" src="{{card.imageURL}}" />
         </div>
         <div style="padding-left: 9px; padding-right: 16px">
-          <h2
-            [ngStyle]="card.url != '' && {'cursor': 'pointer'}"
-            (click)="openCardUrl(card)"
-            class="card-title"
-          >
-            {{card.title}}
-          </h2>
+          <h2 [ngStyle]="card.url != '' && {'cursor': 'pointer'}" (click)="openCardUrl(card)" class="card-title">{{card.title}}</h2>
           <h3 class="card-desc">{{card.subtitle}}</h3>
         </div>
 
-        <div
-          style="position: relative; text-align: center"
-          *ngFor="let button of card.buttons;let indexButton = index"
-        >
+        <div style="position: relative; text-align: center" *ngFor="let button of card.buttons;let indexButton = index">
           <button
             (mouseenter)="onMouseEnter(indexButton)"
             (mouseleave)="onMouseLeave()"

@@ -10,43 +10,40 @@ import {
   OnInit,
   Output,
   ViewChild,
-  ViewEncapsulation,
-} from "@angular/core";
+  ViewEncapsulation
+} from '@angular/core';
 
-import { Swiper } from "swiper/types";
+import { Swiper } from 'swiper/types';
 
 @Component({
-  selector: "card-console-action",
-  templateUrl: "./card.component.html",
-  styleUrls: ["./card.component.scss"],
+  selector: 'card-console-action',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() action: any;
-  @Input() primaryColor = "#30B286";
-  @Input() textColor = "#FFFFFF";
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() readOnly = false;
-  @Output() onLoadNextAction: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
-  @Output() onLinkClicked: EventEmitter<{ url: string; label: string }> =
-    new EventEmitter<{ url: string; label: string }>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onLinkClicked: EventEmitter<{ url: string; label: string }> = new EventEmitter<{ url: string; label: string }>();
 
-  @ViewChild("swiperCards") swiperCards: ElementRef | undefined;
+  @ViewChild('swiperCards') swiperCards: ElementRef | undefined;
   swiper?: Swiper;
 
   public isOver = false;
   public indexSelectedButton: any;
   public indexHoverButton = -1;
   SWIPER_CONFIG = {
-    direction: "horizontal",
+    direction: 'horizontal',
     slidesPerView: 1,
     threshold: 10,
-    loop: true,
+    loop: true
   };
 
   public message: string;
@@ -58,7 +55,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
     if (this.autoScroll) {
       setTimeout(() => {
-        let element = document.getElementById("chat-console-messages");
+        let element = document.getElementById('chat-console-messages');
         if (element) {
           element.scrollTop = element.scrollHeight - element.clientHeight;
           this.cdr.markForCheck();
@@ -107,14 +104,14 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   openUrl(button, event) {
-    window.open(button.action.url, "_blank");
+    window.open(button.action.url, '_blank');
     this.onLinkClicked.emit({ url: button.action.url, label: button.title });
     event.stopPropagation();
   }
 
   openCardUrl(card) {
-    if (card.url != "") {
-      window.open(card.url, "_blank");
+    if (card.url != '') {
+      window.open(card.url, '_blank');
       this.onLinkClicked.emit({ url: card.url, label: card.title });
     }
   }
