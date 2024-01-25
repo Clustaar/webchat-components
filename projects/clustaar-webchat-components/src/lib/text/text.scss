@@ -3,10 +3,11 @@
 .console-text-type {
   .bubble {
     position: relative;
-    padding: 12px;
-    border-radius: 12px;
+    padding: 16px;
     white-space: pre-wrap;
-
+    line-height: 24px;
+    word-break: break-word;
+    font-size: 14px;
     ul,
     ol {
       white-space: normal;
@@ -14,18 +15,14 @@
 
     &.bot {
       margin: 16px 24px 0 8px;
-      word-break: break-word;
       color: #ffffff;
-      border-bottom-left-radius: 0;
       background: #30b286;
       float: left;
     }
 
     &.user {
       margin: 16px 8px 0 24px;
-      word-break: break-word;
       color: #2c3f59;
-      border-bottom-right-radius: 0;
       background: #c5dbea;
       float: right;
     }

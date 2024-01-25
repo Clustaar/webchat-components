@@ -1,28 +1,20 @@
 @import '../shared';
 
-.console-text-type {
+.console-user-message-type {
   .bubble {
     position: relative;
-
-    padding: 12px;
-
-    border-radius: 12px;
-
-    &.user {
+    padding: 8px;
+    word-break: break-word;
+    color: #2c3f59;
+    background: #c5dbea;
+    line-height: 24px;
+    &.not-inverted {
       margin: 16px 8px 0 24px;
-      word-break: break-word;
-      color: #2c3f59;
-      border-bottom-right-radius: 0;
-      background: #c5dbea;
       float: right;
     }
 
-    &.bot {
+    &.inverted {
       margin: 16px 24px 0 8px;
-      word-break: break-word;
-      color: #2c3f59;
-      border-bottom-left-radius: 0;
-      background: #c5dbea;
       float: left;
     }
   }

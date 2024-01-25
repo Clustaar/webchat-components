@@ -1,7 +1,17 @@
 export const DISPLAYED_ACTIONS = [
   {
+    type: 'send_text_action',
+    alternatives: ['Bonjour ! Je suis là pour vous aider à vous orienter sur le site de la Région Île-de-France. 😊'],
+    text: 'Bonjour ! Je suis là pour vous aider à vous orienter sur le site de la Région Île-de-France. 😊'
+  },
+  {
+    type: 'send_text_action',
+    alternatives: ['Quel est le sujet de votre recherche ?'],
+    text: 'Quel est le sujet de votre recherche ?'
+  },
+  {
     type: 'text',
-    message: "Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John ! Hi, I'm John !"
+    message: 'Quel est le prix d’un passe Navigo ?'
   },
   {
     type: 'text',
@@ -10,11 +20,6 @@ export const DISPLAYED_ACTIONS = [
   {
     type: 'text',
     message: 'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
-  },
-  {
-    type: 'send_text_action',
-    alternatives: ['Hello, welcome to webchat components demo'],
-    text: 'Hello, \nwelcome to webchat components demo'
   },
   {
     type: 'temporary_text_action',
@@ -110,8 +115,8 @@ export const DISPLAYED_ACTIONS = [
     cards: [
       {
         type: 'card',
-        title: 'Test 1',
-        subtitle: '',
+        title: 'Titre 1',
+        subtitle: 'Sous titre 1',
         imageURL:
           'http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg',
         url: '',
@@ -146,8 +151,8 @@ export const DISPLAYED_ACTIONS = [
       },
       {
         type: 'card',
-        title: 'Test 2',
-        subtitle: '',
+        title: 'Titre 2',
+        subtitle: 'Sous titre 2',
         imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
@@ -181,8 +186,8 @@ export const DISPLAYED_ACTIONS = [
       },
       {
         type: 'card',
-        title: 'Test 3',
-        subtitle: '',
+        title: 'Titre 3',
+        subtitle: 'Sous titre 3',
         imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [
@@ -216,8 +221,8 @@ export const DISPLAYED_ACTIONS = [
       },
       {
         type: 'card',
-        title: 'Test 4',
-        subtitle: '',
+        title: 'Titre 4',
+        subtitle: 'Sous titre 4',
         imageURL: 'http://www.ecologique-solidaire.gouv.fr/sites/default/files/paysage_lozere.jpg',
         url: '',
         buttons: [

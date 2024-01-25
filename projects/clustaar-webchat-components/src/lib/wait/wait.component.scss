@@ -1,31 +1,24 @@
-
 .console-wait-type {
   .bubble {
     position: relative;
-
     width: 80px;
-
     padding: 12px;
-
     text-align: center;
-
-    border-radius: 12px;
-
     &.bot {
       margin: 16px 24px 0 8px;
 
-      color: #FFFFFF;
+      color: #ffffff;
       border-bottom-left-radius: 0;
-      background: #30B286;
+      background: #30b286;
       float: left;
     }
 
     &.user {
       margin: 16px 8px 0 24px;
       word-break: break-all;
-      color: #FFFFFF;
+      color: #ffffff;
       border-bottom-right-radius: 0;
-      background: #30B286;
+      background: #30b286;
       float: right;
     }
   }
@@ -59,7 +52,9 @@
   }
 
   @keyframes wave {
-    0%, 60%, 100% {
+    0%,
+    60%,
+    100% {
       transform: initial;
     }
 

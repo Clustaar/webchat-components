@@ -37,11 +37,7 @@
       background-color: rgba(0, 0, 0, 0.26) !important;
       color: rgba(255, 255, 255, 0.3) !important;
       cursor: default;
-<<<<<<< HEAD
       opacity: 0.5;
-=======
-      opacity: .5;
->>>>>>> 13a0dbc9a618e76eae0d10ea3e7150e5a1f94c83
     }
   }
 
@@ -86,7 +82,7 @@
       font-size: 14px;
       max-width: calc(50% - 15px);
       cursor: pointer;
-      border-radius: 100px;
+      border-radius: 8px;
       text-align: center;
       border: 1px solid #004f80;
       color: #2c3f59;
@@ -122,17 +118,22 @@
       color: #2c3f59;
       font-size: 14px;
       text-transform: none;
-      font-weight: 500;
+      font-weight: 700;
       line-height: 18px;
       opacity: 1;
+      text-align: center;
+      letter-spacing: 0.21px;
     }
 
     .card-desc {
       margin: 8px 0;
-      font-size: 12px;
+      font-size: 14px;
       color: #8dabc4;
       font-family: Figtree;
       opacity: 1;
+      text-align: center;
+      font-weight: 400;
+      letter-spacing: 0.35px;
     }
   }
 }
