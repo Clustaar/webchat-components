@@ -2,6 +2,8 @@
  * Public API Surface of clustaar-webchat-components
  */
 
+export { TemporaryTextConsoleActionComponent } from './lib/temporary-text/temporary-text';
+export { TemporaryWaitConsoleActionComponent } from './lib/temporary-wait/temporary-wait.component';
 export { SwitchConsoleActionsComponent } from './lib/switch/switch';
 export { ImageConsoleActionComponent } from './lib/image/image';
 export { WaitConsoleActionComponent } from './lib/wait/wait.component';
