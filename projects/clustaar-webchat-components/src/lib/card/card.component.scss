@@ -64,10 +64,8 @@
 
   .card-console {
     position: relative;
-    border-radius: 4px;
-    width: calc(100% - 72px) !important;
+    border-radius: 8px;
     margin-left: 36px;
-    margin-right: 36px;
     height: auto !important;
     background: #fff;
     box-shadow: 0 1px 7px 0 rgba(0, 0, 0, 0.3);
@@ -123,12 +121,13 @@
       opacity: 1;
       text-align: center;
       letter-spacing: 0.21px;
+      font-family: Figtree;
     }
 
     .card-desc {
       margin: 8px 0;
       font-size: 14px;
-      color: #8dabc4;
+      color: #2c3f59;
       font-family: Figtree;
       opacity: 1;
       text-align: center;

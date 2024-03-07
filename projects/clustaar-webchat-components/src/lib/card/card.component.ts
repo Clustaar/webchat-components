@@ -41,9 +41,9 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   public indexHoverButton = -1;
   SWIPER_CONFIG = {
     direction: 'horizontal',
-    slidesPerView: 1,
+    slidesPerView: 2.2,
     threshold: 10,
-    loop: true
+    freeMode: true
   };
 
   public message: string;
@@ -61,11 +61,6 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
           this.cdr.markForCheck();
         }
       }, 500);
-    }
-
-    if (this.action.cards.length < 3) {
-      this.SWIPER_CONFIG.loop = false;
-      this.cdr.markForCheck();
     }
   }
 

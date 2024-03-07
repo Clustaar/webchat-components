@@ -37,8 +37,8 @@
             (mouseleave)="onMouseLeave()"
             [style.border-color]="primaryColor"
             [disabled]="readOnly"
-            [style.background-color]="indexHoverButton == indexButton || indexButton == indexSelectedButton ? primaryColor : null"
-            [style.color]="indexHoverButton == indexButton || indexButton == indexSelectedButton ? textColor : null"
+            [style.background-color]="indexSelectedButton == null || indexButton == indexSelectedButton ? primaryColor : null"
+            [style.color]="indexSelectedButton == null || indexButton == indexSelectedButton ? textColor : null"
             [ngClass]="{
               'selected-button': indexButton == indexSelectedButton
             }"
