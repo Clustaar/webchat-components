@@ -41,9 +41,32 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
   public indexHoverButton = -1;
   SWIPER_CONFIG = {
     direction: 'horizontal',
-    slidesPerView: 2.2,
-    threshold: 10,
-    freeMode: true
+    slidesPerView: 'auto',
+    init: false,
+    freeMode: true,
+    navigation: true,
+    injectStyles: [
+      `
+      .swiper-button-prev,
+  .swiper-button-next {
+    background: #e8e8ea;
+    width: 24px;
+    height: 40px;
+    box-sizing: border-box;
+    font-weight: bold;
+  }
+
+  .swiper-button-prev {
+    border-radius: 0 8px 8px 0;
+    padding: 8px 0px;
+  }
+
+  .swiper-button-next {
+    border-radius: 8px 0 0 8px;
+    padding: 8px 0px;
+  }
+      `
+    ]
   };
 
   public message: string;
@@ -66,6 +89,17 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.swiper = this.swiperCards?.nativeElement.swiper;
+
+    this.swiper.params.injectStyles = [
+      `
+      .swiper-button-prev,
+  .swiper-button-next {
+    color: ${this.primaryColor}
+  }
+      `
+    ];
+
+    this.swiper.update();
 
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
