@@ -95,6 +95,7 @@
       outline: none;
       padding: 5px 10px;
       font-family: Figtree;
+      font-weight: 700;
 
       &:disabled {
         background: unset;
@@ -117,6 +118,7 @@
     .image-preview-container {
       width: 100%;
       overflow: hidden;
+      border-radius: 8px 8px 0 0;
     }
 
     .card-title {
