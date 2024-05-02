@@ -26,6 +26,7 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
   @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onAttachmentClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   message: SafeHtml;
 
@@ -50,5 +51,9 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
     }, 0);
+  }
+
+  attachmentClicked(attachment) {
+    this.onAttachmentClicked.emit(attachment);
   }
 }

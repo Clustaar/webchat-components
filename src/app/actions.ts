@@ -15,6 +15,11 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'text',
+    message: 'Attachments :',
+    attachments: [{ name: 'Carte identite verso', url: 'https://api.staging.clustaar.io/interlocutors/6605782261baf60513d2de7e/documents/toto' }]
+  },
+  {
+    type: 'text',
     message: "<img src=x onerror=alert('XSS') />"
   },
   {

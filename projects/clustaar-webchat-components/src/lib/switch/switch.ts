@@ -24,6 +24,7 @@ export class SwitchConsoleActionsComponent {
   @Output() onSendEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() onImageClicked = new EventEmitter<string>();
   @Output() onLinkClicked = new EventEmitter<{ url: string; label: string }>();
+  @Output() onAttachmentClicked: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {}
 
@@ -41,5 +42,9 @@ export class SwitchConsoleActionsComponent {
 
   sendEvent(event): void {
     this.onSendEvent.emit(event);
+  }
+
+  attachmentClicked(attachment) {
+    this.onAttachmentClicked.emit(attachment);
   }
 }

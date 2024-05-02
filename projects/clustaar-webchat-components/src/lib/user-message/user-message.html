@@ -1,5 +1,13 @@
 <div class="console-user-message-type">
   <div class="bubble" [ngClass]="{'inverted' : inverted, 'not-inverted': !inverted}" [style.background-color]="userBubbleColor">
     <span [style.color]="userTextColor" class="user-message" [innerHTML]="message | obfuscation: userTextColor"></span>
+    <button
+      (click)="attachmentClicked(action.attachments[0])"
+      *ngIf="action.attachments && action.attachments[0]?.name"
+      [style.color]="userTextColor"
+      class="attachment-button"
+    >
+      {{action.attachments[0].name}}
+    </button>
   </div>
 </div>

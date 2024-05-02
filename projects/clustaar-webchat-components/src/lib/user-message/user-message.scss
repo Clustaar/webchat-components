@@ -8,6 +8,7 @@
     color: #2c3f59;
     background: #c5dbea;
     line-height: 24px;
+    flex-direction: column;
     &.not-inverted {
       margin: 16px 8px 0 24px;
       float: right;
@@ -16,6 +17,15 @@
     &.inverted {
       margin: 16px 24px 0 8px;
       float: left;
+    }
+
+    .attachment-button {
+      margin-left: 5px;
+      background: none !important;
+      border: none;
+      padding: 0 !important;
+      text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
