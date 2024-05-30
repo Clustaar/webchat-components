@@ -30,6 +30,15 @@
     }
   }
 
+  .attachment-button {
+    margin-left: 5px;
+    background: none !important;
+    border: none;
+    padding: 0 !important;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   .bubble {
     position: relative;
     padding: 12px;

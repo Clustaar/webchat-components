@@ -27,6 +27,8 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
   @Input() scrollDuration = 500;
   @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
+  @Output() onAttachmentClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
+
   message: SafeHtml;
 
   constructor(private cdr: ChangeDetectorRef, protected sanitizer: DomSanitizer) {}
@@ -57,5 +59,9 @@ export class AgentReplyComponent implements OnInit, AfterViewInit {
     setTimeout(() => {
       this.onLastActionRendered.emit(true);
     }, 0);
+  }
+
+  attachmentClicked(attachment) {
+    this.onAttachmentClicked.emit(attachment);
   }
 }
