@@ -1,0 +1,127 @@
+<div class="file-question">
+  <div class="bubble" [ngClass]="{ bot: !inverted, user: inverted }" [style.background-color]="primaryColor">
+    <span *ngIf="!inverted" [style.border-right-color]="primaryColor" class="bubble-arrow"></span>
+    <span *ngIf="inverted" [style.border-right-color]="primaryColor" class="bubble-arrow-right"></span>
+    <div [style.color]="textColor" class="question-container">
+      {{ action.message }}
+    </div>
+  </div>
+</div>
+
+<button class="file-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
+
+<div
+  class="file-action-container preview"
+  [style.background-color]="userBubbleColor"
+  [style.color]="userTextColor"
+  *ngIf="files.length && !filesSended"
+>
+  <div class="files-container clickable" (click)="dialogToggle()">
+    <span class="file-button clickable">Upload your file</span>
+    <div class="file-preview" *ngFor="let file of files; index as i">
+      <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
+          fill="#213B55"
+        />
+      </svg>
+      <span class="file-name">{{ file.name }}</span>
+    </div>
+  </div>
+  <span class="file-button clickable" (click)="sendFiles()" *ngIf="files.length">Send your file</span>
+</div>
+
+<div class="file-dialog-container" *ngIf="dialogDisplayed">
+  <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
+    <div style="display: flex; justify-content: space-between">
+      <b>{{ action.message }}</b>
+      <span>{{ currentAttachmentIndex + 1 }}/{{ action.documents.length }}</span>
+    </div>
+
+    <div *ngIf="action.attachments" class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
+      <div class="attachment-messages">
+        <span
+          class="attachment-message"
+          (click)="selectAttachment(i)"
+          [ngClass]="{ current: i == currentAttachmentIndex }"
+          *ngFor="let attachment of action.attachments; index as i"
+        >
+          <svg *ngIf="attachment.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+            <path
+              d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+            />
+          </svg>
+          <svg *ngIf="attachment.file == null" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+            <path d="M504-480 320-664l56-56 240 240-240 240-56-56 184-184Z" />
+          </svg>
+          {{ attachment.message }}</span
+        >
+      </div>
+
+      <svg class="upload-svg desktop-only" width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M26.6063 8.805C25.6713 4.06125 21.505 0.5 16.5 0.5C12.5262 0.5 9.075 2.755 7.35625 6.055C3.2175 6.495 0 10.0013 0 14.25C0 18.8013 3.69875 22.5 8.25 22.5H26.125C29.92 22.5 33 19.42 33 15.625C33 11.995 30.1812 9.0525 26.6063 8.805ZM19.25 12.875V18.375H13.75V12.875H9.625L16.5 6L23.375 12.875H19.25Z"
+          fill="white"
+        />
+      </svg>
+      <div class="attachment-upload-block" *ngIf="action.attachments[currentAttachmentIndex].file == null">
+        <b class="desktop-only">Drag and drop your file</b>
+        <p class="desktop-only">Or</p>
+        <label class="input-file">
+          <input type="file" (change)="onFileUpload($event.target.files[0])" />
+          <span class="file-button clickable">Upload your file</span>
+        </label>
+        <p>Max 7mo per file</p>
+      </div>
+
+      <div class="file-preview" *ngIf="action.attachments[currentAttachmentIndex].file">
+        <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
+            fill="#213B55"
+          />
+        </svg>
+        <span class="file-name">{{ action.attachments[currentAttachmentIndex].file.name }}</span>
+        <svg
+          class="clickable"
+          (click)="deleteFile(currentAttachmentIndex)"
+          width="11"
+          height="10"
+          viewBox="0 0 11 10"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10.1666 1.27334L9.22665 0.333336L5.49998 4.06L1.77331 0.333336L0.833313 1.27334L4.55998 5L0.833313 8.72667L1.77331 9.66667L5.49998 5.94L9.22665 9.66667L10.1666 8.72667L6.43998 5L10.1666 1.27334Z"
+            fill="#213B55"
+          />
+        </svg>
+      </div>
+    </div>
+    <div class="file-dialog-footer">
+      <span class="file-button clickable" (click)="sendFiles()" *ngIf="showSendFile">Send your file</span>
+      <a class="cancel-button clickable" (click)="dialogToggle()">Later</a>
+    </div>
+  </div>
+
+  <div class="error-container" *ngIf="sizeError">
+    Your file exceeds the allowed size of 7 Mo
+
+    <svg class="clickable" (click)="closeError()" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M10.1666 1.27334L9.22665 0.333336L5.49998 4.06L1.77331 0.333336L0.833313 1.27334L4.55998 5L0.833313 8.72667L1.77331 9.66667L5.49998 5.94L9.22665 9.66667L10.1666 8.72667L6.43998 5L10.1666 1.27334Z"
+        fill="#213B55"
+      />
+    </svg>
+  </div>
+</div>
+
+<user-message-console-action
+  [action]="{ message: filesSended }"
+  [userTextColor]="userTextColor"
+  [userBubbleColor]="userBubbleColor"
+  [inverted]="inverted"
+  [autoScroll]="autoScroll"
+  *ngIf="filesSended"
+>
+</user-message-console-action>

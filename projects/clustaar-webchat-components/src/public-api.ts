@@ -18,5 +18,7 @@ export { TitleComponent } from './lib/title/title.component';
 export { SimpleCardConsoleActionComponent } from './lib/simple-card/simple-card';
 export { ObfuscationPipe } from './lib/obfuscation/obfuscation.pipe';
 export { ListComponent } from './lib/list/list.component';
+export { DocumentsActionComponent } from './lib/documents/documents.component';
+
 export * from './lib/components.module';
 export * from './lib/obfuscation/obfuscation.module';

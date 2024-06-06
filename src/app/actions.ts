@@ -18,10 +18,19 @@ export const DISPLAYED_ACTIONS = [
     message: 'Attachments :',
     attachments: [{ name: 'Carte identite verso', url: 'https://api.staging.clustaar.io/interlocutors/6605782261baf60513d2de7e/documents/toto' }]
   },
+
   {
     type: 'support_text_action',
     message: 'Attachments :',
     attachments: [{ name: 'Contrat envoyé par agent', url: 'https://api.staging.clustaar.io/interlocutors/6605782261baf60513d2de7e/documents/toto' }]
+  },
+  {
+    type: 'ask_document_action',
+    message: "Veuillez envoyer votre carte d'identité",
+    documents: [
+      { message: 'cote recto', name: 'carte_identite_recto' },
+      { message: 'cote verso', name: 'carte_identite_verso' }
+    ]
   },
   {
     type: 'text',

@@ -24,6 +24,7 @@ import { register } from 'swiper/element/bundle';
 import { SwiperDirective } from './directives/swiper-directive';
 import { TemporaryWaitConsoleActionComponent } from './temporary-wait/temporary-wait.component';
 import { TemporaryTextConsoleActionComponent } from './temporary-text/temporary-text';
+import { DocumentsActionComponent } from './documents/documents.component';
 register();
 
 const components = [
@@ -41,7 +42,8 @@ const components = [
   SendJsEventComponent,
   AgentReplyComponent,
   TitleComponent,
-  ListComponent
+  ListComponent,
+  DocumentsActionComponent
 ];
 
 @NgModule({

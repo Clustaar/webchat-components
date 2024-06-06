@@ -159,4 +159,22 @@
     >
     </list-action>
   </div>
+
+  <div *ngSwitchCase="'ask_document_action'">
+    <documents-action
+      [action]="action"
+      [primaryColor]="primaryColor"
+      [textColor]="textColor"
+      [autoScroll]="autoScroll"
+      [userTextColor]="userTextColor"
+      [userBubbleColor]="userBubbleColor"
+      [inverted]="inverted"
+      [disabled]="disabled"
+      (onSendReply)="sendReply($event)"
+      (onLoadNextAction)="loadNextAction()"
+      (onLastActionRendered)="lastActionRendered()"
+      (onSendDocuments)="sendDocuments($event)"
+    >
+    </documents-action>
+  </div>
 </div>
