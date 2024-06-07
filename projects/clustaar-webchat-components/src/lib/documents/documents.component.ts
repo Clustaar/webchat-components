@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'documents-action',
   templateUrl: './documents.component.html',
@@ -12,8 +12,9 @@ export class DocumentsActionComponent {
   @Input() textColor = '#FFFFFF';
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
-  @Input() autoScroll? = true;
-  @Input() disabled? = false;
+  @Input() autoScroll = true;
+  @Input() disabled = false;
+  @Input() isMobile = false;
 
   @Output() onSendReply = new EventEmitter<any>();
   @Output() onSendDocuments = new EventEmitter<any>();
@@ -79,7 +80,7 @@ export class DocumentsActionComponent {
   sendFiles(): void {
     this.dialogToggle();
     this.filesSended = this.files.map((file) => file.name).join('\n');
-    this.onSendDocuments.emit(this.action);
+    this.onSendDocuments.emit(this.action.documents);
     this.detectChanges();
   }
 
