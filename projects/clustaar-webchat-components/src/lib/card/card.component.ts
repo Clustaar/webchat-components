@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ApplicationRef,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -71,7 +70,7 @@ export class CardConsoleActionComponent implements OnInit, AfterViewInit {
 
   public message: string;
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);

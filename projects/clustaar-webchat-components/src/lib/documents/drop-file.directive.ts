@@ -1,4 +1,4 @@
-import { ApplicationRef, ChangeDetectorRef, Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
+import { ChangeDetectorRef, Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
   selector: '[libDropFile]'
@@ -7,7 +7,7 @@ export class DropFileDirective {
   @HostBinding('class.fileover') fileOver: boolean;
   @Output() fileDropped = new EventEmitter<File>();
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   // Dragover listener
   @HostListener('dragover', ['$event']) onDragOver(event: DragEvent): void {

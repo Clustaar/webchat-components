@@ -1,4 +1,4 @@
-import { ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'documents-action',
   templateUrl: './documents.component.html',
@@ -29,7 +29,7 @@ export class DocumentsActionComponent implements OnInit {
   currentAttachmentIndex = 0;
   showSendFile = false;
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   dialogToggle(): void {
     this.dialogDisplayed = !this.dialogDisplayed;

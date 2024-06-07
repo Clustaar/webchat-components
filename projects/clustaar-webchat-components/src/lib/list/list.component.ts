@@ -1,4 +1,4 @@
-import { AfterViewInit, ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Choice, List, Section } from './list.model';
 import { Observable } from 'rxjs';
@@ -34,7 +34,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   inputControl = new UntypedFormControl('');
   @ViewChild(MatAutocompleteTrigger) auto: MatAutocompleteTrigger;
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     if (this.disabled) {

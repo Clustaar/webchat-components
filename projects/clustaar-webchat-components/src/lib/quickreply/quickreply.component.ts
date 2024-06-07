@@ -1,6 +1,5 @@
 import {
   AfterViewInit,
-  ApplicationRef,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -38,7 +37,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   indexSelectedButton: any;
   indexHoverButton = -1;
 
-  constructor(private cdr: ChangeDetectorRef, private app: ApplicationRef) {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.onLoadNextAction.emit(true);
