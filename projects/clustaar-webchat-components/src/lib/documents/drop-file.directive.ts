@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, Directive, EventEmitter, HostBinding, HostListener, Output } from '@angular/core';
 
 @Directive({
-  selector: '[libDropFile]'
+  selector: '[libDropFile]',
+  standalone: true
 })
 export class DropFileDirective {
   @HostBinding('class.fileover') fileOver: boolean;

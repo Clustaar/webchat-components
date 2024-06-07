@@ -25,6 +25,7 @@ import { SwiperDirective } from './directives/swiper-directive';
 import { TemporaryWaitConsoleActionComponent } from './temporary-wait/temporary-wait.component';
 import { TemporaryTextConsoleActionComponent } from './temporary-text/temporary-text';
 import { DocumentsActionComponent } from './documents/documents.component';
+import { DropFileDirective } from './documents/drop-file.directive';
 register();
 
 const components = [
@@ -55,7 +56,8 @@ const components = [
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    SwiperDirective
+    SwiperDirective,
+    DropFileDirective
   ],
   declarations: components,
   exports: components,
