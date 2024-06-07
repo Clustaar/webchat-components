@@ -1,4 +1,3 @@
-test6
 <div class="file-question">
   <div class="bubble" [ngClass]="{ bot: !inverted, user: inverted }" [style.background-color]="primaryColor">
     <span *ngIf="!inverted" [style.border-right-color]="primaryColor" class="bubble-arrow"></span>
@@ -15,7 +14,7 @@ test6
   class="file-action-container preview"
   [style.background-color]="userBubbleColor"
   [style.color]="userTextColor"
-  *ngIf="files.length && !action.allFilesSend"
+  *ngIf="files.length && !action.allFilesSend && attachments"
 >
   <div class="files-container clickable" (click)="dialogToggle()">
     <span class="file-button clickable">Upload your file</span>
@@ -36,7 +35,7 @@ test6
   <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
     <div style="display: flex; justify-content: space-between">
       <b>{{ action.message }}</b>
-      <span>{{ currentAttachmentIndex + 1 }}/{{ action.documents?.length }}</span>
+      <span>{{ currentAttachmentIndex + 1 }}/{{ attachments?.length }}</span>
     </div>
 
     <div class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
@@ -45,7 +44,7 @@ test6
           class="attachment-message"
           (click)="selectAttachment(i)"
           [ngClass]="{ current: i == currentAttachmentIndex }"
-          *ngFor="let attachment of action.documents; index as i"
+          *ngFor="let attachment of attachments; index as i"
         >
           <svg *ngIf="attachment.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
             <path
@@ -64,8 +63,7 @@ test6
           fill="white"
         />
       </svg>
-      {{ action.documents[currentAttachmentIndex].file }}
-      <div class="attachment-upload-block" *ngIf="action.documents[currentAttachmentIndex].file == null">
+      <div class="attachment-upload-block" *ngIf="attachments[currentAttachmentIndex].file == null">
         <div *ngIf="!isMobile">
           <b class="desktop-only">Drag and drop your file</b>
           <p class="desktop-only">Or</p>
@@ -77,14 +75,14 @@ test6
         <p>Max 7mo per file</p>
       </div>
 
-      <div class="file-preview" *ngIf="action.documents[currentAttachmentIndex].file">
+      <div class="file-preview" *ngIf="attachments[currentAttachmentIndex].file">
         <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
             fill="#213B55"
           />
         </svg>
-        <span class="file-name">{{ action.documents[currentAttachmentIndex].file.name }}</span>
+        <span class="file-name">{{ attachments[currentAttachmentIndex].file.name }}</span>
         <svg
           class="clickable"
           (click)="deleteFile(currentAttachmentIndex)"

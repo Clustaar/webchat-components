@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'documents-action',
   templateUrl: './documents.component.html',
   styleUrls: ['./documents.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentsActionComponent {
+export class DocumentsActionComponent implements OnInit {
   @Input() action: any;
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
@@ -28,8 +28,13 @@ export class DocumentsActionComponent {
   filesSended: string;
   currentAttachmentIndex = 0;
   showSendFile = false;
+  attachments = [];
 
   constructor(private cdr: ChangeDetectorRef) {}
+
+  ngOnInit(): void {
+    this.attachments = [...this.action.documents];
+  }
 
   dialogToggle(): void {
     this.dialogDisplayed = !this.dialogDisplayed;
@@ -39,10 +44,10 @@ export class DocumentsActionComponent {
   onFileUpload(file: File): void {
     if (file.size < this.maxFileSize) {
       this.files.push(file);
-      this.action.documents[this.currentAttachmentIndex].file = file;
+      this.attachments[this.currentAttachmentIndex].file = file;
       this.sizeError = false;
       let allFilesUploaded = true;
-      for (let document of this.action.documents) {
+      for (let document of this.attachments) {
         if (document.file == null) {
           allFilesUploaded = false;
         }
@@ -51,7 +56,7 @@ export class DocumentsActionComponent {
       if (allFilesUploaded) {
         this.showSendFile = true;
       }
-      if (this.currentAttachmentIndex < this.action.documents.length - 1) {
+      if (this.currentAttachmentIndex < this.attachments.length - 1) {
         this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
       }
     } else {
@@ -62,7 +67,7 @@ export class DocumentsActionComponent {
 
   deleteFile(index: number): void {
     this.files.splice(index, 1);
-    this.action.documents[index].file = null;
+    this.attachments[index].file = null;
     this.showSendFile = false;
     this.detectChanges();
   }
@@ -80,7 +85,7 @@ export class DocumentsActionComponent {
   sendFiles(): void {
     this.dialogToggle();
     this.filesSended = this.files.map((file) => file.name).join('\n');
-    this.onSendDocuments.emit(this.action.documents);
+    this.onSendDocuments.emit(this.attachments);
     this.detectChanges();
   }
 
