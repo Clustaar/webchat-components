@@ -131,6 +131,5 @@ export class SimpleCardConsoleActionComponent implements OnInit, AfterViewInit {
 
   detectChanges() {
     this.cdr.markForCheck();
-    this.app.tick();
   }
 }

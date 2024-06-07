@@ -30,11 +30,9 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
   @Input() scrollDuration = 500;
-  @Output() onLoadNextAction: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLoadNextAction: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onSendReply: EventEmitter<any> = new EventEmitter<any>();
-  @Output() onLastActionRendered: EventEmitter<boolean> =
-    new EventEmitter<boolean>();
+  @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   isOver = false;
   indexSelectedButton: any;
@@ -58,11 +56,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    Array.from(
-      document.querySelectorAll(
-        '.quickreply-message-' + this.indexAction + ' a'
-      )
-    ).forEach(function (a) {
+    Array.from(document.querySelectorAll('.quickreply-message-' + this.indexAction + ' a')).forEach(function (a) {
       if (a.getAttribute('target') == null) {
         a.setAttribute('target', '_blank');
       }
@@ -72,9 +66,7 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
     }, 0);
 
     if (this.action.selected) {
-      const indexSelectedButton = this.action.buttons.findIndex(
-        (actionButton) => actionButton.title === this.action.selected.title
-      );
+      const indexSelectedButton = this.action.buttons.findIndex((actionButton) => actionButton.title === this.action.selected.title);
       if (indexSelectedButton >= 0) {
         this.isOver = true;
         this.indexSelectedButton = indexSelectedButton;
@@ -107,6 +99,5 @@ export class QuickreplyConsoleActionComponent implements OnInit, AfterViewInit {
 
   detectChanges() {
     this.cdr.markForCheck();
-    this.app.tick();
   }
 }

@@ -38,6 +38,5 @@ export class DropFileDirective {
 
   private detectChanges(): void {
     this.cdr.markForCheck();
-    this.app.tick();
   }
 }

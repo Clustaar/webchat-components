@@ -123,7 +123,6 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   detectChanges(): void {
     this.cdr.markForCheck();
-    this.app.tick();
   }
 
   togglePanel(event: Event): void {

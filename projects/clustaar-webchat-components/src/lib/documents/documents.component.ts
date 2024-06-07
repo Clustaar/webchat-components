@@ -66,12 +66,13 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   deleteFile(index: number): void {
+    this.files.splice(index, 1);
     this.action.attachments[index].file = null;
     this.showSendFile = false;
     this.detectChanges();
   }
 
-  selectAttachment(i) {
+  selectAttachment(i: number) {
     this.currentAttachmentIndex = i;
     this.detectChanges();
   }
@@ -90,6 +91,5 @@ export class DocumentsActionComponent implements OnInit {
 
   private detectChanges(): void {
     this.cdr.markForCheck();
-    this.app.tick();
   }
 }
