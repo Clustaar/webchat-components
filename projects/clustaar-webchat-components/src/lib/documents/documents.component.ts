@@ -37,7 +37,8 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.action.attachments = this.action.documents;
+    this.action.attachments = this.action.attachments ? this.action.attachments : this.action.documents;
+    this.action.allFilesSend = this.action.allFilesSend ? this.action.allFilesSend : false;
   }
 
   onFileUpload(file: File): void {

@@ -8,13 +8,13 @@
   </div>
 </div>
 
-<button class="file-button clickable" (click)="dialogToggle()" *ngIf="!files.length">Upload your file</button>
+<button class="file-button clickable" (click)="dialogToggle()" *ngIf="!action.allFilesSend && files.length == 0">Upload your file</button>
 
 <div
   class="file-action-container preview"
   [style.background-color]="userBubbleColor"
   [style.color]="userTextColor"
-  *ngIf="files.length && !filesSended"
+  *ngIf="files.length && !action.allFilesSend"
 >
   <div class="files-container clickable" (click)="dialogToggle()">
     <span class="file-button clickable">Upload your file</span>
