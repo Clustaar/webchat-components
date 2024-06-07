@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, In
   styleUrls: ['./documents.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DocumentsActionComponent implements OnInit {
+export class DocumentsActionComponent {
   @Input() action: any;
   @Input() inverted = false;
   @Input() primaryColor = '#30B286';
@@ -25,7 +25,6 @@ export class DocumentsActionComponent implements OnInit {
   maxFileSize = 7000000;
   sizeError = false;
   filesSended: string;
-  attachments = [];
   currentAttachmentIndex = 0;
   showSendFile = false;
 
@@ -36,19 +35,14 @@ export class DocumentsActionComponent implements OnInit {
     this.detectChanges();
   }
 
-  ngOnInit() {
-    this.action.attachments = this.action.attachments ? this.action.attachments : this.action.documents;
-    this.action.allFilesSend = this.action.allFilesSend ? this.action.allFilesSend : false;
-  }
-
   onFileUpload(file: File): void {
     if (file.size < this.maxFileSize) {
       this.files.push(file);
-      this.action.attachments[this.currentAttachmentIndex].file = file;
+      this.action.documents[this.currentAttachmentIndex].file = file;
       this.sizeError = false;
       let allFilesUploaded = true;
-      for (let attachment of this.action.attachments) {
-        if (attachment.file == null) {
+      for (let document of this.action.documents) {
+        if (document.file == null) {
           allFilesUploaded = false;
         }
       }
@@ -56,7 +50,7 @@ export class DocumentsActionComponent implements OnInit {
       if (allFilesUploaded) {
         this.showSendFile = true;
       }
-      if (this.currentAttachmentIndex < this.action.attachments.length - 1) {
+      if (this.currentAttachmentIndex < this.action.documents.length - 1) {
         this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
       }
     } else {
@@ -67,7 +61,7 @@ export class DocumentsActionComponent implements OnInit {
 
   deleteFile(index: number): void {
     this.files.splice(index, 1);
-    this.action.attachments[index].file = null;
+    this.action.documents[index].file = null;
     this.showSendFile = false;
     this.detectChanges();
   }
