@@ -34,10 +34,11 @@ export class DocumentsActionComponent implements OnInit {
 
   ngOnInit(): void {
     this.attachments = [...this.action.documents];
+    //this.action.status = 'ON_PROGRESS';
   }
 
   dialogToggle(): void {
-    this.dialogDisplayed = !this.dialogDisplayed;
+    if (this.action.status != 'IN_PROGRESS' && this.action.status != 'COMPLETE') this.dialogDisplayed = !this.dialogDisplayed;
     this.detectChanges();
   }
 
@@ -84,8 +85,9 @@ export class DocumentsActionComponent implements OnInit {
 
   sendFiles(): void {
     this.dialogToggle();
-    this.filesSended = this.files.map((file) => file.name).join('\n');
-    this.onSendDocuments.emit(this.attachments);
+    this.filesSended = this.attachments.map((attachment) => attachment.name).join('\n');
+    this.onSendDocuments.emit({ attachments: this.attachments, action: this.action });
+    this.action.status = 'COMPLETE';
     this.detectChanges();
   }
 
