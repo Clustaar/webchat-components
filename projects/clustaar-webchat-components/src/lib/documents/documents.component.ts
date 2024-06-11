@@ -33,8 +33,8 @@ export class DocumentsActionComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.attachments = [...this.action.documents];
-    //this.action.status = 'ON_PROGRESS';
+    this.attachments = [...(this.action.attachments || this.action.documents)];
+    this.files = [...(this.action.files || [])];
   }
 
   dialogToggle(): void {
@@ -85,9 +85,10 @@ export class DocumentsActionComponent implements OnInit {
 
   sendFiles(): void {
     this.dialogToggle();
-    this.filesSended = this.attachments.map((attachment) => attachment.name).join('\n');
     this.onSendDocuments.emit({ attachments: this.attachments, action: this.action });
-    this.action.status = 'COMPLETE';
+    this.action.attachments = this.attachments;
+    this.action.files = this.files;
+    this.action.status = 'IN_PROGRESS';
     this.detectChanges();
   }
 

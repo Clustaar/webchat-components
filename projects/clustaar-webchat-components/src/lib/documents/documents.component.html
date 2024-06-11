@@ -45,6 +45,7 @@
   >
     Send your file
   </button>
+
   <svg *ngIf="action.status == 'IN_PROGRESS'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <style>
       .spinner_Wezc {
@@ -100,6 +101,7 @@
       <circle cx="12" cy="21.5" r="1.5" />
     </g>
   </svg>
+  <span *ngIf="action.status == 'COMPLETE'" class="files-sent">Files sent.</span>
 </div>
 
 <div class="file-dialog-container" *ngIf="dialogDisplayed">
@@ -198,13 +200,3 @@
     </svg>
   </div>
 </div>
-
-<user-message-console-action
-  [action]="{ message: filesSended }"
-  [userTextColor]="userTextColor"
-  [userBubbleColor]="userBubbleColor"
-  [inverted]="inverted"
-  [autoScroll]="autoScroll"
-  *ngIf="filesSended"
->
-</user-message-console-action>
