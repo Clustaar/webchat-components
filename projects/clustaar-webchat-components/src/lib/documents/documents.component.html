@@ -11,7 +11,7 @@
 <button
   class="file-button clickable"
   (click)="dialogToggle()"
-  *ngIf="(action.status != 'IN_PROGRESS' && action.status != 'COMPLETE') || files.length == 0"
+  *ngIf="(action.status != 'IN_PROGRESS' && action.status != 'COMPLETE') || action.files.length == 0"
 >
   Upload your file
 </button>
@@ -20,11 +20,11 @@
   class="file-action-container preview"
   [style.background-color]="userBubbleColor"
   [style.color]="userTextColor"
-  *ngIf="files.length && !action.allFilesSend && attachments"
+  *ngIf="action.files?.length && !action.allFilesSend && action.attachments"
 >
   <div class="files-container clickable" (click)="dialogToggle()">
     <span *ngIf="action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'" class="file-button clickable">Upload your file</span>
-    <div class="file-preview" *ngFor="let file of files">
+    <div class="file-preview" *ngFor="let file of action.files">
       <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
@@ -40,7 +40,7 @@
     [style.color]="textColor"
     class="file-button clickable"
     [disabled]="action.status == 'IN_PROGRESS'"
-    *ngIf="files.length && action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'"
+    *ngIf="action.files?.length && action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'"
     (click)="sendFiles()"
   >
     Send your file
@@ -104,20 +104,20 @@
   <span *ngIf="action.status == 'COMPLETE'" class="files-sent">Files sent.</span>
 </div>
 
-<div class="file-dialog-container" *ngIf="dialogDisplayed">
+<div class="file-dialog-container" *ngIf="dialogDisplayed && action.attachments">
   <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
     <div style="display: flex; justify-content: space-between">
       <b>{{ action.message }}</b>
-      <span>{{ currentAttachmentIndex + 1 }}/{{ attachments?.length }}</span>
+      <span>{{ currentAttachmentIndex + 1 }}/{{ action.attachments?.length }}</span>
     </div>
 
     <div class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
-      <div class="attachment-messages">
+      <div *ngIf="action.attachments" class="attachment-messages">
         <span
           class="attachment-message"
           (click)="selectAttachment(i)"
           [ngClass]="{ current: i == currentAttachmentIndex }"
-          *ngFor="let attachment of attachments; index as i"
+          *ngFor="let attachment of action.attachments; index as i"
         >
           <svg *ngIf="attachment.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
             <path
@@ -136,7 +136,7 @@
           fill="white"
         />
       </svg>
-      <div class="attachment-upload-block" *ngIf="attachments[currentAttachmentIndex].file == null">
+      <div class="attachment-upload-block" *ngIf="action.attachments[currentAttachmentIndex].file == null">
         <div *ngIf="!isMobile">
           <b class="desktop-only">Drag and drop your file</b>
           <p class="desktop-only">Or</p>
@@ -148,14 +148,14 @@
         <p>Max 7mo per file</p>
       </div>
 
-      <div class="file-preview" *ngIf="attachments[currentAttachmentIndex].file">
+      <div class="file-preview" *ngIf="action.attachments[currentAttachmentIndex].file">
         <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
             fill="#213B55"
           />
         </svg>
-        <span class="file-name">{{ attachments[currentAttachmentIndex].file.name }}</span>
+        <span class="file-name">{{ action.attachments[currentAttachmentIndex].file.name }}</span>
         <svg
           class="clickable"
           (click)="deleteFile(currentAttachmentIndex)"

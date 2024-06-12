@@ -22,19 +22,18 @@ export class DocumentsActionComponent implements OnInit {
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   dialogDisplayed = false;
-  files: File[] = [];
   maxFileSize = 7000000;
   sizeError = false;
   filesSended: string;
   currentAttachmentIndex = 0;
   showSendFile = false;
-  attachments = [];
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.attachments = [...(this.action.attachments || this.action.documents)];
-    this.files = [...(this.action.files || [])];
+    this.action.attachments = this.action.attachments ?? this.action.documents;
+    this.action.files = this.action.files ?? [];
+    this.action.status = this.action.status ?? 'WAITING';
   }
 
   dialogToggle(): void {
@@ -44,11 +43,11 @@ export class DocumentsActionComponent implements OnInit {
 
   onFileUpload(file: File): void {
     if (file.size < this.maxFileSize) {
-      this.files.push(file);
-      this.attachments[this.currentAttachmentIndex].file = file;
+      this.action.files.push(file);
+      this.action.attachments[this.currentAttachmentIndex].file = file;
       this.sizeError = false;
       let allFilesUploaded = true;
-      for (let document of this.attachments) {
+      for (let document of this.action.attachments) {
         if (document.file == null) {
           allFilesUploaded = false;
         }
@@ -57,7 +56,7 @@ export class DocumentsActionComponent implements OnInit {
       if (allFilesUploaded) {
         this.showSendFile = true;
       }
-      if (this.currentAttachmentIndex < this.attachments.length - 1) {
+      if (this.currentAttachmentIndex < this.action.attachments.length - 1) {
         this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
       }
     } else {
@@ -67,8 +66,8 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   deleteFile(index: number): void {
-    this.files.splice(index, 1);
-    this.attachments[index].file = null;
+    this.action.files.splice(index, 1);
+    this.action.attachments[index].file = null;
     this.showSendFile = false;
     this.detectChanges();
   }
@@ -85,10 +84,8 @@ export class DocumentsActionComponent implements OnInit {
 
   sendFiles(): void {
     this.dialogToggle();
-    this.onSendDocuments.emit({ attachments: this.attachments, action: this.action });
-    this.action.attachments = this.attachments;
-    this.action.files = this.files;
     this.action.status = 'IN_PROGRESS';
+    this.onSendDocuments.emit(this.action);
     this.detectChanges();
   }
 
