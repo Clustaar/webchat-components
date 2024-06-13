@@ -33,11 +33,10 @@ export class DocumentsActionComponent implements OnInit {
     this.action.attachments = this.action.attachments && this.action.status == 'COMPLETE' ? this.action.attachments : this.action.documents;
     this.action.files = this.action.files && this.action.status == 'COMPLETE' ? this.action.files : [];
     this.action.status = this.action.status == 'COMPLETE' ? 'COMPLETE' : 'WAITING';
-    console.log(this.action);
+    this.detectChanges();
   }
 
   dialogToggle(): void {
-    console.log(this.action);
     if ((this.action.status != 'IN_PROGRESS' && this.action.status != 'COMPLETE') || this.action.status == null) {
       this.dialogDisplayed = !this.dialogDisplayed;
       this.detectChanges();
@@ -45,7 +44,10 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   onFileUpload(file: File): void {
-    if (this.isAuthorizedFileType(file.type, this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes)) {
+    if (
+      this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes.length == 0 ||
+      this.isAuthorizedFileType(file.type, this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes)
+    ) {
       if (file.size < this.maxFileSize) {
         this.action.files.push(file);
         this.action.attachments[this.currentAttachmentIndex].file = file;
