@@ -20,7 +20,7 @@
   class="file-action-container preview"
   [style.background-color]="userBubbleColor"
   [style.color]="userTextColor"
-  *ngIf="action.files?.length && !action.allFilesSend && action.attachments"
+  *ngIf="action.files?.length && action.attachments"
 >
   <div class="files-container clickable" (click)="dialogToggle()">
     <span *ngIf="action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'" class="file-button clickable">Upload your file</span>

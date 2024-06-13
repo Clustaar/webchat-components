@@ -28,7 +28,7 @@ export const DISPLAYED_ACTIONS = [
     type: 'ask_document_action',
     message: "Veuillez envoyer votre carte d'identité",
     documents: [
-      { authorizedFileTypes: ['application/pdf', 'image/'], message: 'cote recto', name: 'carte_identite_recto' },
+      { authorizedFileTypes: ['application/pdf'], message: 'cote recto', name: 'carte_identite_recto' },
       {
         authorizedFileTypes: ['image/jpeg', 'image/png', 'image/gif', 'image/webp', 'image/svg+xml'],
         message: 'cote verso',

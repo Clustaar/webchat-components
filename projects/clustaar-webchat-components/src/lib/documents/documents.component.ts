@@ -30,9 +30,9 @@ export class DocumentsActionComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.action.attachments = this.action.attachments ?? this.action.documents;
-    this.action.files = this.action.files ?? [];
-    this.action.status = this.action.status ?? 'WAITING';
+    this.action.attachments = this.action.attachments && this.action.status == 'COMPLETE' ? this.action.attachments : this.action.documents;
+    this.action.files = this.action.files && this.action.status == 'COMPLETE' ? this.action.files : [];
+    this.action.status = this.action.status == 'COMPLETE' ? 'COMPLETE' : 'WAITING';
   }
 
   dialogToggle(): void {
@@ -41,27 +41,33 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   onFileUpload(file: File): void {
-    if (file.size < this.maxFileSize) {
-      this.action.files.push(file);
-      this.action.attachments[this.currentAttachmentIndex].file = file;
-      this.sizeError = false;
-      let allFilesUploaded = true;
-      for (let document of this.action.attachments) {
-        if (document.file == null) {
-          allFilesUploaded = false;
+    if (this.isAuthorizedFileType(file.type, this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes)) {
+      if (file.size < this.maxFileSize) {
+        this.action.files.push(file);
+        this.action.attachments[this.currentAttachmentIndex].file = file;
+        this.sizeError = false;
+        let allFilesUploaded = true;
+        for (let document of this.action.attachments) {
+          if (document.file == null) {
+            allFilesUploaded = false;
+          }
         }
-      }
 
-      if (allFilesUploaded) {
-        this.showSendFile = true;
+        if (allFilesUploaded) {
+          this.showSendFile = true;
+        }
+        if (this.currentAttachmentIndex < this.action.attachments.length - 1) {
+          this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
+        }
+      } else {
+        this.sizeError = true;
       }
-      if (this.currentAttachmentIndex < this.action.attachments.length - 1) {
-        this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
-      }
-    } else {
-      this.sizeError = true;
+      this.detectChanges();
     }
-    this.detectChanges();
+  }
+
+  isAuthorizedFileType(fileType: string, authorizedFileTypes: string[]): boolean {
+    return authorizedFileTypes.some((authorizedType) => fileType.startsWith(authorizedType));
   }
 
   deleteFile(index: number): void {
