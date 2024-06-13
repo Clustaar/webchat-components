@@ -84,6 +84,7 @@ export class DocumentsActionComponent implements OnInit {
 
   closeError(): void {
     this.sizeError = false;
+    this.action.status = 'WAITING';
     this.detectChanges();
   }
 
