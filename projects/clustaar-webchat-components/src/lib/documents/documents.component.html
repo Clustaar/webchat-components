@@ -8,11 +8,7 @@
   </div>
 </div>
 
-<button
-  class="file-button clickable"
-  (click)="dialogToggle()"
-  *ngIf="(action.status != 'IN_PROGRESS' && action.status != 'COMPLETE') || action.files.length == 0"
->
+<button class="file-button clickable" (click)="dialogToggle()" *ngIf="(action.status != 'IN_PROGRESS' && action.status != 'COMPLETE') || !hasFile">
   Upload your file
 </button>
 
@@ -20,19 +16,21 @@
   class="file-action-container preview"
   [style.background-color]="userBubbleColor"
   [style.color]="userTextColor"
-  *ngIf="action.files?.length && action.attachments"
+  *ngIf="hasFile && action.documents"
 >
   <div class="files-container clickable" (click)="dialogToggle()">
     <span *ngIf="action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'" class="file-button clickable">Upload your file</span>
-    <div class="file-preview" *ngFor="let file of action.files">
-      <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
-          fill="#213B55"
-        />
-      </svg>
-      <span class="file-name">{{ file.name }}</span>
-    </div>
+    <ng-container *ngFor="let document of action.documents">
+      <div *ngIf="document.file" class="file-preview">
+        <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
+            fill="#213B55"
+          />
+        </svg>
+        <span class="file-name">{{ document.file.name || document.name }}</span>
+      </div>
+    </ng-container>
   </div>
   <button
     [style.border-color]="primaryColor"
@@ -40,7 +38,7 @@
     [style.color]="textColor"
     class="file-button clickable"
     [disabled]="action.status == 'IN_PROGRESS'"
-    *ngIf="action.files?.length && action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'"
+    *ngIf="hasFile && action.status != 'IN_PROGRESS' && action.status != 'COMPLETE'"
     (click)="sendFiles()"
   >
     Send your file
@@ -102,7 +100,7 @@
     </g>
   </svg>
   <span *ngIf="action.status == 'COMPLETE'" class="files-sent">
-    <svg *ngIf="action.attachments.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
+    <svg *ngIf="action.documents.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
       <path
         d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
       />
@@ -111,20 +109,20 @@
   </span>
 </div>
 
-<div class="file-dialog-container" *ngIf="dialogDisplayed && action.attachments">
+<div class="file-dialog-container" *ngIf="dialogDisplayed && action.documents">
   <div class="file-action-container" [style.background-color]="userBubbleColor" [style.color]="userTextColor">
     <div style="display: flex; justify-content: space-between">
       <b>{{ action.message }}</b>
-      <span>{{ currentAttachmentIndex + 1 }}/{{ action.attachments?.length }}</span>
+      <span>{{ currentAttachmentIndex + 1 }}/{{ action.documents?.length }}</span>
     </div>
 
     <div class="files-container" libDropFile (fileDropped)="onFileUpload($event)">
-      <div *ngIf="action.attachments" class="attachment-messages">
+      <div *ngIf="action.documents" class="attachment-messages">
         <span
           class="attachment-message"
           (click)="selectAttachment(i)"
           [ngClass]="{ current: i == currentAttachmentIndex }"
-          *ngFor="let attachment of action.attachments; index as i"
+          *ngFor="let attachment of action.documents; index as i"
         >
           <svg *ngIf="attachment.file" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#5f6368">
             <path
@@ -143,7 +141,7 @@
           fill="white"
         />
       </svg>
-      <div class="attachment-upload-block" *ngIf="action.attachments[currentAttachmentIndex]?.file == null">
+      <div class="attachment-upload-block" *ngIf="action.documents[currentAttachmentIndex]?.file == null">
         <div *ngIf="!isMobile">
           <b class="desktop-only">Drag and drop your file</b>
           <p class="desktop-only">Or</p>
@@ -159,16 +157,16 @@
         <p>Max 7mo per file</p>
       </div>
 
-      <div class="file-preview" *ngIf="action.attachments[currentAttachmentIndex]?.file">
+      <div class="file-preview" *ngIf="action.documents[currentAttachmentIndex]?.file">
         <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M6.83335 0.333336H1.50002C0.766687 0.333336 0.173354 0.933336 0.173354 1.66667L0.166687 12.3333C0.166687 13.0667 0.76002 13.6667 1.49335 13.6667H9.50002C10.2334 13.6667 10.8334 13.0667 10.8334 12.3333V4.33334L6.83335 0.333336ZM8.16669 11H2.83335V9.66667H8.16669V11ZM8.16669 8.33334H2.83335V7H8.16669V8.33334ZM6.16669 5V1.33334L9.83335 5H6.16669Z"
             fill="#213B55"
           />
         </svg>
-        <span *ngIf="action.attachments[currentAttachmentIndex]?.file.name || action.documents[currentAttachmentIndex]?.name" class="file-name">{{
-          action.attachments[currentAttachmentIndex].file.name != null
-            ? action.attachments[currentAttachmentIndex].file.name
+        <span *ngIf="action.documents[currentAttachmentIndex]?.file.name || action.documents[currentAttachmentIndex]?.name" class="file-name">{{
+          action.documents[currentAttachmentIndex].file.name != null
+            ? action.documents[currentAttachmentIndex].file.name
             : action.documents[currentAttachmentIndex].name
         }}</span>
         <svg

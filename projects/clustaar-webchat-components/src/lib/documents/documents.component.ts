@@ -26,13 +26,15 @@ export class DocumentsActionComponent implements OnInit {
   sizeError = false;
   currentAttachmentIndex = 0;
   showSendFile = false;
+  hasFile = false;
 
   constructor(private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.action.attachments = this.action.attachments && this.action.status == 'COMPLETE' ? this.action.attachments : this.action.documents;
-    this.action.files = this.action.files && this.action.status == 'COMPLETE' ? this.action.files : [];
-    this.action.status = this.action.status == 'COMPLETE' ? 'COMPLETE' : 'WAITING';
+    if (this.action.status !== 'COMPLETE') {
+      this.action.status = 'WAITING';
+    }
+    this.checkHasFile();
     this.detectChanges();
   }
 
@@ -45,24 +47,27 @@ export class DocumentsActionComponent implements OnInit {
 
   onFileUpload(file: File): void {
     if (
-      this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes.length == 0 ||
-      this.isAuthorizedFileType(file.type, this.action.attachments[this.currentAttachmentIndex].authorizedFileTypes)
+      this.action.documents[this.currentAttachmentIndex].authorizedFileTypes.length == 0 ||
+      this.isAuthorizedFileType(file.type, this.action.documents[this.currentAttachmentIndex].authorizedFileTypes)
     ) {
       if (file.size < this.maxFileSize) {
-        this.action.files.push(file);
-        this.action.attachments[this.currentAttachmentIndex].file = file;
+        this.action.documents[this.currentAttachmentIndex].file = file;
         this.sizeError = false;
+        let hasFile = false;
         let allFilesUploaded = true;
-        for (let document of this.action.attachments) {
+        for (let document of this.action.documents) {
           if (document.file == null) {
             allFilesUploaded = false;
+          } else {
+            hasFile = true;
           }
         }
 
         if (allFilesUploaded) {
           this.showSendFile = true;
         }
-        if (this.currentAttachmentIndex < this.action.attachments.length - 1) {
+        this.hasFile = hasFile;
+        if (this.currentAttachmentIndex < this.action.documents.length - 1) {
           this.currentAttachmentIndex = this.currentAttachmentIndex + 1;
         }
       } else {
@@ -77,9 +82,9 @@ export class DocumentsActionComponent implements OnInit {
   }
 
   deleteFile(index: number): void {
-    this.action.files.splice(index, 1);
-    this.action.attachments[index].file = null;
+    this.action.documents[index].file = null;
     this.showSendFile = false;
+    this.checkHasFile();
     this.detectChanges();
   }
 
@@ -99,6 +104,14 @@ export class DocumentsActionComponent implements OnInit {
     this.action.status = 'IN_PROGRESS';
     this.onSendDocuments.emit(this.action);
     this.detectChanges();
+  }
+
+  checkHasFile() {
+    for (let document of this.action.documents) {
+      if (document.file) {
+        this.hasFile = true;
+      }
+    }
   }
 
   private detectChanges(): void {
