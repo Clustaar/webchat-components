@@ -34,6 +34,7 @@ export class DocumentsActionComponent implements OnInit {
     this.action.attachments = this.action.attachments ?? this.action.documents;
     this.action.files = this.action.files ?? [];
     this.action.status = this.action.status ?? 'WAITING';
+    //authorizedFileTypes
   }
 
   dialogToggle(): void {

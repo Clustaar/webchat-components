@@ -142,7 +142,11 @@
           <p class="desktop-only">Or</p>
         </div>
         <label class="input-file">
-          <input type="file" (change)="onFileUpload($event.target.files[0])" />
+          <input
+            [accept]="action.attachments[currentAttachmentIndex].authorizedFileTypes.join(',')"
+            type="file"
+            (change)="onFileUpload($event.target.files[0])"
+          />
           <span class="file-button clickable">Upload your file</span>
         </label>
         <p>Max 7mo per file</p>
