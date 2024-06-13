@@ -166,7 +166,11 @@
             fill="#213B55"
           />
         </svg>
-        <span class="file-name">{{ action.attachments[currentAttachmentIndex].file.name ?? action.attachments[currentAttachmentIndex].name }}</span>
+        <span class="file-name">{{
+          action.attachments[currentAttachmentIndex].file.name != null
+            ? action.attachments[currentAttachmentIndex].file.name
+            : action.attachments[currentAttachmentIndex].name
+        }}</span>
         <svg
           class="clickable"
           (click)="deleteFile(currentAttachmentIndex)"

@@ -33,11 +33,15 @@ export class DocumentsActionComponent implements OnInit {
     this.action.attachments = this.action.attachments && this.action.status == 'COMPLETE' ? this.action.attachments : this.action.documents;
     this.action.files = this.action.files && this.action.status == 'COMPLETE' ? this.action.files : [];
     this.action.status = this.action.status == 'COMPLETE' ? 'COMPLETE' : 'WAITING';
+    console.log(this.action);
   }
 
   dialogToggle(): void {
-    if (this.action.status != 'IN_PROGRESS' && this.action.status != 'COMPLETE') this.dialogDisplayed = !this.dialogDisplayed;
-    this.detectChanges();
+    console.log(this.action);
+    if ((this.action.status != 'IN_PROGRESS' && this.action.status != 'COMPLETE') || this.action.status == null) {
+      this.dialogDisplayed = !this.dialogDisplayed;
+      this.detectChanges();
+    }
   }
 
   onFileUpload(file: File): void {
