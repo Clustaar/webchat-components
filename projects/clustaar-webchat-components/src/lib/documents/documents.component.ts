@@ -24,7 +24,6 @@ export class DocumentsActionComponent implements OnInit {
   dialogDisplayed = false;
   maxFileSize = 7000000;
   sizeError = false;
-  filesSended: string;
   currentAttachmentIndex = 0;
   showSendFile = false;
 
@@ -34,7 +33,6 @@ export class DocumentsActionComponent implements OnInit {
     this.action.attachments = this.action.attachments ?? this.action.documents;
     this.action.files = this.action.files ?? [];
     this.action.status = this.action.status ?? 'WAITING';
-    //authorizedFileTypes
   }
 
   dialogToggle(): void {
