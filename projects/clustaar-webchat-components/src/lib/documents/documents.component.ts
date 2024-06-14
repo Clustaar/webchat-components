@@ -22,7 +22,7 @@ export class DocumentsActionComponent implements OnInit {
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   dialogDisplayed = false;
-  maxFileSize = 7000000;
+  maxFileSize = 10000000;
   sizeError = false;
   currentAttachmentIndex = 0;
   showSendFile = false;

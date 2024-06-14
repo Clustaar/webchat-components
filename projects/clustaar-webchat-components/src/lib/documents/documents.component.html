@@ -205,7 +205,7 @@
   </div>
 
   <div class="error-container" *ngIf="sizeError || action.status === 'ERROR'">
-    <ng-container *ngIf="sizeError"> Your file exceeds the allowed size of 7 Mo </ng-container>
+    <ng-container *ngIf="sizeError"> Your file exceeds the allowed size of 10 Mo </ng-container>
     <ng-container *ngIf="action.status === 'ERROR'"> A problem has been encountered with your files, please re-upload them. </ng-container>
 
     <svg class="clickable" (click)="closeError()" width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
