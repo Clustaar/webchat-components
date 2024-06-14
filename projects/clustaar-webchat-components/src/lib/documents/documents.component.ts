@@ -33,9 +33,13 @@ export class DocumentsActionComponent implements OnInit {
   ngOnInit(): void {
     if (this.action.status !== 'COMPLETE') {
       this.action.status = 'WAITING';
+      for (let document of this.action.documents) {
+        document.file = null;
+      }
     }
     this.checkHasFile();
     this.detectChanges();
+    this.onLoadNextAction.emit(true);
   }
 
   dialogToggle(): void {

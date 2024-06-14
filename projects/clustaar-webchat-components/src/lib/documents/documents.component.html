@@ -44,7 +44,9 @@
     Send your file
   </button>
 
-  <svg *ngIf="action.status == 'IN_PROGRESS'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <span *ngIf="action.status === 'ERROR'">Error occured</span>
+
+  <svg *ngIf="action.status === 'IN_PROGRESS'" width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <style>
       .spinner_Wezc {
         transform-origin: center;
