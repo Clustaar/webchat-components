@@ -617,5 +617,64 @@ export const DISPLAYED_ACTIONS = [
         ]
       }
     ]
+  },
+  {
+    type: 'send_choices_list_action',
+    message: 'List with selected choice',
+    placeholder: 'Placeholder',
+    selectedChoice: 'Paris',
+    action: {
+      type: 'go_to_action',
+      target: {
+        id: '5ad5f1dbe29c6000780f677f',
+        type: 'story',
+        name: 'Reserver'
+      },
+      sessionValues: {}
+    },
+    sections: [
+      {
+        type: 'section',
+        title: 'France',
+        choices: [
+          { type: 'choice', title: 'Paris' },
+          { type: 'choice', title: 'Marseille' },
+          { type: 'choice', title: 'Lyon' },
+          { type: 'choice', title: 'Toulouse' },
+          { type: 'choice', title: 'Nice' },
+          { type: 'choice', title: 'Nantes' },
+          { type: 'choice', title: 'Montpellier' },
+          { type: 'choice', title: 'Strasbourg' },
+          { type: 'choice', title: 'Bordeaux' },
+          { type: 'choice', title: 'Lille' },
+          { type: 'choice', title: 'Rennes' },
+          { type: 'choice', title: 'Reims' },
+          { type: 'choice', title: 'Toulon' },
+          { type: 'choice', title: 'Saint-Etienne' },
+          { type: 'choice', title: 'Le Havre' }
+        ]
+      },
+      {
+        type: 'section',
+        title: 'United Kingdom',
+        choices: [
+          { type: 'choice', title: 'Londres' },
+          { type: 'choice', title: 'Birmingham' },
+          { type: 'choice', title: 'Glasgow' },
+          { type: 'choice', title: 'Manchester' },
+          { type: 'choice', title: 'Edimbourg' },
+          { type: 'choice', title: 'Liverpool' },
+          { type: 'choice', title: 'Leeds' },
+          { type: 'choice', title: 'Bristol' },
+          { type: 'choice', title: 'Sheffield' },
+          { type: 'choice', title: 'Newcastle' },
+          { type: 'choice', title: 'Coventry' },
+          { type: 'choice', title: 'Cardiff' },
+          { type: 'choice', title: 'Hull' },
+          { type: 'choice', title: 'Bradford' },
+          { type: 'choice', title: 'Stroke-on-Trent' }
+        ]
+      }
+    ]
   }
 ];

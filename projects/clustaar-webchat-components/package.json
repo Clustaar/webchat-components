@@ -1,6 +1,6 @@
 {
   "name": "clustaar-webchat-components",
-  "version": "4.0.0-beta.39",
+  "version": "4.0.0-beta.40",
   "dependencies": {
     "swiper": "9.2.4",
     "@angular/material": "~16.2.10"
