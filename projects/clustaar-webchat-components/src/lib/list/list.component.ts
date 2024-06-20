@@ -30,7 +30,6 @@ export class ListComponent implements OnInit, AfterViewInit {
 
   filteredSections$: Observable<Section[]> = new Observable<[]>();
   filteredSections = [];
-  selectedChoice: string;
   inputControl = new UntypedFormControl('');
   @ViewChild(MatAutocompleteTrigger) auto: MatAutocompleteTrigger;
 
@@ -51,7 +50,7 @@ export class ListComponent implements OnInit, AfterViewInit {
     this.filteredSections$
       .pipe(
         skip(1),
-        takeWhile(() => this.selectedChoice === undefined)
+        takeWhile(() => this.action.selectedChoice === undefined)
       )
       .subscribe((filteredSections) => {
         this.filteredSections = filteredSections;
@@ -85,7 +84,7 @@ export class ListComponent implements OnInit, AfterViewInit {
   }
 
   sendSelectedValue(selectedChoice: Choice): void {
-    this.selectedChoice = selectedChoice.title;
+    this.action.selectedChoice = selectedChoice.title;
 
     let target = this.action.action;
     target['sessionValues'] = selectedChoice.sessionValues;
