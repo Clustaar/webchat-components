@@ -24,6 +24,7 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
   @Input() userBubbleColor = '#C5DBEA';
   @Input() userTextColor = '#2C3F59';
   @Input() scrollDuration = 500;
+  @Input() obfuscated = false;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
   @Output() onLastActionRendered: EventEmitter<boolean> = new EventEmitter<boolean>();
   @Output() onAttachmentClicked: EventEmitter<boolean> = new EventEmitter<boolean>();
@@ -33,7 +34,8 @@ export class UserMessageConsoleActionComponent implements OnInit, AfterViewInit 
   constructor(private cdr: ChangeDetectorRef, protected sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.message = this.sanitizer.sanitize(SecurityContext.HTML, this.action.message);
+    this.message =
+      this.obfuscated || this.action.obfcuscated ? this.sanitizer.sanitize(SecurityContext.HTML, this.action.message) : this.action.message;
     if (this.autoScroll) {
       setTimeout(() => {
         let element = document.getElementById('chat-console-messages');

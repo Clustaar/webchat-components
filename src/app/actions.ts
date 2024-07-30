@@ -44,7 +44,12 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'text',
-    message: 'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**'
+    message: 'phone number: **basic_obfuscation_of_phone_number** email: **basic_obfuscation_of_email_address**',
+    obfuscated: true
+  },
+  {
+    type: 'text',
+    message: 'test balise html <h1>test</h1>'
   },
   {
     type: 'temporary_text_action',
