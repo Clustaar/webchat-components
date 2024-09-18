@@ -1,6 +1,13 @@
 <div class="console-user-message-type">
   <div class="bubble" [ngClass]="{'inverted' : inverted, 'not-inverted': !inverted}" [style.background-color]="userBubbleColor">
-    <span [style.color]="userTextColor" class="user-message" [innerHTML]="message | obfuscation: userTextColor"></span>
+    <span
+      *ngIf="obfuscated || action.obfuscated"
+      [style.color]="userTextColor"
+      class="user-message"
+      [innerHTML]="message | obfuscation: userTextColor"
+    ></span>
+    <span *ngIf="!obfuscated && !action.obfuscated" [style.color]="userTextColor" class="user-message">{{message }}</span>
+
     <ng-container *ngIf="action.attachments">
       <button
         (click)="attachmentClicked(attachment)"
