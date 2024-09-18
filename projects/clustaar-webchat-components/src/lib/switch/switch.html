@@ -177,4 +177,30 @@
     >
     </documents-action>
   </div>
+
+  <div *ngSwitchCase="'temporary_wait_action'">
+    <temporary-wait-console-action
+      [primaryColor]="primaryColor"
+      [textColor]="textColor"
+      [inverted]="inverted"
+      [autoScroll]="autoScroll"
+      (onLoadNextAction)="loadNextAction()"
+      (onLastActionRendered)="lastActionRendered()"
+      [action]="action"
+    >
+    </temporary-wait-console-action>
+  </div>
+
+  <div *ngSwitchCase="'temporary_text_action'">
+    <temporary-text-console-action
+      [userTextColor]="userTextColor"
+      [userBubbleColor]="userBubbleColor"
+      [inverted]="inverted"
+      [autoScroll]="autoScroll"
+      (onLoadNextAction)="loadNextAction()"
+      (onLastActionRendered)="lastActionRendered()"
+      [action]="action"
+    >
+    </temporary-text-console-action>
+  </div>
 </div>
