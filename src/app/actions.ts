@@ -14,6 +14,16 @@ export const DISPLAYED_ACTIONS = [
     message: 'Quel est le prix d’un passe Navigo ?'
   },
   {
+    type: 'send_text_action',
+    alternatives: ['Quel est le sujet de votre recherche ?'],
+    text: 'Quel est le sujet de votre recherche ?'
+  },
+  {
+    type: 'send_text_action',
+    alternatives: ['Text avec image ? <image>https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg</image>'],
+    text: 'Text avec image ? <image>https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg</image>'
+  },
+  {
     type: 'text',
     message: 'Attachments :',
     attachments: [{ name: 'Carte identite verso', url: 'https://api.staging.clustaar.io/interlocutors/6605782261baf60513d2de7e/documents/toto' }]

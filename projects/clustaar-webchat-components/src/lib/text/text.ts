@@ -12,6 +12,11 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 
+type ParsedPart = {
+  type: 'text' | 'image';
+  value: string;
+};
+
 @Component({
   selector: 'text-console-action',
   templateUrl: './text.html',
@@ -22,9 +27,9 @@ import {
 export class TextConsoleActionComponent implements OnInit, AfterViewInit {
   @Input() indexAction: number;
   @Input() action: any;
-  @Input() inverted: boolean = false;
-  @Input() primaryColor: string = '#30B286';
-  @Input() textColor: string = '#FFFFFF';
+  @Input() inverted = false;
+  @Input() primaryColor = '#30B286';
+  @Input() textColor = '#FFFFFF';
   @Input() autoScroll? = true;
   @Input() scrollDuration = 500;
   @Output() onLoadNextAction = new EventEmitter<boolean>();
@@ -71,5 +76,36 @@ export class TextConsoleActionComponent implements OnInit, AfterViewInit {
       this.onLastActionRendered.emit(true);
       this.cdr.markForCheck();
     }, 0);
+  }
+
+  parseTextWithImages(text: string): ParsedPart[] {
+    const imageTagRegex = /<image>(.*?)<\/image>/g;
+    const parts: ParsedPart[] = [];
+    let lastIndex = 0;
+
+    // Recherche de chaque balise image
+    let match;
+    while ((match = imageTagRegex.exec(text)) !== null) {
+      // Texte avant l'image actuelle
+      const textBeforeImage = text.slice(lastIndex, match.index).trim();
+      if (textBeforeImage) {
+        parts.push({ type: 'text', value: textBeforeImage });
+      }
+
+      // URL de l'image actuelle
+      const imageUrl = match[1];
+      parts.push({ type: 'image', value: imageUrl });
+
+      // Mettre à jour l'index de la dernière position analysée
+      lastIndex = match.index + match[0].length;
+    }
+
+    // Texte après la dernière image
+    const textAfterLastImage = text.slice(lastIndex).trim();
+    if (textAfterLastImage) {
+      parts.push({ type: 'text', value: textAfterLastImage });
+    }
+
+    return parts;
   }
 }
