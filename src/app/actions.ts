@@ -20,8 +20,10 @@ export const DISPLAYED_ACTIONS = [
   },
   {
     type: 'send_text_action',
-    alternatives: ['Text avec image ? <image>https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg</image>'],
-    text: 'Text avec image ? <image>https://pbs.twimg.com/profile_images/1010528933417246720/GF4WM4AH_400x400.jpg</image>'
+    alternatives: [
+      'Text avec image ? <img src="http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg"/>'
+    ],
+    text: 'Text avec image ?  <img src="http://www.leparisien.fr/resizer/bE3-0XCUR4haMSITRiFXoX3khdw=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/367CH6VUXGZMPLXK4S3ZOGNPBA.jpg"/> text apres image'
   },
   {
     type: 'text',
